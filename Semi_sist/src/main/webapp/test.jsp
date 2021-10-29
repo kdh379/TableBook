@@ -13,7 +13,7 @@ rel="stylesheet">
 </head>
 <body>
 5조 깃 테스트!
-테스트_
+TEST
 테스트한번더!
 </body>
 </html>
