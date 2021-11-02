@@ -12,8 +12,13 @@ rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
-5조 깃 테스트!
-TEST
-테스트한번더!
+<%
+String []menu = request.getParameterValues("menu");
+String []price = request.getParameterValues("price");
+
+
+
+
+%>
 </body>
 </html>
