@@ -13,7 +13,6 @@ family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel=
 <title>Insert title here</title>
 </head>
 <body>
-결제완료 확인폼
-커밋 TEST
+
 </body>
 </html>
