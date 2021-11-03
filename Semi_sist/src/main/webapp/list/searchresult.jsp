@@ -11,7 +11,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>TasteBook</title>
 <!-- Favicon 즐겨찾기 아이콘(favorites icon)-->
-<link rel="icon" type="image/x-icon" href="assets/logo1.ico" />
+<link rel="icon" type="image/x-icon" href="../assets/logo1.ico" />
 <!--검색결과 CSS-->
 <link href="../css/liststyles.css" rel="stylesheet" />
 </head>
