@@ -18,7 +18,7 @@ public class ShopDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		
-		String sql="insert into shop(name,telephone,tag,addr,photo,parking,opening,closing) values(?,?,?,?,?,?,?,?)";
+		String sql="insert into shop(name,telephone,tag,addr,photo,parking,opening,closing,introduce) values(?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -31,6 +31,7 @@ public class ShopDao {
 			pstmt.setString(6, dto.getParking());
 			pstmt.setInt(7, dto.getOpening());
 			pstmt.setInt(8, dto.getClosing());
+			pstmt.setString(9, dto.getIntroduce());
 			//½ÇÇà
 			pstmt.execute();
 		} catch (SQLException e) {

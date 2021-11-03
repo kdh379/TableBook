@@ -46,6 +46,7 @@ try{
 	String addr = multi.getParameter("addr");
 	String photo = multi.getFilesystemName("photo");  //실제업로드된파일명
 	String parking = multi.getParameter("parking");
+	String introduce = multi.getParameter("introduce");
 	//System.out.print(parking);
 	int opening = Integer.parseInt(multi.getParameter("opening"));
 	int closing = Integer.parseInt(multi.getParameter("closing"));
@@ -71,6 +72,7 @@ try{
 	shdto.setAddr(addr);
 	shdto.setPhoto(photo);
 	shdto.setParking(parking==null?"없음":"있음");
+	shdto.setIntroduce(introduce);
 	shdto.setOpening(opening);
 	shdto.setClosing(closing);
 	
@@ -115,7 +117,7 @@ try{
 	for(int i=1; i<=5; i++){  //5일 가능하게
 		
 		sdate2 = now2.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-		System.out.println(sdate2);
+		//System.out.println(sdate2);
 	
 		for(int j=restend; j<closing; j++){
 			ScheduleDto scdto = new ScheduleDto();

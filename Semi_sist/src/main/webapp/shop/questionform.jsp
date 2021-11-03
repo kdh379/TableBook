@@ -62,6 +62,15 @@ rel="stylesheet">
                         <label for="inputPasswordCheck">매장 주소&nbsp;&nbsp;<font color="red">*</font></label>
                         <input type="text" class="form-control" name="addr" placeholder="매장주소를 입력해주세요" required="required">
                     </div>
+                    
+                    <!-- 매장 소개글 -->
+                    <div class="form-group" >
+                        <label for="inputPasswordCheck">매장 소개글&nbsp;&nbsp;<font color="red">*</font></label>
+                        <textarea style="width: 540px; height: 100px;" class="form-control" name="introduce" id="introduce"
+                        placeholder="소개글을 입력해주세요 (80자 이하)"></textarea>
+                    </div>
+                    
+                    
                     <!-- 매장 사진 -->
                     <div class="form-group" >
                         <label >매장사진</label>
@@ -180,7 +189,22 @@ rel="stylesheet">
                         		
                     });
                     
-                    
+                    $(document).ready(function() {
+
+
+                        $('#introduce').on('keyup', function() {
+
+
+                            if($(this).val().length > 80) {
+                                $(this).val($(this).val().substring(0, 80));
+                               
+                            }
+
+
+                        });
+
+
+                    });
                     
                     
                     </script>
