@@ -6,11 +6,19 @@ public class ResDto {
 	
 	private String num;
 	private String login_num;
+	private String shop_num;
 	private String res_date;
+	private String shop_name;
 	private String persons;
-	private int price;
+	private String price;
 	private Timestamp paymentdate;
 	
+	public String getShop_num() {
+		return shop_num;
+	}
+	public void setShop_num(String shop_num) {
+		this.shop_num = shop_num;
+	}
 	public String getNum() {
 		return num;
 	}
@@ -35,17 +43,23 @@ public class ResDto {
 	public void setPersons(String persons) {
 		this.persons = persons;
 	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
-	}
 	public Timestamp getPaymentdate() {
 		return paymentdate;
 	}
 	public void setPaymentdate(Timestamp paymentdate) {
 		this.paymentdate = paymentdate;
+	}
+	public String getShop_name() {
+		return shop_name;
+	}
+	public void setShop_name(String shop_name) {
+		this.shop_name = shop_name;
+	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
 	}
 	
 	

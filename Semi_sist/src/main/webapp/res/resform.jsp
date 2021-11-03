@@ -93,10 +93,12 @@ body {
 int price = 50000; //menu 테이블에서 값 가져올 것
 
 %>
-<title>Insert title here</title>
+<title>TasteBook</title>
+<!-- Favicon 즐겨찾기 아이콘(favorites icon)-->
+<link rel="icon" type="image/x-icon" href="../assets/logo1.ico" />
 </head>
 <body>
-	<form action="paymentform.jsp">
+	<form name="pay" action="paymentform.jsp" method="post">
 		<div id='calendar' style="width: 600px; position: absolute; margin-left: 20px;" align="left"></div>
 		<div style="margin-left: 700px;">
 		<br><br>
@@ -182,8 +184,8 @@ int price = 50000; //menu 테이블에서 값 가져올 것
 		</tr>
 	</table>
 	<div align="right" style="margin-right: 200px;">
-		<input type="submit" class="btn btn-danger" value="결제"
-		style="width: 120px; height: 60px; font-size: 15pt;">
+		<input type="button" class="btn btn-danger" value="결제"
+		style="width: 120px; height: 60px; font-size: 15pt;" onclick="payment()">
 	</div>
 	</div>
 	</form>
@@ -233,7 +235,19 @@ int price = 50000; //menu 테이블에서 값 가져올 것
 		});
 	}
 	
-	
+	function payment() {
+		
+		var pop_title = "Payment";
+		
+		var _left = Math.ceil((window.screen.width - 550)/2);
+		var _top = Math.ceil((window.screen.height - 900)/2);
+		
+		var payWin = window.open("", pop_title, "width=550, height=900, toolbar=no, left="+_left+", top="+_top);
+		var frm = document.pay;
+		frm.target = pop_title;
+		frm.action = "paymentform.jsp";
+		frm.submit();
+	}
 	
 	
 	
