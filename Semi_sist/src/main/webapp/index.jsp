@@ -9,7 +9,7 @@
         <meta name="author" content="" />
         <title>TasteBook</title>
         <!-- Favicon 즐겨찾기 아이콘(favorites icon)-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="assets/logo1.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -32,7 +32,8 @@
                         <li class="nav-item"><a class="nav-link" href="#services">검색</a></li>
                         <li class="nav-item"><a class="nav-link" href="#score">평점순</a></li>
                         <li class="nav-item"><a class="nav-link" href="#review">리뷰순</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.jsp/shop/shopform.jsp">입점문의</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.jsp/#/#.jsp">로그인</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.jsp/shop/questionform.jsp">입점문의</a></li>
                     </ul>
                 </div>
             </div>
