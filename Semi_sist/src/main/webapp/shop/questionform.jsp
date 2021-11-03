@@ -21,9 +21,14 @@ rel="stylesheet">
 }
 
 </style>
+<script type="text/javascript">
+
+
+</script>
 <title>Insert title here</title>
 </head>
 <body>
+
         <article class="container" style="background-color: #f5f5f5 ;">
             <div class="page-header" >
                 <div class="col-md-6 col-md-offset-3">
@@ -33,31 +38,38 @@ rel="stylesheet">
                 </div>
             </div>
             <div class="col-sm-6 col-md-offset-3">
-                <form action="questionaction.jsp" method="post">
+            <!-- action으로 보낼 폼 -->
+                <form action="questionaction.jsp?" method="post" enctype="multipart/form-data" >
+                <!-- 매장명 -->
                     <div class="form-group">
                         <label for="inputName">매장명&nbsp;&nbsp;<font color="red">*</font></label>
                         <input type="text" class="form-control" name="name" placeholder="매장명을 입력해 주세요" required="required">
                     </div>
+                    <!-- 매장번호 -->
                     <div class="form-group">
                         <label for="InputEmail">매장 전화번호&nbsp;&nbsp;</label>
-                        <input type="tel" class="form-control" name="call" placeholder="전화번호를 입력해주세요">
+                        <input type="tel" class="form-control" name="telephone" placeholder="전화번호를 입력해주세요">
                     </div>
+                    <!-- 음식 종류 -->
                     <div class="form-group">
                         <label for="inputPassword">판매 음식 종류&nbsp;&nbsp;<font color="red">*</font></label>
-                        <input type="password" class="form-control" name="tag" placeholder="음식종류를 입력해주세요" required="required">
+                        <input type="text" class="form-control" name="tag" placeholder="음식종류를 입력해주세요" required="required">
                     </div>
+                    <!-- 매장 주소 -->
                     <div class="form-group">
                         <label for="inputPasswordCheck">매장 주소&nbsp;&nbsp;<font color="red">*</font></label>
-                        <input type="password" class="form-control" name="addr" placeholder="매장주소를 입력해주세요" required="required">
+                        <input type="text" class="form-control" name="addr" placeholder="매장주소를 입력해주세요" required="required">
                     </div>
+                    <!-- 매장 사진 -->
                     <div class="form-group" >
                         <label >매장사진</label>
                        <input type="file" name="photo">    
                     </div>
                     
+                    <!-- 영업시간 -->
                     <div class="form-group">
                         <label>영업 시간&nbsp;&nbsp;<font color="red">*</font></label><br>
-                        <select name="open" style="width: 100px; float: left;">
+                        <select id="open" name="opening" style="width: 100px; float: left;">
                         <%
                         for(int i=0; i<=24; i++){%>
                         	<option value="<%=i%>"><%=i %>:00</option>
@@ -66,7 +78,7 @@ rel="stylesheet">
              			
             			</select>
             			<b style="float: left;">&nbsp;&nbsp;~&nbsp;&nbsp;</b>
-            			<select name="close" style="width: 100px; float: left;">
+            			<select id="close" name="closing" style="width: 100px; float: left;">
              				<%
                         for(int i=0; i<=24; i++){%>
                         	<option value="<%=i%>"><%=i %>:00</option>
@@ -74,10 +86,15 @@ rel="stylesheet">
                         %>
             			</select>
             			
+            			
+            			
                     </div>
                     <br><br>
-                                        
                     
+                    
+                    
+                                        
+                    <!-- 좌석수 -->
                     <div class="form-group"  style="clear: both;">
                         <label for="inputPasswordCheck" >매장 좌석 수&nbsp;&nbsp;<font color="red">*</font></label><br>
                         <label style="float: left; color: gray">룸&nbsp;&nbsp;</label>
@@ -88,13 +105,14 @@ rel="stylesheet">
                         <input type="text" name="hall" style="float: left; width: 50px; height: 20px;">&nbsp;좌석
                     </div>
 					<br> 
+					<!-- 주차공간 -->
 					 <div class="form-group"  style="clear: both;">
                         <label for="inputPassword">주차 공간 유무</label>&nbsp;&nbsp;
-                        <input type="checkbox"  name="parkinglot" class="custom-control-input" >
+                        <input type="checkbox"  name="parking" class="custom-control-input" >
                     </div>
                     
                 
-					 
+					 <!-- 메뉴+가격 -->
 					<div class="form-group" style="clear: both;">
                         <label for="inputPasswordCheck">메뉴</label>
                         <label for="inputPasswordCheck" style="margin-left: 150px;">가격</label>
@@ -106,24 +124,22 @@ rel="stylesheet">
                         style="width: 150px; float: left; margin-left: 30px;">
                         <div style="clear: both;"></div>
                         <br>
-                        <div id="menuDiv"></div>
+                        <div id="menuDiv" style="clear: both;"></div>
                         
                         
                        
                     </div>
-                    <div style="clear: both;"></div>
- 						 <button type="button" id="btnAdd">+</button>
+                    
+ 					<button type="button" id="btnAdd">+</button>
 					
 					
-                   <br> <br> <br> <br> <br> <br> <br> 
+                   <br> <br> <br> 
 
                     <div class="form-group text-center">
-                        <button type="submit" id="join-submit" class="btn btn-primary">
+                        <button type="submit" id="join-submit" class="btn btn-primary btn-lg" style="width: 300px; height: 60px">
                             접수하기<i class="fa fa-check spaceLeft"></i>
                         </button>
-                        <button type="reset" class="btn btn-warning">
-                            다시하기<i class="fa fa-times spaceLeft"></i>
-                        </button>
+                        
                     </div>
                 </form>
             </div>
@@ -138,6 +154,9 @@ rel="stylesheet">
 						$("#menuDiv").append("<div style='clear: both;'></div>")
                         		
                     });
+                    
+                    
+                    
                     
                     </script>
     </body>
