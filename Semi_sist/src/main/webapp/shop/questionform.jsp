@@ -25,7 +25,9 @@ rel="stylesheet">
 
 
 </script>
-<title>Insert title here</title>
+<title>TasteBook</title>
+<!-- Favicon 즐겨찾기 아이콘(favorites icon)-->
+<link rel="icon" type="image/x-icon" href="../assets/logo1.ico" />
 </head>
 <body>
 
@@ -79,6 +81,29 @@ rel="stylesheet">
             			</select>
             			<b style="float: left;">&nbsp;&nbsp;~&nbsp;&nbsp;</b>
             			<select id="close" name="closing" style="width: 100px; float: left;">
+             				<%
+                        for(int i=0; i<=24; i++){%>
+                        	<option value="<%=i%>"><%=i %>:00</option>
+                        <%}
+                        %>
+            			</select>
+            			
+            			
+            			
+                    </div>
+                    <!-- 휴식시간 -->
+                    <div class="form-group" style="clear: both; padding-top: 15px;">
+                        <label>휴식 시간&nbsp;&nbsp;<font color="red">*</font></label><br>
+                        <select id="open" name="reststart" style="width: 100px; float: left;">
+                        <%
+                        for(int i=0; i<=24; i++){%>
+                        	<option value="<%=i%>"><%=i %>:00</option>
+                        <%}
+                        %>
+             			
+            			</select>
+            			<b style="float: left;">&nbsp;&nbsp;~&nbsp;&nbsp;</b>
+            			<select id="close" name="restend" style="width: 100px; float: left;">
              				<%
                         for(int i=0; i<=24; i++){%>
                         	<option value="<%=i%>"><%=i %>:00</option>

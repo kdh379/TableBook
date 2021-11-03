@@ -4,7 +4,8 @@ public class ScheduleDto {
 	
 	private String num;
 	private String shop_num;
-	private String stime;
+	private String sdate;
+	private int stime;
 	private int room;
 	private int hall;
 	private int room_cnt;
@@ -22,10 +23,17 @@ public class ScheduleDto {
 	public void setShop_num(String shop_num) {
 		this.shop_num = shop_num;
 	}
-	public String getStime() {
+	
+	public String getSdate() {
+		return sdate;
+	}
+	public void setSdate(String sdate) {
+		this.sdate = sdate;
+	}
+	public int getStime() {
 		return stime;
 	}
-	public void setStime(String stime) {
+	public void setStime(int stime) {
 		this.stime = stime;
 	}
 	public int getRoom() {

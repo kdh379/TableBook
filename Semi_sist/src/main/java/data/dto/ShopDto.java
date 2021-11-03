@@ -9,6 +9,7 @@ public class ShopDto {
 	private String addr;
 	private String photo;
 	private String parking;
+	private String introduce;
 	private int opening;
 	private int closing;
 	
@@ -54,6 +55,13 @@ public class ShopDto {
 	}
 	public void setParking(String parking) {
 		this.parking = parking;
+	}
+	
+	public String getIntroduce() {
+		return introduce;
+	}
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
 	}
 	public int getOpening() {
 		return opening;
