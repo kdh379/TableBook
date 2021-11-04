@@ -9,10 +9,18 @@ public class ResDto {
 	private String shop_num;
 	private String res_date;
 	private String shop_name;
+	private String seat;
 	private String persons;
 	private String price;
 	private Timestamp paymentdate;
 	
+	
+	public String getSeat() {
+		return seat;
+	}
+	public void setSeat(String seat) {
+		this.seat = seat;
+	}
 	public String getShop_num() {
 		return shop_num;
 	}

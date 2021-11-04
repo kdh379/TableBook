@@ -83,7 +83,7 @@ body {
 
 .btn-active {
 	outline: none;
-	background-color: red;
+	background-color: orange;
 	color: white;
 }
 
@@ -98,7 +98,7 @@ int price = 50000; //menu 테이블에서 값 가져올 것
 <link rel="icon" type="image/x-icon" href="../assets/logo1.ico" />
 </head>
 <body>
-	<form name="pay" action="paymentform.jsp" method="post">
+	<form name="pay" action="paymentform.jsp" method="post" style="width: 1200px;">
 		<div id='calendar' style="width: 600px; position: absolute; margin-left: 20px;" align="left"></div>
 		<div style="margin-left: 700px;">
 		<br><br>
@@ -140,6 +140,20 @@ int price = 50000; //menu 테이블에서 값 가져올 것
 			
 			<input type="hidden" name="seltime">
 		</div>
+		<br>
+		<!-- 룸/홀 선택 -->
+		<div id="seatsel">
+			<b style="font-size: 13pt;">좌석선택</b>
+			<button type="button" name="seat" class="btn-s" value="룸" style="margin-left: 20px;">
+				<img src="room.jpg"> <span>ROOM</span>
+			</button>
+			
+			<button type="button" name="seat" class="btn-s" value="홀" style="margin-left: 20px;">
+				<img src="hall.jpg"> <span>HALL</span>
+			</button>
+			<input type="hidden" name="selseat">
+		</div>
+		<br>
 		
 		<!-- 결과 div -->
 		
@@ -183,8 +197,8 @@ int price = 50000; //menu 테이블에서 값 가져올 것
 			</td>
 		</tr>
 	</table>
-	<div align="right" style="margin-right: 200px;">
-		<input type="button" class="btn btn-danger" value="결제"
+	<div align="right">
+		<input type="button" class="btn btn-warning" value="결제"
 		style="width: 120px; height: 60px; font-size: 15pt;" onclick="payment()">
 	</div>
 	</div>
@@ -194,6 +208,7 @@ int price = 50000; //menu 테이블에서 값 가져올 것
 	
 	var menuLinks = document.querySelectorAll(".btn-t");
 	var perLinks = document.querySelectorAll(".btn-p");
+	var seatLinks = document.querySelectorAll(".btn-s");
 	
 	function clickTimeHandler() {
 		for(var i=0; i<menuLinks.length; i++) {
@@ -209,10 +224,17 @@ int price = 50000; //menu 테이블에서 값 가져올 것
 		this.classList.add("btn-active");
 	}
 	
+	function clickSeatHandler() {
+		for(var i=0; i<seatLinks.length; i++) {
+			seatLinks[i].classList.remove("btn-active");
+		}
+		this.classList.add("btn-active");
+	}
+	
 	for (var i=0; i<menuLinks.length; i++) {
 		menuLinks[i].addEventListener("click", clickTimeHandler);
 		menuLinks[i].addEventListener("click", function () {
-			alert($(this).attr("value"));
+			//alert($(this).attr("value"));
 			$("input[name=seltime]").attr("value",$(this).attr("value"));
 		});
 	}
@@ -232,6 +254,14 @@ int price = 50000; //menu 테이블에서 값 가져올 것
 			
 			document.getElementById("totalPrice").innerHTML = totalPrice;
 			$("input[name=totalPrice]").attr("value",totalPrice);
+		});
+	}
+	
+	for (var i=0; i<seatLinks.length; i++) {
+		seatLinks[i].addEventListener("click", clickSeatHandler);
+		seatLinks[i].addEventListener("click", function () {
+			//alert($(this).attr("value"));
+			$("input[name=selseat]").attr("value",$(this).attr("value"));
 		});
 	}
 	

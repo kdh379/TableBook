@@ -1,3 +1,8 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Vector"%>
+<%@page import="data.dto.ResDto"%>
+<%@page import="java.util.List"%>
+<%@page import="data.dao.ResDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -11,9 +16,84 @@
 family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 
 <title>Insert title here</title>
+<style type="text/css">
+.line {
+	border-bottom: 1px solid lightgray;
+}
+</style>
 </head>
+<%
+
+//방금 예약한 데이터 가져오기
+ResDao dao = new ResDao();
+ResDto dto = dao.getLatestData();
+
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+%>
 <body>
-결제완료 확인폼
-커밋 TEST
+
+<div style="margin-left: 10px; width: 500px;">
+<img alt="" src="../assets/logo1.ico"><br>
+<hr style="border: 0; width: 500px; height: 2px; background-color: orange; position: absolute;"><br><br><br>
+
+<span style="font-size: 2em; font-weight: bold;">예약이 정상적으로 완료</span>
+<span style="font-size: 2em;">되었습니다!</span><br><br><br>
+
+<span style="font-size: 13pt; color: red;" class="glyphicon glyphicon-ok">예약내역확인</span><br><br>
+<table style="font-size: 13pt;">
+	<tr>
+		<th width="100" height="30" bgcolor="#FDE8C8" class="line"><b>음식점명</b></th>
+		<td width="500" class="line">
+			&nbsp;&nbsp;<%=dto.getShop_name() %>
+		</td>
+	</tr>
+	
+	<tr>
+		<th width="100" height="30" bgcolor="#FDE8C8" class="line"><b>구매일</b></th>
+		<td width="500" class="line">
+			&nbsp;&nbsp;<%=sdf.format(dto.getPaymentdate()) %>
+		</td>
+	</tr>
+	
+	<tr>
+		<th width="100" height="30" bgcolor="#FDE8C8" class="line"><b>예매번호</b></th>
+		<td width="500" class="line">
+			&nbsp;&nbsp;<%=dto.getNum() %>
+		</td>
+	</tr>
+	
+	<tr>
+		<th width="100" height="30" bgcolor="#FDE8C8" class="line"><b>예약일시</b></th>
+		<td width="500" class="line">
+			&nbsp;&nbsp;<%=dto.getRes_date() %>
+		</td>
+	</tr>
+	
+	<tr>
+		<th width="100" height="30" bgcolor="#FDE8C8" class="line"><b>좌석정보</b></th>
+		<td width="500" class="line">
+			&nbsp;&nbsp;<%=dto.getSeat() %>
+		</td>
+	</tr>
+	
+	<tr>
+		<th width="100" height="30" bgcolor="#FDE8C8" class="line"><b>결제금액</b></th>
+		<td width="500" class="line">
+			&nbsp;&nbsp;<%=dto.getPrice() %>원
+		</td>
+	</tr>
+</table>
+
+<br>
+
+<button type="button" class="btn btn-warning btn-lg" onclick="location.href='../realindex.jsp'"
+style="float: right;">홈</button> <!-- 메인폼으로 -->
+<button type="button" class="btn btn-warning btn-lg" onclick="location.href='#"
+style="float: right; margin-right: 15px;">식당 정보</button> <!-- 음식점폼으로 -->
+
+
+
+</div>
 </body>
 </html>

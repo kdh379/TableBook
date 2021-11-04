@@ -30,8 +30,9 @@ request.setCharacterEncoding("utf-8");
 String seldate = request.getParameter("seldate"); //예약날짜
 String seltime = request.getParameter("seltime"); //예약시간
 String selper = request.getParameter("selper"); //인원수
-String username = "닉네임"; //login테이블 nick
-String userhp = "010-1111-2222"; //login테이블 hp
+String selseat = request.getParameter("selseat"); //좌석
+String username = "닉네임"; //login테이블 nick 만들어야 함
+String userhp = "010-1111-2222"; //login테이블 hp 만들어야 함
 String totalPrice = request.getParameter("totalPrice"); //총 가격
 String Shopname = "가게명"; //shop 테이블 name
 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -55,6 +56,7 @@ totalPrice = nf.format(Integer.parseInt(totalPrice));
 style="font-size: 2em; cursor: pointer;"></span>
 <b style="font-size: 3em;"><%=Shopname %></b>
 <input type="hidden" name="shop_name" value="<%=Shopname %>"> <!-- Shop테이블 name 필요 -->
+<input type="hidden" name="seat" value="<%=selseat %>">
 
 <br><br>
 

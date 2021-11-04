@@ -21,6 +21,7 @@ String shop_name = request.getParameter("shop_name"); //가게 상호명
 String res_date = request.getParameter("res_date"); //예약날짜
 String persons = request.getParameter("persons"); //인원수
 String price = request.getParameter("price"); //결제금액
+String seat = request.getParameter("seat"); //좌석
 
 //세션으로 부터 ID 얻기
 //ID를 이용해서 로그인 번호 불러오기
@@ -32,9 +33,16 @@ dto.setShop_name(shop_name);
 dto.setRes_date(res_date);
 dto.setPersons(persons);
 dto.setPrice(price);
+dto.setSeat(seat);
 
 ResDao dao = new ResDao();
 dao.insertRes(dto);
+
+if(seat.equals("룸")){
+	//스케쥴 테이블 room_cnt +1 증가 dao
+} else {
+	//스케쥴 테이블 hall_cnt +1 증가 dao
+}
 
 response.sendRedirect("completeform.jsp");
 %>
