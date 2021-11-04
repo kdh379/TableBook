@@ -66,6 +66,8 @@ div.main{
 	
 	/* overflow: hidden; */
 }
+
+
 </style>
 <title>TasteBook</title>
 <!-- Favicon 즐겨찾기 아이콘(favorites icon)-->
@@ -211,6 +213,7 @@ LoginDao ldao = new LoginDao();
 	  
 	  //ReviewDto rdto = rlist.get(i);
 	  //String logPhoto = ldao.getOneData(rdto.getLogin_num()).getPhoto();
+	  //int score = Integer.parseInt(rdto.getScore());
 	  %>
 	  
   <tr>
