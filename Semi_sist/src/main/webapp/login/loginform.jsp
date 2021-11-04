@@ -9,6 +9,8 @@
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&display=swap"
   rel="stylesheet">
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+
 <title>로그인 폼</title>
 </head>
 <%
@@ -63,7 +65,7 @@ if(saveok != null){
 		<b>간편로그인</b>
 		<br>
 		<button type="button" class="btn btn-warning" style="width: 100px;" onclick="location.href='index.jsp?main=sns/kakao_login.html'">카카오</button>
-		<button type="button" class="btn btn-success" style="width: 100px;" onclick="location.href='realindex.jsp?main=sns/naver_login.html'">네이버</button>
+		<div id="naver_id_login"></div>
 		</td>
 		<br>
 		
@@ -73,5 +75,15 @@ if(saveok != null){
   </form>
   
 </div>
+
+<script type="text/javascript">
+	var naver_id_login = new naver_id_login("gmeR75V0A8r7JpS270pi", "http://localhost:8080/Semi_sist/realindex.jsp?main=sns/naver_callback.html");
+	var state = naver_id_login.getUniqState();
+	naver_id_login.setButton("white", 3,40);
+	naver_id_login.setDomain(".service.com");
+	naver_id_login.setState(state);
+	naver_id_login.setPopup(false);
+	naver_id_login.init_naver_id_login();
+</script>
 </body>
 </html>
