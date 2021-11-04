@@ -10,7 +10,6 @@ public class ReviewDto {
 	private String score;
 	private String content;
 	private String writer;
-	private String photo;
 	private Timestamp writeday;
 	
 	public String getNum() {
@@ -49,12 +48,7 @@ public class ReviewDto {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public String getPhoto() {
-		return photo;
-	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
+	
 	public Timestamp getWriteday() {
 		return writeday;
 	}

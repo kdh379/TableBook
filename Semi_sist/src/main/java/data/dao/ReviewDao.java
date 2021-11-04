@@ -73,7 +73,6 @@ public class ReviewDao {
 					dto.setScore(rs.getString("score"));
 					dto.setContent(rs.getString("content"));
 					dto.setWriter(rs.getString("writer"));
-					dto.setPhoto(rs.getString("photo"));
 					dto.setWriteday(rs.getTimestamp("writeday"));
 					
 					list.add(dto);
@@ -91,7 +90,33 @@ public class ReviewDao {
 			
 		}
 		
-		
+		//insert
+		public void insertReview(ReviewDto dto) {
+			
+			Connection conn = db.getConnection();
+			PreparedStatement pstmt=null;
+			
+			String sql="insert into review(login_num,shop_num,score,content,writer,writeday) values(?,?,?,?,?,now())";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				//바인딩
+				pstmt.setString(1, dto.getLogin_num());
+				pstmt.setString(2, dto.getShop_num());
+				pstmt.setString(3, dto.getScore());
+				pstmt.setString(4, dto.getContent());
+				pstmt.setString(5, dto.getWriter());
+				
+				//실행
+				pstmt.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				db.dbClose(pstmt, conn);
+			}
+			
+		}
 		
 	
 }

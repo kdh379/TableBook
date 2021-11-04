@@ -226,7 +226,7 @@ LoginDao ldao = new LoginDao();
       비빔냉면까지 주는 맛집이라 해서 방문했는데 생각보다 족발에서 생강맛이 너무 많이 나서 기대만큼은 아니었던것 같아요. 
       향이나 맛에 민감해서 잘 캐치해내는데 과했던것같아요. 그래도 비빔냉면과의 조화가 좋았고, 고기는 야들야들 냄새 안나고 맛있었네요.
       노포집 같은 곳이었는데 사람도 많고 장사 잘되도라고요. 맞은편 건물도 허브족발집이었으니 맛집은 맛집인가봅니다. 직장인들이 많았고 나이드신 분들도 많았어요.<br>
-      <img alt="" src="../assets/logo1.ico" style=" width: 80px; height: 80px; margin-top: 20px;">  <!-- save/  rdto.getPhoto() -->  
+      <img alt="" src="../assets/logo1.ico" style=" width: 80px; height: 80px; margin-top: 20px;">  <!-- content에 사진포함 -->  
       
     </td>
   

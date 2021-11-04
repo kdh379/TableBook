@@ -27,7 +27,8 @@
 	*/
 	String writer="jiwon";
 	String score = "0";
-
+	String login_num = "1";
+	String shop_num = "13";
 %>
 <!-- se2 폴더에서 js 파일 가져오기 -->
 <script type="text/javascript" src="<%=root%>/se2/js/HuskyEZCreator.js"
@@ -39,7 +40,7 @@
 </head>
 <body>
 
-<form action="shop/reviewaction.jsp" method="post">
+<form action="reviewaction.jsp" method="post">
 
 	<table class="table table-bordered" style="width: 800px;margin-left: 100px;">
 		<caption style="margin-bottom: 30px;"><b style="color: orange; font-size: 16pt;">허브족발</b>  
@@ -102,6 +103,8 @@
 	<!-- writer와 score값 넘기기위한 hidden -->
 	<input type="hidden" name="score" value="<%= score%>">
 	<input type="hidden" name="writer" value="<%=writer %>">
+	<input type="hidden" name="shop_num" value="<%=shop_num %>">
+	<input type="hidden" name="login_num" value="<%=login_num %>">
 	
 </form>
 
