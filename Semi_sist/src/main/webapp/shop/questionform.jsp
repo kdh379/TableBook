@@ -9,7 +9,18 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&display=swap"
 rel="stylesheet">
+<!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+<!-- Font Awesome icons (free version)-->
+<script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+
 <style type="text/css">
+body{
+background-color: #F5F5F8;
+
+}
+
 .title, .subtitle{
 	text-align: center;
 	padding-bottom: 30px;
@@ -31,7 +42,7 @@ rel="stylesheet">
 </head>
 <body>
 
-        <article class="container" style="background-color: #f5f5f5 ;">
+        <article class="container" style="background-color: #f5f5f5; font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';">
             <div class="page-header" >
                 <div class="col-md-6 col-md-offset-3">
                 <h2 class="title"><b>입점 문의</b></h2>
@@ -170,8 +181,8 @@ rel="stylesheet">
                    <br> <br> <br> 
 
                     <div class="form-group text-center">
-                        <button type="submit" id="join-submit" class="btn btn-primary btn-lg" style="width: 300px; height: 60px">
-                            접수하기<i class="fa fa-check spaceLeft"></i>
+                        <button type="submit" id="join-submit" style="width: 220px; height: 60px; background-color: rgb(254,225,14); color: rgb(108,117,126); border: none; box-shadow: 0.5px 0.5px 0.5px 0.5px; border-radius: 10px; font-size: 21px; font-weight: bold; padding-left: 17px;">
+                            접수하기<i class="fa fa-check spaceLeft" style="margin-left: 10px; color: rgb(108,117,126); font-size: 19px; font-weight: bold;"></i>
                         </button>
                         
                     </div>
