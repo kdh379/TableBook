@@ -217,7 +217,7 @@ LoginDao ldao = new LoginDao();
     <th width="120px;" style="vertical-align: top; text-align: center">
     <!-- save/ logPhoto  -->
       <img alt="" src="../assets/logo1.ico" style="border-radius: 100px; width: 60px; height: 60px; border: 1px solid black"><br>
-      <font style="font-size: 8px;" >송송송</font>
+      <font style="font-size: 8px;" >송송송</font>  <!-- ldao.getOneData(rdto.getLogin_num()).getNick() -->
     </th>
     
     <td width="700px;" style="line-height: 25px;">
