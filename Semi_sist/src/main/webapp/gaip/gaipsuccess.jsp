@@ -30,9 +30,9 @@ String nick=dao.getNick(id);
       <b><%=nick%>님의 회원 가입을 축하합니다</b>
       <br><br>
     
-    <button type="button" class="btn btn-info" onclick="#">Login</button>  
+    <button type="button" class="btn btn-info" onclick="location.href='index.jsp?main=login/loginmain.jsp'">Login</button>  
     <button type="button" class="btn btn-info" onclick="location.href='index.jsp'">Home</button>  
-    <button type="button" class="btn btn-info" onclick="location.href='index.jsp?main=gaip/gaiplist.jsp'">List</button>
+    <button type="button" class="btn btn-info" onclick="location.href='realindex.jsp?main=gaip/gaiplist.jsp'">List</button>
 </div>
 </body>
 </html>

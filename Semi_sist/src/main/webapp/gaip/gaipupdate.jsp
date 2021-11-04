@@ -53,7 +53,7 @@
 		LoginDao dao = new LoginDao();
 		dao.updateData(dto);
 
-		response.sendRedirect("../index.jsp?main=gaip/gaiplist.jsp");
+		response.sendRedirect("../realindex.jsp?main=gaip/gaiplist.jsp");
 	} catch (Exception e) {
 		System.out.println("업로드오류: " + e.getMessage());
 	}

@@ -59,7 +59,7 @@
 		dao.insertData(dto);
 
 		//gaipsuccess로 이동
-		response.sendRedirect("../index.jsp?main=gaip/gaipsuccess.jsp?id=" + id);
+		response.sendRedirect("../realindex.jsp?main=gaip/gaipsuccess.jsp?id=" + id);
 	} catch (Exception e) {
 		System.out.println("업로드오류: " + e.getMessage());
 	}

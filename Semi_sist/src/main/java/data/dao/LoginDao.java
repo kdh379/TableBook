@@ -129,12 +129,13 @@ public class LoginDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			// 바인딩
-			pstmt.setString(1, dto.getNick());
-			pstmt.setString(2, dto.getId());
-			pstmt.setString(3, dto.getPass());
-			pstmt.setString(4, dto.getHp());
-			pstmt.setString(5, dto.getEmail());
+			pstmt.setString(1, dto.getId());
+			pstmt.setString(2, dto.getPass());
+			pstmt.setString(3, dto.getNick());
+			pstmt.setString(4, dto.getEmail());
+			pstmt.setString(5, dto.getHp());
 			pstmt.setString(6, dto.getPhoto());
+			
 			// 실행
 			pstmt.execute();
 		} catch (SQLException e) {

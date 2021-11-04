@@ -56,7 +56,7 @@ String root=request.getContextPath();
 				</button>
 				<ul id="main-menu">
 					<li><a href="index.jsp">홈</a></li>
-					<li><a href="realindex.jsp?main=#/#.jsp">로그인</a></li>
+					<li><a href="realindex.jsp?main=login/loginmain.jsp">로그인</a></li>
 					<li><a href="realindex.jsp?main=shop/questionform.jsp">입점문의</a></li>
 				</ul>
 				</div>

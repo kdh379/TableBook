@@ -65,7 +65,7 @@ Vector<LoginDto> list = dao.getAllDatas();
 			<td><%=dto.getEmail() %></td>
 			<td>
 				<button type="button" class="btn btn-info btn-xs"
-					onclick="location.href='index.jsp?main=gaip/updatepassform.jsp?num=<%=dto.getNum()%>'">수정</button>
+					onclick="location.href='realindex.jsp?main=gaip/updatepassform.jsp?num=<%=dto.getNum()%>'">수정</button>
 				<button type="button" class="btn btn-danger btn-xs"
 					onclick="delfunc(<%=dto.getNum()%>)">삭제</button>
 			</td>

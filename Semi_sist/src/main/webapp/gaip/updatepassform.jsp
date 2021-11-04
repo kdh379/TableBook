@@ -42,7 +42,7 @@ if(key==null){  //폼만 표시
 	LoginDao dao = new LoginDao();
 	if(dao.isPassEqual(num, pass)){
 		
-		response.sendRedirect("../index.jsp?main=gaip/updateform.jsp?num="+num);
+		response.sendRedirect("../realindex.jsp?main=gaip/updateform.jsp?num="+num);
 	}else{%>
 		<script type="text/javascript">
 		alert("비밀번호가 틀렸습니다");

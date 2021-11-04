@@ -72,7 +72,7 @@ if(key==null){
 	  //아이디 얻기
 	  var myid = $(this).attr("myid");
 	  //부모창에
-	  opener.memberfrm.id.value=myid;
+	  opener.gaipfrm.id.value=myid;
 	  
 	  //현재창닫기
 	  window.close();

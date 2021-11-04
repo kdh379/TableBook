@@ -39,7 +39,7 @@ if(b){
 			file.delete(); //파일삭제
 	
 	dao.deleteData(num);
-	response.sendRedirect("../index.jsp?main=gaip/gaiplist.jsp");
+	response.sendRedirect("../realindex.jsp?main=gaip/gaiplist.jsp");
 	
 }else{%>
 	
