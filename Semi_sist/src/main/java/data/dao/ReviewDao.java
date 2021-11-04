@@ -43,8 +43,8 @@ public class ReviewDao {
 			
 	}
 	
-	//페이지에서 필요한 만큼만 리턴하기(전체출력)
-		public Vector<ReviewDto> getList(int start, int perpage){
+	//페이지에서 필요한 만큼만 리턴하기(전체출력)_shop_num에 해당하는 음식점의 리뷰만!
+		public Vector<ReviewDto> getList(int start, int perpage, String shop_num){
 			
 			Vector<ReviewDto> list = new Vector<ReviewDto>();
 			
@@ -52,13 +52,14 @@ public class ReviewDao {
 			PreparedStatement pstmt=null;
 			ResultSet rs=null;
 			
-			String sql="select * from review order by num desc limit ?,?";
+			String sql="select * from review where shop_num=? order by num desc limit ?,?";
 			
 			try {
 				pstmt=conn.prepareStatement(sql);
 				//바인딩
-				pstmt.setInt(1, start);
-				pstmt.setInt(2, perpage);
+				pstmt.setString(1, shop_num);
+				pstmt.setInt(2, start);
+				pstmt.setInt(3, perpage);
 				//실행
 				rs=pstmt.executeQuery();
 				
@@ -89,5 +90,8 @@ public class ReviewDao {
 			return list;
 			
 		}
+		
+		
+		
 	
 }
