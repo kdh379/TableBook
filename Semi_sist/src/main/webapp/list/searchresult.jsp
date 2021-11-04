@@ -9,11 +9,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <title>TasteBook</title>
 <!-- Favicon 즐겨찾기 아이콘(favorites icon)-->
 <link rel="icon" type="image/x-icon" href="../assets/logo1.ico" />
 <!--검색결과 CSS-->
-<link href="../css/liststyles.css" rel="stylesheet" />
+<link href="css/liststyles.css" rel="stylesheet" />
 </head>
 <%-- <%
 //db선언
@@ -76,7 +77,7 @@ no=totalCount-(currentPage-1)*perPage;
     <div class="col-md-12">
        <%--  <p class="search-results-count"><b style="font-size: 20pt; font-weight: bold;">총 <%=totalCount %>개의 결과가 있습니다</b></p> --%>
         <section class="search-result-item">
-            <a class="image-link" href="#"><img class="image" src="../assets/img/food_img/fish.jpg">
+            <a class="image-link" href="#"><img class="image" src="assets/img/food_img/fish.jpg">
             </a>
             <div class="search-result-item-body">
                 <div class="row">
@@ -93,7 +94,7 @@ no=totalCount-(currentPage-1)*perPage;
             </div>
         </section>
         <section class="search-result-item">
-            <a class="image-link" href="#"><img class="image" src="../assets/img/food_img/bbq.jpg">
+            <a class="image-link" href="#"><img class="image" src="assets/img/food_img/bbq.jpg">
             </a>
             <div class="search-result-item-body">
                 <div class="row">
@@ -110,7 +111,7 @@ no=totalCount-(currentPage-1)*perPage;
             </div>
         </section>
         <section class="search-result-item">
-            <a class="image-link" href="#"><img class="image" src="../assets/img/food_img/curry.jpg">
+            <a class="image-link" href="#"><img class="image" src="assets/img/food_img/curry.jpg">
             </a>
             <div class="search-result-item-body">
                 <div class="row">
@@ -127,7 +128,7 @@ no=totalCount-(currentPage-1)*perPage;
             </div>
         </section>
         <section class="search-result-item">
-            <a class="image-link" href="#"><img class="image" src="../assets/img/food_img/sushi.jpg">
+            <a class="image-link" href="#"><img class="image" src="assets/img/food_img/sushi.jpg">
             </a>
             <div class="search-result-item-body">
                 <div class="row">
