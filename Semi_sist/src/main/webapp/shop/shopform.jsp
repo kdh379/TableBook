@@ -45,8 +45,13 @@ table#info tr{
 }
 
 table#info tr th{
-	color: #696969 ;
+	color: #a9a9a9  ;
 }
+
+/* table#info tr td{
+	font-weight: bold;
+} */
+
 
 div.review{
 	margin-left: 70px;
@@ -112,7 +117,7 @@ Vector<MenuDto> mlist = mdao.getMenu(num);
 	  
   
     
-    <td style="border-bottom: solid gray 1px"><%=mdto.getMenu() %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td><%=mdto.getMenu() %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=mdto.getPrice() %>원</td>
     
   </tr>

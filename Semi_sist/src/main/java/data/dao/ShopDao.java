@@ -71,5 +71,49 @@ public class ShopDao {
 		return num;
 		
 	}
+	
+	//num값을 받아서 해당 dto하나만 가져오기
+	public ShopDto getOneShop(String num) {
+		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		String sql="select * from shop where num=?";
+		ShopDto dto = new ShopDto();
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			//바인딩
+			pstmt.setString(1, num);
+			//실행
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				dto.setNum(rs.getString("num"));
+				dto.setName(rs.getString("name"));
+				dto.setAddr(rs.getString("addr"));
+				dto.setTelephone(rs.getString("telephone"));
+				dto.setTag(rs.getString("tag"));
+				dto.setPhoto(rs.getString("photo"));
+				dto.setParking(rs.getString("parking"));
+				dto.setIntroduce(rs.getString("introduce"));
+				dto.setOpening(rs.getInt("opening"));
+				dto.setClosing(rs.getInt("closing"));
+
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return dto;
+		
+	}
 
 }
