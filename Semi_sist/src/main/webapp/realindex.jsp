@@ -41,5 +41,23 @@ if(request.getParameter("main")!=null){
 	<jsp:include page="<%=mainPage %>"></jsp:include>
 </div>
 
+
+	<!-- Footer-->
+	<footer class="footer py-4" style="background-color: #fff; margin-top: 20px; padding-top: 20px;">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-4 text-lg-start">
+					<dl>
+						<dt style="font-size: 12pt; margin-bottom: 10pt;">쌍용교육센터 5조 세미프로젝트</dt>
+						<dd style="margin-left: 10px;">김도현</dd>
+						<dd style="margin-left: 10px;">김보라</dd>
+						<dd style="margin-left: 10px;">박여은</dd>
+						<dd style="margin-left: 10px;">정지원(조장)</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</footer>
+
 </body>
 </html>
