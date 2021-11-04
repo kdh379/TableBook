@@ -22,7 +22,6 @@ rel="stylesheet">
 h3{
 	margin-top: 70px;
 	
-
 }
 
 hr{
@@ -140,14 +139,14 @@ LoginDao ldao = new LoginDao();
 %>
 
 <body>
-
+<!-- 음식점정보 + 리뷰게시판 -->
 <div class="main" style="width: 800px; float: left; padding: 10px">
 <h3><b><%=shdto.getName() %></b><font color="orange" style="margin-left: 20px;">4.6</font></h3>
 <hr>
 
 <div style="clear: both;"></div>
 
-
+<!-- 음식점 정보 -->
 <table id="info" style="width: 700px; float: left;">
   <tr>
     <th width="100px">주소</th>
@@ -205,7 +204,7 @@ LoginDao ldao = new LoginDao();
 <div style="clear: both;" class="review">
 
 <h4><b>리뷰</b>&nbsp;(159)</h4>  <!-- totalCount %> -->
-
+<!-- 리뷰게시판 -->
 <table style="margin-top: 30px;">
   <%
   for(int i=0; i<2; i++){    /* rlist.size()까지로 */
@@ -290,13 +289,15 @@ LoginDao ldao = new LoginDao();
 
 
 </div>
+<!-- 카카오맵 -->
 <div class="kakao" style=" float: left; margin-top: 60px; margin-left: 50px;;
 background-color: #ccc;">
   <div id="map" style="width:400px;height:300px;"></div>
 </div>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ce57a245894a14227a15fecd0184864b"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ce57a245894a14227a15fecd0184864b&libraries=services"></script>
 	<script>
-		var container = document.getElementById('map');
+	
+		/* var container = document.getElementById('map');
 		var options = {
 			center: new kakao.maps.LatLng(33.450701, 126.570667),
 			level: 3
@@ -313,7 +314,44 @@ background-color: #ccc;">
 		});
 
 		// 마커가 지도 위에 표시되도록 설정합니다
-		marker.setMap(map);
+		marker.setMap(map); */
+		
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	    mapOption = {
+	        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+	        level: 3 // 지도의 확대 레벨
+	    };  
+
+	// 지도를 생성합니다    
+	var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+	// 주소-좌표 변환 객체를 생성합니다
+	var geocoder = new kakao.maps.services.Geocoder();
+
+	// 주소로 좌표를 검색합니다
+	geocoder.addressSearch('<%=shdto.getAddr()%>', function(result, status) {
+
+	    // 정상적으로 검색이 완료됐으면 
+	     if (status === kakao.maps.services.Status.OK) {
+
+	        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+	        // 결과값으로 받은 위치를 마커로 표시합니다
+	        var marker = new kakao.maps.Marker({
+	            map: map,
+	            position: coords
+	        });
+
+	        // 인포윈도우로 장소에 대한 설명을 표시합니다
+	        var infowindow = new kakao.maps.InfoWindow({
+	            content: '<div style="width:150px;text-align:center;padding:6px 0;"><%= shdto.getName()%></div>'
+	        });
+	        infowindow.open(map, marker);
+
+	        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+	        map.setCenter(coords);
+	    } 
+	});    
 	</script>
 
 
