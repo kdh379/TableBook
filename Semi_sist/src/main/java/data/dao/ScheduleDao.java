@@ -23,13 +23,13 @@ public class ScheduleDao {
 			
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//πŸ¿Œµ˘
+			//Î∞îÏù∏Îî©
 			pstmt.setString(1, dto.getShop_num());
 			pstmt.setInt(2, dto.getStime());
 			pstmt.setInt(3, dto.getRoom());
 			pstmt.setInt(4, dto.getHall());
 			pstmt.setString(5, dto.getSdate());
-			//Ω««‡
+			//Ïã§Ìñâ
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

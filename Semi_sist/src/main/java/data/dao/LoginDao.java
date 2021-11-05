@@ -13,7 +13,7 @@ public class LoginDao {
 	
 	DbConnect db = new DbConnect();
 	
-	//login_num¹Ş¾Æ¼­ °³ÀÎ µ¥ÀÌÅÍ¾ò±â_1°³
+	//login_numë°›ì•„ì„œ ê°œì¸ ë°ì´í„°ì–»ê¸°_1ê°œ
 	public LoginDto getOneData(String num) {
 		
 		Connection conn = db.getConnection();
@@ -52,9 +52,9 @@ public class LoginDao {
 		
 	}
 	
-	/* ¿©±â¼­ºÎÅÍ ¿©Àº ¼öÁ¤ ½ÃÀÛ 211104 16:50 */
+	/* ì—¬ê¸°ì„œë¶€í„° ì—¬ì€ ìˆ˜ì • ì‹œì‘ 211104 16:50 */
 	
-	// ¾ÆÀÌµğ Ã¼Å©_boolean(String id)
+	// ì•„ì´ë”” ì²´í¬_boolean(String id)
 	public boolean isIdCheck(String id) {
 
 		boolean isid = false;
@@ -66,13 +66,13 @@ public class LoginDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			// ¹ÙÀÎµù
+			// ë°”ì¸ë”©
 			pstmt.setString(1, id);
-			// ½ÇÇà
+			// ì‹¤í–‰
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				// ÇØ´ç ¾ÆÀÌµğ°¡ Á¸ÀçÇÒ°æ¿ì true
+				// í•´ë‹¹ ì•„ì´ë””ê°€ ì¡´ì¬í• ê²½ìš° true
 				isid = true;
 			}
 		} catch (SQLException e) {
@@ -86,7 +86,7 @@ public class LoginDao {
 
 	}
 
-	// ¾ÆÀÌµğ¿¡ µû¸¥ nick(String id)
+	// ì•„ì´ë””ì— ë”°ë¥¸ nick(String id)
 	public String getNick(String id) {
 
 		String nick = "";
@@ -99,9 +99,9 @@ public class LoginDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			// ¹ÙÀÎµù
+			// ë°”ì¸ë”©
 			pstmt.setString(1, id);
-			// ½ÇÇà
+			// ì‹¤í–‰
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
@@ -128,7 +128,7 @@ public class LoginDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			// ¹ÙÀÎµù
+			// ë°”ì¸ë”©
 			pstmt.setString(1, dto.getId());
 			pstmt.setString(2, dto.getPass());
 			pstmt.setString(3, dto.getNick());
@@ -136,7 +136,7 @@ public class LoginDao {
 			pstmt.setString(5, dto.getHp());
 			pstmt.setString(6, dto.getPhoto());
 			
-			// ½ÇÇà
+			// ì‹¤í–‰
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -147,7 +147,7 @@ public class LoginDao {
 
 	}
 	
-	// ÀüÃ¼¸®½ºÆ®
+	// ì „ì²´ë¦¬ìŠ¤íŠ¸
 	public Vector<LoginDto> getAllDatas() {
 
 		Vector<LoginDto> list = new Vector<LoginDto>();
@@ -188,7 +188,7 @@ public class LoginDao {
 
 	}
 	
-	// ºñ¹Ğ¹øÈ£ Ã¼Å©(num,pass)
+	// ë¹„ë°€ë²ˆí˜¸ ì²´í¬(num,pass)
 	public boolean isPassEqual(String num, String pass) {
 
 		boolean b = false;
@@ -200,10 +200,10 @@ public class LoginDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			// ¹ÙÀÎµù
+			// ë°”ì¸ë”©
 			pstmt.setString(1, num);
 			pstmt.setString(2, pass);
-			// ½ÇÇà
+			// ì‹¤í–‰
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
@@ -219,7 +219,7 @@ public class LoginDao {
 
 	}
 	
-	// »èÁ¦
+	// ì‚­ì œ
 	public void deleteData(String num) {
 
 		Connection conn = db.getConnection();
@@ -229,9 +229,9 @@ public class LoginDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			// ¹ÙÀÎµù
+			// ë°”ì¸ë”©
 			pstmt.setString(1, num);
-			// ½ÇÇà
+			// ì‹¤í–‰
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -252,14 +252,14 @@ public class LoginDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			// ¹ÙÀÎµù
+			// ë°”ì¸ë”©
 			pstmt.setString(1, dto.getNick());
 			pstmt.setString(2, dto.getHp());
 			pstmt.setString(3, dto.getEmail());
 			pstmt.setString(4, dto.getPhoto());
 			pstmt.setString(5, dto.getNum());
 
-			// ½ÇÇà
+			// ì‹¤í–‰
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -270,7 +270,7 @@ public class LoginDao {
 
 	}
 	
-	// ¾ÆÀÌµğ¿Í ºñ¹øÃ¼Å©_·Î±×ÀÎÀ» À§ÇÑ
+	// ì•„ì´ë””ì™€ ë¹„ë²ˆì²´í¬_ë¡œê·¸ì¸ì„ ìœ„í•œ
 	public boolean isIdPass(String id, String pass) {
 
 		boolean b = false;
@@ -282,10 +282,10 @@ public class LoginDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			// ¹ÙÀÎµù
+			// ë°”ì¸ë”©
 			pstmt.setString(1, id);
 			pstmt.setString(2, pass);
-			// ½ÇÇà
+			// ì‹¤í–‰
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {

@@ -20,14 +20,14 @@ public class ResDao {
 		PreparedStatement pstmt = null;
 		
 		String sql = "insert into reservation(login_num, shop_num,shop_name, res_date, persons, price, paymentdate, seat)"
-				+ " values(null, null, ?, ?, ?, ?, now(), ?)"; //login, shop num Ãß°¡ ÇÊ¿ä
+				+ " values(null, null, ?, ?, ?, ?, now(), ?)"; //login, shop num ì¶”ê°€ í•„ìš”
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			//¹ÙÀÎµù
-			//pstmt.setString(1, dto.getLogin_num()); //login num ¼öÁ¤ ÇÊ¿ä
-			//pstmt.setString(2, dto.getShop_num()); //shop num Ãß°¡ ÇÊ¿ä
+			//ë°”ì¸ë”©
+			//pstmt.setString(1, dto.getLogin_num()); //login num ìˆ˜ì • í•„ìš”
+			//pstmt.setString(2, dto.getShop_num()); //shop num ì¶”ê°€ í•„ìš”
 			pstmt.setString(1, dto.getShop_name());
 			pstmt.setString(2, dto.getRes_date());
 			pstmt.setString(3, dto.getPersons());
@@ -45,7 +45,7 @@ public class ResDao {
 	}
 	
 	
-	//ÃÖ±Ù µ¥ÀÌÅÍ ÇÏ³ª (¿¹¾à¿Ï·á Æû)
+	//ìµœê·¼ ë°ì´í„° í•˜ë‚˜ (ì˜ˆì•½ì™„ë£Œ í¼)
 	public ResDto getLatestData() {
 		ResDto dto = new ResDto();
 		
