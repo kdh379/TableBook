@@ -250,8 +250,8 @@ String loginok = (String) session.getAttribute("loginok");
 	      
 	      if(loginok!=null && id.equals(myid)){%>
 	    	 
-	    	 |<a href="#" style="color: blue;">수정</a>   <!-- shop_num과 currentpage와 num(rdto.getNum())넘겨주면서 review수정폼으로 가기 -->
-	    	 |<a href="#" style="color: red;">삭제</a>   <!-- shop_num과 currentpage와 num넘겨주면서 review삭제액션으로 가기 -->
+	    	 |<a href="#" style="color: blue;">수정</a>   <!-- currentpage와 num(rdto.getNum())넘겨주면서 review수정폼으로 가기 -->
+	    	 |<a href="#" style="color: red;">삭제</a>   <!-- currentpage와 num넘겨주면서 review삭제액션으로 가기 -->
 	    	  
 	      <%}
 	      
