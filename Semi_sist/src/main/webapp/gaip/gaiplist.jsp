@@ -50,7 +50,7 @@ Vector<LoginDto> list = dao.getAllDatas();
 			<td>
 				<%
 	    if(dto.getPhoto()!=null){%> <img alt=""
-				src="photo/<%=dto.getPhoto()%>" class="photo" align="left"> <%}
+				src="save/<%=dto.getPhoto()%>" class="photo" align="left"> <%}
 	    
 	    %> <%=dto.getNick() %>
 			</td>

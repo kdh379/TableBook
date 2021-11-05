@@ -32,7 +32,7 @@ String nick=dao.getNick(id);
     
     <button type="button" class="btn btn-info" onclick="location.href='index.jsp?main=login/loginmain.jsp'">Login</button>  
     <button type="button" class="btn btn-info" onclick="location.href='index.jsp'">Home</button>  
-    <button type="button" class="btn btn-info" onclick="location.href='realindex.jsp?main=gaip/gaiplist.jsp'">List</button>
+   <!--  <button type="button" class="btn btn-info" onclick="location.href='realindex.jsp?main=gaip/gaiplist.jsp'">List</button> -->
 </div>
 </body>
 </html>

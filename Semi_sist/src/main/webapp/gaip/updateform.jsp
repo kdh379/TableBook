@@ -57,6 +57,7 @@
 <title>회원정보수정폼</title>
 </head>
 <%
+request.setCharacterEncoding("utf-8");
 //num읽기
 String num = request.getParameter("num");
 

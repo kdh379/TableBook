@@ -30,7 +30,7 @@ if(b){
 	//게시글 지우기전에 업로드 이미지
 		String photo=dao.getOneData(num).getPhoto();
 		//업로드 경로 구하기
-		String uploadPath=getServletContext().getRealPath("/photo");
+		String uploadPath=getServletContext().getRealPath("/save");
 		
 		//파일생성
 		File file=new File(uploadPath+"\\"+photo);

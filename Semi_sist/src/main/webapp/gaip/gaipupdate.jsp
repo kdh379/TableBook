@@ -21,7 +21,7 @@
 
 	//업로드에 필요한 변수선언
 	//업로드할 경로(톰캣에 올라가는 프로젝트 경로)
-	String realFolder = getServletContext().getRealPath("/photo");
+	String realFolder = getServletContext().getRealPath("/save");
 	System.out.println(realFolder);
 
 	//업로드 사이즈
@@ -53,7 +53,7 @@
 		LoginDao dao = new LoginDao();
 		dao.updateData(dto);
 
-		response.sendRedirect("../realindex.jsp?main=gaip/gaiplist.jsp");
+		response.sendRedirect("../realindex.jsp?main=gaip/mypageform.jsp");
 	} catch (Exception e) {
 		System.out.println("업로드오류: " + e.getMessage());
 	}
