@@ -16,6 +16,7 @@
 <!--검색결과 CSS-->
 <link href="css/liststyles.css" rel="stylesheet" />
 </head>
+
 <%-- <%
 //db선언
 MyBoardDao db=new MyBoardDao();

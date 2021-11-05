@@ -1,3 +1,4 @@
+<%@page import="javax.swing.text.Document"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -15,6 +16,9 @@
 <%
 session.removeAttribute("loginok");
 
+/* var referrer=document.referrer;*/
+/* String prePage=request.getParameter("prePage");
+ */
 response.sendRedirect("../index.jsp?main=login/loginmain.jsp");
 
 %>

@@ -42,7 +42,6 @@ String root=request.getContextPath();
 //프로젝트 경로 구하기
 String root=request.getContextPath();
 
-
 //세션으로부터 id를 얻는다
 String loginok=(String)session.getAttribute("loginok");
 
