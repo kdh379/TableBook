@@ -17,6 +17,8 @@
 <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
        
 </head>
+
+
 <body>
 <%
 //프로젝트 경로 구하기

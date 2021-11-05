@@ -18,6 +18,10 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
+<%
+//세션으로부터 id를 얻는다
+  String loginok=(String)session.getAttribute("loginok");
+%> 
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -32,7 +36,13 @@
                         <li class="nav-item"><a class="nav-link" href="#services">검색</a></li>
                         <li class="nav-item"><a class="nav-link" href="#score">평점순</a></li>
                         <li class="nav-item"><a class="nav-link" href="#review">리뷰순</a></li>
+                       <%
+                        if(loginok==null){%>
                         <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=login/loginmain.jsp">로그인</a></li>
+                       <%} else{%>
+                       <li class="nav-item"><a class="nav-link" href="login/logoutaction.jsp">로그아웃</a></li>
+                       <% }
+                        %> 
                         <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=shop/questionform.jsp">입점문의</a></li>
                     </ul>
                 </div>

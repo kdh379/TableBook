@@ -41,6 +41,11 @@ String root=request.getContextPath();
 <%
 //프로젝트 경로 구하기
 String root=request.getContextPath();
+
+
+//세션으로부터 id를 얻는다
+String loginok=(String)session.getAttribute("loginok");
+
 %>
 <body>
 <div id="wrap">
@@ -56,7 +61,13 @@ String root=request.getContextPath();
 				</button>
 				<ul id="main-menu">
 					<li><a href="index.jsp">홈</a></li>
-					<li><a href="realindex.jsp?main=login/loginmain.jsp">로그인</a></li>
+					<%
+                        if(loginok==null){%>
+                        <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=login/loginmain.jsp">로그인</a></li>
+                       <%} else{%>
+                       <li class="nav-item"><a class="nav-link" href="login/logoutaction.jsp">로그아웃</a></li>
+                       <% }
+                        %> 
 					<li><a href="realindex.jsp?main=shop/questionform.jsp">입점문의</a></li>
 				</ul>
 				</div>
