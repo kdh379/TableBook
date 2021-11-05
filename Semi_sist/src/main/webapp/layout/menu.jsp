@@ -50,7 +50,7 @@ String loginok=(String)session.getAttribute("loginok");
 <body>
 <div id="wrap">
 	<header>
-		<div class="inner relative">
+		<div class="inner relative" style="margin-left: auto; margin-right: auto;">
 			<img class="logo" src="assets/img/logo2.png" style="height: 120px;" onclick="location.href='index.jsp'">
 			<a id="menu-toggle" class="button dark" href="#"><i class="icon-reorder"></i></a>
 			<nav id="navigation">
