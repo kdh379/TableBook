@@ -18,25 +18,29 @@
 <script type="text/javascript">
 	
 	//사용할 앱의 JavaScript 키를 설정해주세요.
-	Kakao.init("2bbc6c8821bacf88178635f1e2c97dd0");
+	Kakao.init('2bbc6c8821bacf88178635f1e2c97dd0');
 	
-	Kakao.Auth.authorize({
+	/* Kakao.Auth.authorize({
 		redirectUri: 'http://localhost:8080/Semi_sist/realindex.jsp?main=sns/kakaoRedirectForm.jsp',
-	});
+	}); */
 	
-	/* Kakao.Auth.login({
+	Kakao.Auth.login({
 		success: function(authObj) {
 			
 			Kakao.API.request({
 				url:'/v2/user/me',
 				success: function(res) {
 					console.log(res);
-					var email = res.kakao.account.email;
+					var id=res.id; //데이터베이스 primary Key값 속성 측 기본치의 식별성
+					var email = res.kakao_account.email;
 					var name=res.properties.nickname;
+					var html = '<br>'+email+'<br>'+name;
 				
-					location.href='kakaoRedirectForm.jsp?email='+email+'&name='+name;
+					$('body').append(html);
+					
+				//	location.href='kakaoRedirectForm.jsp?email='+email+'&name='+name;
 				}
-			});
+			})
 			
 				console.log(authObj);
 			var token=authObj.access_token;
@@ -44,7 +48,7 @@
 		fail:function(err){
 			alert(JSON.stringify(err));
 		}
-	} */
+	}
 </script>
 
 </body>

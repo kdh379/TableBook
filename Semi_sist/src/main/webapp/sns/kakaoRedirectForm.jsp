@@ -20,7 +20,7 @@
 
 //<![CDATA
 	//사용할 앱의 JavaScript 키를 설정해주세요.
-	Kakao.init("2bbc6c8821bacf88178635f1e2c97dd0");
+	Kakao.init('2bbc6c8821bacf88178635f1e2c97dd0');
 	
 	Kakao.Auth.login({
 		success: function(authObj) {

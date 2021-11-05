@@ -64,7 +64,7 @@ if(saveok != null){
 		<td colspan="2" align="center">
 		<b>간편로그인</b>
 		<br>
-		<button type="button" class="btn btn-warning" style="width: 100px;" onclick="location.href='index.jsp?main=sns/kakao_login.html'">카카오</button>
+		<button type="button" class="btn btn-warning" style="width: 100px;" onclick="location.href='realindex.jsp?main=sns/kakaologinFormTest.jsp'">카카오</button>
 		<div id="naver_id_login"></div>
 		</td>
 		<br>

@@ -13,7 +13,7 @@
 </head>
 <body>
 리다이렉트 예제 - authorize, login, loginform <br>
-<a href="kakaologin1.jsp">로그인이동</a><p>
+<a href="../realindex.jsp?main=sns/kakaologin1.jsp">로그인이동</a><p>
 
 페이지 내 처리 예제 - createLoginButton<br>
 <a id="kakao-login-btn"></a><br>
@@ -29,7 +29,7 @@
 	
 	//<![CDATA
 		//사용할 앱의 JavaScript 키를 설정해주세요.
-		Kakao.init("2bbc6c8821bacf88178635f1e2c97dd0");
+		Kakao.init('2bbc6c8821bacf88178635f1e2c97dd0');
 		//카카오 로그인 버튼을 생성합니다.
 		Kakao.Auth.createLoginButton({
 			container: '#kakao-login-btn',
