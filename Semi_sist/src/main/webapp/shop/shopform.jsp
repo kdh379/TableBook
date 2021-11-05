@@ -1,3 +1,6 @@
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.time.LocalDate"%>
+<%@page import="data.dao.ScheduleDao"%>
 <%@page import="data.dao.LoginDao"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="data.dao.ReviewDao"%>
@@ -74,6 +77,7 @@ div.main{
 <link rel="icon" type="image/x-icon" href="../assets/logo1.ico" />
 </head>
 <%
+
 //shop의 num
 /* String num = request.getParameter("num"); */  //shop의num
 String num = "13";
@@ -137,7 +141,16 @@ no = totalCount-(currentPage-1)*perPage;
 
 
 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+//로그인dao생성
 LoginDao ldao = new LoginDao();
+
+//sdate변경 테스트
+ScheduleDao scdao = new ScheduleDao();
+scdao.updateSdate();
+LocalDate yesterday = LocalDate.now().minusDays(1);
+LocalDate fourdays = LocalDate.now().plusDays(4);
+System.out.println(yesterday.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))); 
+System.out.println(fourdays.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))); 
 %>
 
 <body>
