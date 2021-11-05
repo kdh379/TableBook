@@ -48,12 +48,14 @@ public class ScheduleDao {
 		
 		LocalDate yesterday = LocalDate.now().minusDays(1);
 		LocalDate fourdays = LocalDate.now().plusDays(4);
-		String sql="update schedule set stime=? where stime=?";
+		String sql="update schedule set sdatw=? where sdate=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, yesterday.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 			pstmt.setString(2, fourdays.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+			
+			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
