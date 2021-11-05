@@ -62,12 +62,12 @@ String loginok=(String)session.getAttribute("loginok");
 				<ul id="main-menu">
 					<li><a href="index.jsp">홈</a></li>
 					<%
-                        if(loginok==null){%>
-                        <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=login/loginmain.jsp">로그인</a></li>
-                       <%} else{%>
-                       <li class="nav-item"><a class="nav-link" href="login/logoutaction.jsp">로그아웃</a></li>
-                       <% }
-                        %> 
+                    if(loginok==null){%>
+                    <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=login/loginmain.jsp">로그인</a></li>
+                    <%} else{%>
+                    <li class="nav-item"><a class="nav-link" href="login/logoutaction.jsp">로그아웃</a></li>
+                    <% }
+                    %> 
 					<li><a href="realindex.jsp?main=shop/questionform.jsp">입점문의</a></li>
 				</ul>
 				</div>

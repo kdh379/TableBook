@@ -4,12 +4,12 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-<!-- ³×ÀÌ¹ö ·Î±×ÀÎ ¹öÆ° ³ëÃâ ¿µ¿ª -->
+<!-- ë„¤ì´ë²„ ë¡œê·¸ì¸ ë²„íŠ¼ ë…¸ì¶œ ì˜ì—­ -->
 <div id="naver_id_login"></div>
-<!-- //³×ÀÌ¹ö ·Î±×ÀÎ ¹öÆ° ³ëÃâ ¿µ¿ª -->
+<!-- //ë„¤ì´ë²„ ë¡œê·¸ì¸ ë²„íŠ¼ ë…¸ì¶œ ì˜ì—­ -->
 
 
-<!-- ³×ÀÌ¹ö¾Æµğµğ·Î·Î±×ÀÎ ÃÊ±âÈ­ Script -->
+<!-- ë„¤ì´ë²„ì•„ë””ë””ë¡œë¡œê·¸ì¸ ì´ˆê¸°í™” Script -->
 <script type="text/javascript">
 	var naver_id_login = new naver_id_login("gmeR75V0A8r7JpS270pi", "http://localhost:8080/Semi_sist/realindex.jsp?main=sns/naver_callback.html");
 	var state = naver_id_login.getUniqState();
@@ -19,27 +19,27 @@
 	naver_id_login.setPopup(false);
 	naver_id_login.init_naver_id_login();
 </script>
-<!-- //³×ÀÌ¹ö¾Æµğµğ·Î·Î±×ÀÎ ÃÊ±âÈ­ Script -->
+<!-- //ë„¤ì´ë²„ì•„ë””ë””ë¡œë¡œê·¸ì¸ ì´ˆê¸°í™” Script -->
 
 
-<!-- ³×ÀÌ¹ö¾Æµğµğ·Î·Î±×ÀÎ CallbackÆäÀÌÁö Ã³¸® Script -->
+<!-- ë„¤ì´ë²„ì•„ë””ë””ë¡œë¡œê·¸ì¸ Callbackí˜ì´ì§€ ì²˜ë¦¬ Script -->
 <script type="text/javascript">
-	// ³×ÀÌ¹ö »ç¿ëÀÚ ÇÁ·ÎÇÊ Á¶È¸ ÀÌÈÄ ÇÁ·ÎÇÊ Á¤º¸¸¦ Ã³¸®ÇÒ callback function
+	// ë„¤ì´ë²„ ì‚¬ìš©ì í”„ë¡œí•„ ì¡°íšŒ ì´í›„ í”„ë¡œí•„ ì •ë³´ë¥¼ ì²˜ë¦¬í•  callback function
 	function naverSignInCallback() {
-		// naver_id_login.getProfileData('ÇÁ·ÎÇÊÇ×¸ñ¸í');
-		// ÇÁ·ÎÇÊ Ç×¸ñÀº °³¹ß°¡ÀÌµå¸¦ Âü°íÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.
+		// naver_id_login.getProfileData('í”„ë¡œí•„í•­ëª©ëª…');
+		// í”„ë¡œí•„ í•­ëª©ì€ ê°œë°œê°€ì´ë“œë¥¼ ì°¸ê³ í•˜ì‹œê¸° ë°”ëë‹ˆë‹¤.
 		alert(naver_id_login.getProfileData('email'));
 		alert(naver_id_login.getProfileData('nickname'));
 		alert(naver_id_login.getProfileData('age'));
 	}
 
 
-	// ³×ÀÌ¹ö »ç¿ëÀÚ ÇÁ·ÎÇÊ Á¶È¸
+	// ë„¤ì´ë²„ ì‚¬ìš©ì í”„ë¡œí•„ ì¡°íšŒ
 	naver_id_login.get_naver_userprofile("naverSignInCallback()");
 	
-	//·Î±×¾Æ¿ô Ã¢ ¿­±â (ÁÖ¼Òº¹»ç)
+	//ë¡œê·¸ì•„ì›ƒ ì°½ ì—´ê¸° (ì£¼ì†Œë³µì‚¬)
 	/* https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=gmeR75V0A8r7JpS270pi&client_secret=lT5EyddEbA&access_token=AAAAOCj0coUcriQIiRH9gdUMCGaU2oLPB4L93GgSyORnX_y5brM_2a_A-DJR244UavKbOqBMN7V6bnJKH7eGI9rndu8&service_provider=NAVER */
 </script>
-<!-- //³×ÀÌ¹ö¾Æµğµğ·Î·Î±×ÀÎ CallbackÆäÀÌÁö Ã³¸® Script -->
+<!-- //ë„¤ì´ë²„ì•„ë””ë””ë¡œë¡œê·¸ì¸ Callbackí˜ì´ì§€ ì²˜ë¦¬ Script -->
 </body>
 </html>
