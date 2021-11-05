@@ -3,6 +3,8 @@ package data.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import data.dto.ScheduleDto;
 import mysql.DbConnect;
@@ -37,6 +39,28 @@ public class ScheduleDao {
 		}
 			
 			
+	}
+	
+	public void updateSdate() {
+		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt = null;
+		
+		LocalDate yesterday = LocalDate.now().minusDays(1);
+		LocalDate fourdays = LocalDate.now().plusDays(4);
+		String sql="update schedule set stime=? where stime=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, yesterday.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+			pstmt.setString(2, fourdays.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+		
 	}
 
 }
