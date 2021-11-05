@@ -13,7 +13,7 @@ public class LoginDao {
 	
 	DbConnect db = new DbConnect();
 	
-	//login_num받아서 개인 데이터얻기_1개
+	//login_num諛쏆븘�꽌 媛쒖씤 �뜲�씠�꽣�뼸湲�_1媛�
 	public LoginDto getOneData(String num) {
 		
 		Connection conn = db.getConnection();
@@ -52,9 +52,47 @@ public class LoginDao {
 		
 	}
 	
-	/* 여기서부터 여은 수정 시작 211104 16:50 */
+	// login_id받아서 개인 데이터얻기_1개
+	public LoginDto getById(String id) {
+
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		LoginDto dto = new LoginDto();
+		String sql = "select * from login where id=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				dto.setNum(rs.getString("num"));
+				dto.setId(rs.getString("id"));
+				dto.setPass(rs.getString("pass"));
+				dto.setNick(rs.getString("nick"));
+				dto.setEmail(rs.getString("email"));
+				dto.setHp(rs.getString("hp"));
+				dto.setPhoto(rs.getString("photo"));
+				dto.setGaipday(rs.getTimestamp("gaipday"));
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+
+		return dto;
+
+	}
+
+	/* �뿬湲곗꽌遺��꽣 �뿬�� �닔�젙 �떆�옉 211104 16:50 */
 	
-	// 아이디 체크_boolean(String id)
+	// �븘�씠�뵒 泥댄겕_boolean(String id)
 	public boolean isIdCheck(String id) {
 
 		boolean isid = false;
@@ -66,13 +104,13 @@ public class LoginDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			// 바인딩
+			// 諛붿씤�뵫
 			pstmt.setString(1, id);
-			// 실행
+			// �떎�뻾
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				// 해당 아이디가 존재할경우 true
+				// �빐�떦 �븘�씠�뵒媛� 議댁옱�븷寃쎌슦 true
 				isid = true;
 			}
 		} catch (SQLException e) {
@@ -86,7 +124,7 @@ public class LoginDao {
 
 	}
 
-	// 아이디에 따른 nick(String id)
+	// �븘�씠�뵒�뿉 �뵲瑜� nick(String id)
 	public String getNick(String id) {
 
 		String nick = "";
@@ -99,9 +137,9 @@ public class LoginDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			// 바인딩
+			// 諛붿씤�뵫
 			pstmt.setString(1, id);
-			// 실행
+			// �떎�뻾
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
@@ -128,7 +166,7 @@ public class LoginDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			// 바인딩
+			// 諛붿씤�뵫
 			pstmt.setString(1, dto.getId());
 			pstmt.setString(2, dto.getPass());
 			pstmt.setString(3, dto.getNick());
@@ -136,7 +174,7 @@ public class LoginDao {
 			pstmt.setString(5, dto.getHp());
 			pstmt.setString(6, dto.getPhoto());
 			
-			// 실행
+			// �떎�뻾
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -147,7 +185,7 @@ public class LoginDao {
 
 	}
 	
-	// 전체리스트
+	// �쟾泥대━�뒪�듃
 	public Vector<LoginDto> getAllDatas() {
 
 		Vector<LoginDto> list = new Vector<LoginDto>();
@@ -188,7 +226,7 @@ public class LoginDao {
 
 	}
 	
-	// 비밀번호 체크(num,pass)
+	// 鍮꾨�踰덊샇 泥댄겕(num,pass)
 	public boolean isPassEqual(String num, String pass) {
 
 		boolean b = false;
@@ -200,10 +238,10 @@ public class LoginDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			// 바인딩
+			// 諛붿씤�뵫
 			pstmt.setString(1, num);
 			pstmt.setString(2, pass);
-			// 실행
+			// �떎�뻾
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
@@ -219,7 +257,7 @@ public class LoginDao {
 
 	}
 	
-	// 삭제
+	// �궘�젣
 	public void deleteData(String num) {
 
 		Connection conn = db.getConnection();
@@ -229,9 +267,9 @@ public class LoginDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			// 바인딩
+			// 諛붿씤�뵫
 			pstmt.setString(1, num);
-			// 실행
+			// �떎�뻾
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -252,14 +290,14 @@ public class LoginDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			// 바인딩
+			// 諛붿씤�뵫
 			pstmt.setString(1, dto.getNick());
 			pstmt.setString(2, dto.getHp());
 			pstmt.setString(3, dto.getEmail());
 			pstmt.setString(4, dto.getPhoto());
 			pstmt.setString(5, dto.getNum());
 
-			// 실행
+			// �떎�뻾
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -270,7 +308,7 @@ public class LoginDao {
 
 	}
 	
-	// 아이디와 비번체크_로그인을 위한
+	// �븘�씠�뵒�� 鍮꾨쾲泥댄겕_濡쒓렇�씤�쓣 �쐞�븳
 	public boolean isIdPass(String id, String pass) {
 
 		boolean b = false;
@@ -282,10 +320,10 @@ public class LoginDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			// 바인딩
+			// 諛붿씤�뵫
 			pstmt.setString(1, id);
 			pstmt.setString(2, pass);
-			// 실행
+			// �떎�뻾
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
