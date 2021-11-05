@@ -23,10 +23,12 @@
 </head>
 
 <%
+request.setCharacterEncoding("utf-8");
 //db선언
 ShopDao db=new ShopDao();
 
 String search=request.getParameter("search");
+//System.out.println(search);
 
 Vector<ShopDto> slist=db.getSearchAllData(search);
 
@@ -95,7 +97,7 @@ no=totalCount-(currentPage-1)*perPage;
         	%>
         	
         	<section class="search-result-item">
-        	<a class="image-link" href="#"><img class="image" src="../save/<%=dto.getPhoto()%>">
+        	<a class="image-link" href="#"><img class="image" src="save/<%=dto.getPhoto()%>">
             </a>
             <div class="search-result-item-body">
                 <div class="row">
