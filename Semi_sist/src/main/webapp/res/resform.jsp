@@ -1,3 +1,11 @@
+<%@page import="data.dto.ScheduleDto"%>
+<%@page import="java.util.List"%>
+<%@page import="data.dao.ScheduleDao"%>
+<%@page import="java.util.Vector"%>
+<%@page import="data.dto.MenuDto"%>
+<%@page import="data.dao.MenuDao"%>
+<%@page import="data.dto.ShopDto"%>
+<%@page import="data.dao.ShopDao"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -16,9 +24,32 @@
 family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap"
 	rel="stylesheet">
 
-<link href='../fullcalendar/main.css' rel='stylesheet' />
-<script src='../fullcalendar/main.js'></script>
-<script src="../fullcalendar/ko.js"></script>
+<%
+String root = request.getContextPath();
+
+int price = 50000; //menu 테이블에서 값 가져올 것
+String shop_num = request.getParameter("shop_num");
+
+ShopDao dao = new ShopDao();
+ShopDto dto = dao.getOneShop(shop_num);
+
+/* MenuDao mdao = new MenuDao();
+Vector<MenuDto> mlist = new Vector<MenuDto>();
+mlist = mdao.getMenu(shop_num);
+ */
+
+ScheduleDao sdao = new ScheduleDao();
+List<ScheduleDto> slist = new Vector<ScheduleDto>();
+slist = sdao.getSchedulData(shop_num);
+ 
+for(ScheduleDto sdto : slist){
+	int stime = sdto.getStime();
+}
+%>
+
+<link href='<%=root %>/fullcalendar/main.css' rel='stylesheet' />
+<script src='<%=root %>/fullcalendar/main.js'></script>
+<script src="<%=root %>/fullcalendar/ko.js"></script>
 <%
 Date now = new Date();
 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -81,16 +112,22 @@ body {
 	color: white;
 }
 
-.btn-active {
+.btn-normal {
+	border: 0;
 	outline: none;
-	background-color: orange;
+}
+
+.btn-active {
+	border: 0;
+	outline: none;
+	background-color: #ffbe0a;
 	color: white;
 }
 
 </style>
 
 <%
-int price = 50000; //menu 테이블에서 값 가져올 것
+
 
 %>
 <title>TasteBook</title>
@@ -98,8 +135,12 @@ int price = 50000; //menu 테이블에서 값 가져올 것
 <link rel="icon" type="image/x-icon" href="../assets/logo1.ico" />
 </head>
 <body>
-	<form name="pay" action="paymentform.jsp" method="post" style="width: 1200px;">
-		<div id='calendar' style="width: 600px; position: absolute; margin-left: 20px;" align="left"></div>
+	<form name="pay" action="paymentform.jsp" method="post" style="width: 1200px; margin-left: 200px;">
+		<span class="glyphicon glyphicon-chevron-left" onclick="history.back()"
+		style="font-size: 2em; cursor: pointer;"></span>
+		<b style="font-size: 2.5em;"><%=dto.getName() %></b>
+		<div>
+		<div id='calendar' style="width: 600px; position: absolute; margin-left: 20px; margin-top: 50px;" align="left"></div>
 		<div style="margin-left: 700px;">
 		<br><br>
 		<div id="seldate" align="left">
@@ -118,7 +159,7 @@ int price = 50000; //menu 테이블에서 값 가져올 것
 			<%-- <input type="radio" name="persons" value="<%=i %>"
 			style="width: 20px; height: 20px;" required="required">
 			<b style="font-size: 15pt;"><%=i %>명</b> --%>
-			<input type="button" name="person" class="btn-p" value="<%=i %>명"
+			<input type="button" name="person" class="btn-p btn-normal" value="<%=i %>명"
 			style="border-radius: 50%; width: 70px; height: 70px; font-size: 13pt;" required="required">
 			<%
 		}%>
@@ -129,13 +170,13 @@ int price = 50000; //menu 테이블에서 값 가져올 것
 		<!-- 시간선택 -->
 		
 		<div id="time" align="left">
-			<input type="button" name="time" class="btn-t" value="오후 12:00"
+			<input type="button" name="time" class="btn-t btn-normal" value="오후 12:00"
 			style="width:120px; height: 60px; font-size: 15pt;">
-			<input type="button" name="time" class="btn-t" value="오후 1:00"
+			<input type="button" name="time" class="btn-t btn-normal" value="오후 1:00"
 			style="width:120px; height: 60px; font-size: 15pt;">
-			<input type="button" name="time" class="btn-t" value="오후 5:00"
+			<input type="button" name="time" class="btn-t btn-normal" value="오후 5:00"
 			style="width:120px; height: 60px; font-size: 15pt;">
-			<input type="button" name="time" class="btn-t" value="오후 6:00"
+			<input type="button" name="time" class="btn-t btn-normal" value="오후 6:00"
 			style="width:120px; height: 60px; font-size: 15pt;">
 			
 			<input type="hidden" name="seltime">
@@ -144,12 +185,12 @@ int price = 50000; //menu 테이블에서 값 가져올 것
 		<!-- 룸/홀 선택 -->
 		<div id="seatsel">
 			<b style="font-size: 13pt;">좌석선택</b>
-			<button type="button" name="seat" class="btn-s" value="룸" style="margin-left: 20px;">
-				<img src="room.jpg"> <span>ROOM</span>
+			<button type="button" name="seat" class="btn-s btn-normal" value="룸" style="margin-left: 20px;">
+				<img src="<%=root %>/res/room.jpg"> <span>ROOM</span>
 			</button>
 			
-			<button type="button" name="seat" class="btn-s" value="홀" style="margin-left: 20px;">
-				<img src="hall.jpg"> <span>HALL</span>
+			<button type="button" name="seat" class="btn-s btn-normal" value="홀" style="margin-left: 20px;">
+				<img src="<%=root %>/res/hall.jpg"> <span>HALL</span>
 			</button>
 			<input type="hidden" name="selseat">
 		</div>
@@ -200,6 +241,7 @@ int price = 50000; //menu 테이블에서 값 가져올 것
 	<div align="right">
 		<input type="button" class="btn btn-warning" value="결제"
 		style="width: 120px; height: 60px; font-size: 15pt;" onclick="payment()">
+	</div>
 	</div>
 	</div>
 	</form>
@@ -275,7 +317,7 @@ int price = 50000; //menu 테이블에서 값 가져올 것
 		var payWin = window.open("", pop_title, "width=550, height=900, toolbar=no, left="+_left+", top="+_top);
 		var frm = document.pay;
 		frm.target = pop_title;
-		frm.action = "paymentform.jsp";
+		frm.action = "<%=root%>/res/paymentform.jsp";
 		frm.submit();
 	}
 	

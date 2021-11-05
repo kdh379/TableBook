@@ -2,10 +2,14 @@ package data.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Vector;
 
+import data.dto.MenuDto;
 import data.dto.ScheduleDto;
 import mysql.DbConnect;
 
@@ -23,13 +27,13 @@ public class ScheduleDao {
 			
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//바인딩
+			//諛붿씤�뵫
 			pstmt.setString(1, dto.getShop_num());
 			pstmt.setInt(2, dto.getStime());
 			pstmt.setInt(3, dto.getRoom());
 			pstmt.setInt(4, dto.getHall());
 			pstmt.setString(5, dto.getSdate());
-			//실행
+			//�떎�뻾
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -64,6 +68,46 @@ public class ScheduleDao {
 			db.dbClose(pstmt, conn);
 		}
 		
+	}
+	
+	//가게 번호에 맞는 스케쥴 불러오기
+	public List<ScheduleDto> getSchedulData(String shop_num){
+		
+		List<ScheduleDto> list = new Vector<ScheduleDto>();
+		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from schedule where shop_num = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ScheduleDto dto = new ScheduleDto();
+				
+				dto.setNum(rs.getString("num"));
+				dto.setShop_num(rs.getString("shop_num"));
+				dto.setStime(rs.getInt("stime"));
+				dto.setRoom(rs.getInt("room"));
+				dto.setHall(rs.getInt("hall"));
+				dto.setRoom_cnt(rs.getInt("room_cnt"));
+				dto.setHall_cnt(rs.getInt("hall_cnt"));
+				dto.setSdate(rs.getString("sdate"));
+				
+				list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return list;
 	}
 
 }

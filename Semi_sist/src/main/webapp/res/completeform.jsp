@@ -24,6 +24,8 @@ family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel=
 </head>
 <%
 
+String root = request.getContextPath();
+
 //방금 예약한 데이터 가져오기
 ResDao dao = new ResDao();
 ResDto dto = dao.getLatestData();
@@ -33,8 +35,8 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 %>
 <body>
 
-<div style="margin-left: 10px; width: 500px;">
-<img alt="" src="../assets/logo1.ico"><br>
+<div style="margin-left: 300px; width: 500px;">
+<img alt="" src="<%=root %>/assets/logo1.ico"><br>
 <hr style="border: 0; width: 500px; height: 2px; background-color: orange; position: absolute;"><br><br><br>
 
 <span style="font-size: 2em; font-weight: bold;">예약이 정상적으로 완료</span>

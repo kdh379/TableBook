@@ -44,7 +44,7 @@ if(seat.equals("룸")){
 	//스케쥴 테이블 hall_cnt +1 증가 dao
 }
 
-response.sendRedirect("completeform.jsp");
+response.sendRedirect("../realindex.jsp?main=res/completeform.jsp");
 %>
 </body>
 </html>
