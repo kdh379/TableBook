@@ -1,3 +1,7 @@
+<%@page import="data.dto.ShopDto"%>
+<%@page import="java.util.List"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="data.dao.ShopDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,9 +21,9 @@
 <link href="css/liststyles.css" rel="stylesheet" />
 </head>
 
-<%-- <%
+<%
 //db선언
-MyBoardDao db=new MyBoardDao();
+ShopDao db=new ShopDao();
 
 SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
@@ -35,7 +39,7 @@ int no;
 
 
 //총갯수
-totalCount=db.getTotalCount();
+//totalCount=db.get
 
 //현재 페이지번호 읽기(단 null일 경우는 1페이지 설정)
 if(request.getParameter("currentPage")==null)
@@ -64,20 +68,40 @@ if(endPage>totalPage)
 start=(currentPage-1)*perPage;
 
 //각 페이지에서 필요한 게시글 가져오기...dao에서 만들었음
-List<MyBoardDto>list=db.getList(start, perPage);
+//List<ShopDto>list=db.getList(start, perPage);
 
 //각 글앞에 붙일 시작번호 구하기
 //총 글이 20개일 경우 1페이지 20, 2페이지 15부터
 //출력해서 1씩 감소해가면서 출력할것
 no=totalCount-(currentPage-1)*perPage;
-%> --%>
+%>
 <body>
 <div class="wrapper">
 <div class="container">
 <div class="row ng-scope">
     <div class="col-md-12">
        <%--  <p class="search-results-count"><b style="font-size: 20pt; font-weight: bold;">총 <%=totalCount %>개의 결과가 있습니다</b></p> --%>
+        
         <section class="search-result-item">
+        <a class="image-link" href="#"><img class="image" src="assets/img/food_img/fish.jpg">
+            </a>
+            <div class="search-result-item-body">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h4 class="search-result-item-heading"><a href="#"><%= %></a></h4>
+                        <p class="info">서울시 관악구 봉천동 238-9 1층</p>
+                        <p class="description">30년째 자리를 지키고 있는 동네 맛집! 제주도에서 당일 올라온 생선! 신선함이 남달라요~</p>
+                    </div>
+                    <div class="col-sm-3 text-align-center">
+                    	<p class="value3 mt-sm">1만 2천원~</p>
+                        <p class="fs-mini text-muted">셋째주 일요일 휴무</p><button type="button" class="btnplus" onclick="location.href='#'">더보기</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- <section class="search-result-item">
             <a class="image-link" href="#"><img class="image" src="assets/img/food_img/fish.jpg">
             </a>
             <div class="search-result-item-body">
@@ -145,6 +169,8 @@ no=totalCount-(currentPage-1)*perPage;
                 </div>
             </div>
         </section>
+     -->
+    
     
     <%-- <!-- 페이징처리 -->
 	<div style="width: 600px; text-align: center;" class="container">

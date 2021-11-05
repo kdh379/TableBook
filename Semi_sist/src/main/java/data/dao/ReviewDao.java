@@ -15,7 +15,7 @@ public class ReviewDao {
 
 	DbConnect db = new DbConnect();
 	
-	//shop_num°ªÀ» ¹Ş¾Æ¼­ ÇØ´ç À½½ÄÁ¡ÀÇ ¸®ºä°³¼ö ¾ò±â
+	//shop_numê°’ì„ ë°›ì•„ì„œ í•´ë‹¹ ìŒì‹ì ì˜ ë¦¬ë·°ê°œìˆ˜ ì–»ê¸°
 	public int getTotalCount(String shop_num) {
 			
 		Connection conn = db.getConnection();
@@ -43,7 +43,7 @@ public class ReviewDao {
 			
 	}
 	
-	//ÆäÀÌÁö¿¡¼­ ÇÊ¿äÇÑ ¸¸Å­¸¸ ¸®ÅÏÇÏ±â(ÀüÃ¼Ãâ·Â)_shop_num¿¡ ÇØ´çÇÏ´Â À½½ÄÁ¡ÀÇ ¸®ºä¸¸!
+	//í˜ì´ì§€ì—ì„œ í•„ìš”í•œ ë§Œí¼ë§Œ ë¦¬í„´í•˜ê¸°(ì „ì²´ì¶œë ¥)_shop_numì— í•´ë‹¹í•˜ëŠ” ìŒì‹ì ì˜ ë¦¬ë·°ë§Œ!
 		public Vector<ReviewDto> getList(int start, int perpage, String shop_num){
 			
 			Vector<ReviewDto> list = new Vector<ReviewDto>();
@@ -56,11 +56,11 @@ public class ReviewDao {
 			
 			try {
 				pstmt=conn.prepareStatement(sql);
-				//¹ÙÀÎµù
+				//ë°”ì¸ë”©
 				pstmt.setString(1, shop_num);
 				pstmt.setInt(2, start);
 				pstmt.setInt(3, perpage);
-				//½ÇÇà
+				//ì‹¤í–‰
 				rs=pstmt.executeQuery();
 				
 				while(rs.next()) {
@@ -100,14 +100,14 @@ public class ReviewDao {
 			
 			try {
 				pstmt=conn.prepareStatement(sql);
-				//¹ÙÀÎµù
+				//ë°”ì¸ë”©
 				pstmt.setString(1, dto.getLogin_num());
 				pstmt.setString(2, dto.getShop_num());
 				pstmt.setString(3, dto.getScore());
 				pstmt.setString(4, dto.getContent());
 				pstmt.setString(5, dto.getWriter());
 				
-				//½ÇÇà
+				//ì‹¤í–‰
 				pstmt.execute();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -165,7 +165,7 @@ public class ReviewDao {
 			
 		}
 		
-		//num°ªÀ» ¹Ş¾Æ¼­ ÇÑ°³ÀÇ ¸®ºä µ¥ÀÌÅÍ °¡Á®¿À±â
+		//numê°’ì„ ë°›ì•„ì„œ í•œê°œì˜ ë¦¬ë·° ë°ì´í„° ê°€ì ¸ì˜¤ê¸°
 		public ReviewDto getOneReview(String num) {
 			
 			Connection conn=db.getConnection();

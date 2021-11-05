@@ -22,7 +22,7 @@ public class ShopDao {
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//¹ÙÀÎµù
+			//ë°”ì¸ë”©
 			pstmt.setString(1, dto.getName());
 			pstmt.setString(2, dto.getTelephone());
 			pstmt.setString(3, dto.getTag());
@@ -32,7 +32,7 @@ public class ShopDao {
 			pstmt.setInt(7, dto.getOpening());
 			pstmt.setInt(8, dto.getClosing());
 			pstmt.setString(9, dto.getIntroduce());
-			//½ÇÇà
+			//ì‹¤í–‰
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -44,7 +44,7 @@ public class ShopDao {
 		
 	}
 	
-	//°¡Àå ÃÖ±Ù¿¡ Ãß°¡µÈ µ¥¾îÅÍÀÇnum °¡Á®¿À±â _ ½ºÄÉÁÙÅ×ÀÌºíinsertÇÒ¶§ÇÊ¿ä
+	//ê°€ì¥ ìµœê·¼ì— ì¶”ê°€ëœ ë°ì–´í„°ì˜num ê°€ì ¸ì˜¤ê¸° _ ìŠ¤ì¼€ì¤„í…Œì´ë¸”insertí• ë•Œí•„ìš”
 	public String getRecentNum() {
 		
 		String num=null;
@@ -72,7 +72,7 @@ public class ShopDao {
 		
 	}
 	
-	//num°ªÀ» ¹Ş¾Æ¼­ ÇØ´ç dtoÇÏ³ª¸¸ °¡Á®¿À±â
+	//numê°’ì„ ë°›ì•„ì„œ í•´ë‹¹ dtoí•˜ë‚˜ë§Œ ê°€ì ¸ì˜¤ê¸°
 	public ShopDto getOneShop(String num) {
 		
 		Connection conn=db.getConnection();
@@ -84,9 +84,9 @@ public class ShopDao {
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//¹ÙÀÎµù
+			//ë°”ì¸ë”©
 			pstmt.setString(1, num);
-			//½ÇÇà
+			//ì‹¤í–‰
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()) {

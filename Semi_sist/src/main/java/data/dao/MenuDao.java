@@ -23,11 +23,11 @@ public class MenuDao {
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//¹ÙÀÎµù
+			//ë°”ì¸ë”©
 			pstmt.setString(1, dto.getShop_num());
 			pstmt.setString(2, dto.getMenu());
 			pstmt.setInt(3, dto.getPrice());
-			//½ÇÇà
+			//ì‹¤í–‰
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -38,7 +38,7 @@ public class MenuDao {
 		
 	}
 	
-	//shop_num ¹Ş¾Æ¼­ ÇØ´ç À½½ÄÁ¡(1°³) ¸Ş´º,°¡°İ¹Ş±â
+	//shop_num ë°›ì•„ì„œ í•´ë‹¹ ìŒì‹ì (1ê°œ) ë©”ë‰´,ê°€ê²©ë°›ê¸°
 		public Vector<MenuDto> getMenu(String shop_num) {
 			
 			Vector<MenuDto> list = new Vector<MenuDto>();

@@ -34,7 +34,12 @@ if(b){
 	session.setAttribute("saveok", cbsave==null?null:"yes");  //아이디 저장 체크시
 	
 	//로그인 메인으로 이동
-	response.sendRedirect("../realindex.jsp?main="+prePage);
+	if(prePage.equals("index.jsp")){
+		response.sendRedirect("../index.jsp");
+	}else{
+		response.sendRedirect("../realindex.jsp?main="+prePage);
+	}
+	
 	
 }else{%>
 	
