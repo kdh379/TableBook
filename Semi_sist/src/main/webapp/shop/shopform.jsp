@@ -79,15 +79,17 @@ div.main{
 <%
 
 //shop의 num
-/* String num = request.getParameter("num"); */  //shop의num
-String num = "13";
+String num = request.getParameter("num");   //shop의num
 
+//shop dao생성
 ShopDao shdao = new ShopDao();
 ShopDto shdto = shdao.getOneShop(num);
 
+//menu dao 생성
 MenuDao mdao = new MenuDao();
 Vector<MenuDto> mlist = mdao.getMenu(num);
 
+//review dao생성
 ReviewDao rdao = new ReviewDao();
 
 int totalCount;  //총 글수
@@ -223,29 +225,29 @@ String loginok = (String) session.getAttribute("loginok");
 
 <div style="clear: both;" class="review">
 
-<h4><b>리뷰</b>&nbsp;(159)</h4>  <!-- totalCount %> -->
+<h4><b>리뷰</b>&nbsp;(<%=rdao.getTotalCount(num) %>)</h4>  <!-- totalCount %> -->
 <!-- 리뷰게시판 -->
 <table style="margin-top: 30px;">
   <%
-  for(int i=0; i<2; i++){    /* rlist.size()까지로 */
+  for(int i=0; i<rlist.size(); i++){    /* rlist.size()까지로 */
 	  
-	  //ReviewDto rdto = rlist.get(i);
-	  //String logPhoto = ldao.getOneData(rdto.getLogin_num()).getPhoto();
-	  //int score = Integer.parseInt(rdto.getScore());
+	  ReviewDto rdto = rlist.get(i);
+	  String logPhoto = ldao.getOneData(rdto.getLogin_num()).getPhoto();
+	  int score = Integer.parseInt(rdto.getScore());
 	  %>
 	  
   <tr>
     <th width="120px;" style="vertical-align: top; text-align: center">
     <!-- save/ logPhoto  -->
-      <img alt="" src="../assets/logo1.ico" style="border-radius: 100px; width: 60px; height: 60px; border: 1px solid black"><br>
-      <font style="font-size: 8px;" >송송송</font>  <!-- ldao.getOneData(rdto.getLogin_num()).getNick() -->
+      <img alt="" src="../save/<%=logPhoto %>" style="border-radius: 100px; width: 60px; height: 60px; border: 1px solid black"><br>
+      <font style="font-size: 8px;" ><%=ldao.getOneData(rdto.getLogin_num()).getNick() %></font>  <!-- ldao.getOneData(rdto.getLogin_num()).getNick() -->
     </th>
     
     <td width="700px;" style="line-height: 25px;">
-      <font color="#a9a9a9 ">2021-10-14</font>  <!-- sdf.format(rdto.getWriteday()) -->
+      <font color="#a9a9a9 "><%=sdf.format(rdto.getWriteday()) %></font>  <!-- sdf.format(rdto.getWriteday()) -->
        <%
-          String id="apeach";
-	      //String id = ldao.getOneData(rdto.getLogin_num());
+          
+	      String id = ldao.getOneData(rdto.getLogin_num()).getId();
 	      //로그인한 아이디와 글쓴 아이디가 같을경우에만 삭제/수정 가능
 	      
 	      if(loginok!=null && id.equals(myid)){%>
@@ -257,11 +259,9 @@ String loginok = (String) session.getAttribute("loginok");
 	      
 	      %>
       <br> 
-      <%-- rdto.getContent() --%>
-      비빔냉면까지 주는 맛집이라 해서 방문했는데 생각보다 족발에서 생강맛이 너무 많이 나서 기대만큼은 아니었던것 같아요. 
-      향이나 맛에 민감해서 잘 캐치해내는데 과했던것같아요. 그래도 비빔냉면과의 조화가 좋았고, 고기는 야들야들 냄새 안나고 맛있었네요.
-      노포집 같은 곳이었는데 사람도 많고 장사 잘되도라고요. 맞은편 건물도 허브족발집이었으니 맛집은 맛집인가봅니다. 직장인들이 많았고 나이드신 분들도 많았어요.<br>
-      <img alt="" src="../assets/logo1.ico" style=" width: 80px; height: 80px; margin-top: 20px;">  <!-- content에 사진포함 -->  
+      <%= rdto.getContent() %>
+      <br>
+       <!-- content에 사진포함 -->  
       
     </td>
   
