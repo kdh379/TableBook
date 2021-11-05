@@ -9,11 +9,32 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com.css2?
 family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel="stylesheet"> -->
+
+<script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 
 <body>
-	<a href="javascript:kakaoLogin();"></a>
-	<script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<a href="#" id="login"> Login </a>
+	<hr>
+	<!-- KaKao Login Btn -->
+	<a id="login-form-btn" href="javascript:loginFormWithKakao()">
+	<img src="../image2/loginkakao.png"
+		width="100%" height="auto" style="max-width: 400px; max-height: 60px" />
+	</a>
+	
+	<script type="text/javascript">
+	Kakao.init('2bbc6c8821bacf88178635f1e2c97dd0');
+	function loginFormWithKakao() {
+		Kakao.Auth.loginForm({
+			success: function(authObj) { Kakao.API.request({
+				url: '/v2/user/me',
+				success: function(res) { console.log(res.kakao_account['email']); console.log(res.id) } }) }, fail: function(err) { alert(JSON.stringify(err)) }, }) } $(document).ready(function(){ })
+
+	</script>
+
+
+	<!-- 	<a href="javascript:kakaoLogin();"></a>
+	
 	<script>
 	/* 2bbc6c8821bacf88178635f1e2c97dd0 */
 	window.Kakao.init("2bbc6c8821bacf88178635f1e2c97dd0");
@@ -33,6 +54,6 @@ family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel=
 			}
 		});
 	}
-	</script>
+	</script> -->
 </body>
 </html>

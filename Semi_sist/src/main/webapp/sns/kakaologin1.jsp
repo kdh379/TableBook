@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html bgproperties="fixed" oncontextmenu="return false" ondragstart="return false">
+<html  bgproperties="fixed" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 <head>
 <meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
 <script type="text/javascript">
 	
 	//사용할 앱의 JavaScript 키를 설정해주세요.
-	Kakao.init('2bbc6c8821bacf88178635f1e2c97dd0');
+	Kakao.init("2bbc6c8821bacf88178635f1e2c97dd0");
 	
 	/* Kakao.Auth.authorize({
 		redirectUri: 'http://localhost:8080/Semi_sist/realindex.jsp?main=sns/kakaoRedirectForm.jsp',

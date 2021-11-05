@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html bgproperties="fixed" oncontextmenu="return false" ondragstart="return false">
+<html bgproperties="fixed" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 <head>
 <meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
@@ -18,6 +18,11 @@
 페이지 내 처리 예제 - createLoginButton<br>
 <a id="kakao-login-btn"></a><br>
 
+*REST API 백엔드 Server단 Java언어<p>
+<a href="https://kauth.kakao.com/oauth/authorize?client_id=e81d7291b30b702409a60afcc2d361ff&redirect_uri=http://localhost:8080/Semi_sist/sns/kakaoRedirectForm.jsp&response_type=code">
+	<img src="../image2/loginkakao.png" style="max-width:250px;">
+</a>
+
 <p>
 <a href="https://developers.kakao.com/logout">로그아웃</a>
 
@@ -29,7 +34,7 @@
 	
 	//<![CDATA
 		//사용할 앱의 JavaScript 키를 설정해주세요.
-		Kakao.init('2bbc6c8821bacf88178635f1e2c97dd0');
+		Kakao.init("2bbc6c8821bacf88178635f1e2c97dd0");
 		//카카오 로그인 버튼을 생성합니다.
 		Kakao.Auth.createLoginButton({
 			container: '#kakao-login-btn',
