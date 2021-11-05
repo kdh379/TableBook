@@ -66,6 +66,7 @@ String loginok=(String)session.getAttribute("loginok");
                     <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=login/loginmain.jsp?prePage=<%= prePage%>">로그인</a></li>
                     <%} else{%>
                     <li class="nav-item"><a class="nav-link" href="login/logoutaction.jsp?prePage=<%= prePage%>">로그아웃</a></li>
+                    <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=gaip/mypageform.jsp">마이페이지</a></li>
                     <% }
                     %> 
 					<li><a href="realindex.jsp?main=shop/questionform.jsp">입점문의</a></li>

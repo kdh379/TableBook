@@ -4246,8 +4246,9 @@ textarea.form-control-lg {
     overflow: visible;
   }
   .navbar-expand-lg .navbar-collapse {
-    display: flex !important;
-    flex-basis: auto;
+    display: block !important;
+    margin-left: 500px;
+    white-space: nowrap;
   }
   .navbar-expand-lg .navbar-toggler {
     display: none;
@@ -7409,7 +7410,8 @@ textarea.form-control-lg {
 }
 
 .ms-auto {
-  margin-left: auto !important;
+  margin-left: 600px;
+  white-space: nowrap;
 }
 
 .p-0 {
