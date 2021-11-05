@@ -14,7 +14,13 @@
 <body>
 <%
 String loginok = (String) session.getAttribute("loginok");
-String prePage = request.getParameter("prePage");
+String prePage = "";
+
+if(request.getParameter("prePage") ==null){
+	prePage = "index.jsp";
+}else{
+	prePage = request.getParameter("prePage");
+}
 
 if(loginok == null){%>
 	
