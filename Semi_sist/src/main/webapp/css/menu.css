@@ -24,6 +24,7 @@ ol, ul {
 	margin:0px;
 }
 #wrap {
+	margin: auto;
 	margin-bottom: 20px;
 }
 
@@ -35,7 +36,7 @@ ol, ul {
 }
 
 .relative {
-	position: absolute;
+	position: relative;
 }
 
 .right {
@@ -53,18 +54,94 @@ ol, ul {
 	height: 162px;
 }
 
+
+#gum{
+	 position: absolute;
+	 outline:none; 
+	 width: 950px; 
+	 height: 45px; 
+	 border: 2px solid #fff; 
+	 border-radius: 45px; 
+	 font-size: 15pt; 
+	 padding-left: 30px; 
+	 margin-top: -100px; 
+	 margin-left:1200px;
+}
+
+#searchbtn{
+	 margin-top: -100px; 
+	 margin-left:2160px; 
+	 position: absolute; 
+	 outline: none; 
+	 border: none; 
+	 background-color: rgb(254,225,14); 
+	 width: 45px; 
+	 height: 45px; 
+	 border-radius: 45px;
+}
+
+#searchicon{
+	display: inline;
+	font-size: 16pt; 
+	color: rgb(108,117,126);
+}
+
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container-sm, .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container-md, .container-sm, .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container-lg, .container-md, .container-sm, .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1320px;
+  }
+}
+
+
+
+
 .logo {
 	display: inline;
 	margin-top:20px;
-	margin-left: 230px;
+	margin-left: -320px;
 	cursor: pointer;
 
 }
 
 #navigation {
-	position: absolute;
-	right: 40px;
-	bottom: 0px;
+	position: relative;
+	right: 1200px;
+	bottom: -50px;
 }
 
 
@@ -72,7 +149,7 @@ ol, ul {
 #main-menu {
 	font-size: 0;
 	margin: 20px 0;
-	margin-left: 2000px;
+	margin-left: 2050px;
 	margin-top: -165px;
 	white-space: nowrap;
 }

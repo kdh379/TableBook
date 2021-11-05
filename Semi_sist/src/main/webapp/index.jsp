@@ -59,12 +59,14 @@
             
         <!-- 검색-->
         <section id="services">
+        <form action="realindex.jsp?main=list/searchresult.jsp" method="post">
             <div class="container">
-            	<input type="text" id="search" style="position: relative; outline:none; border: 5px solid #fff; border-radius: 50px; width: 950px; height: 80px; font-size: 20pt; padding-left: 30px;" placeholder="검색어를 입력해주세요">
-				<button type="submit" style="outline: none; float: right; position: absolute; margin-left: 10px; background-color: rgb(254,225,14); width: 80px; height: 80px; border: none; border-radius: 80px; color: rgb(108,117,126);" onclick="location.href='realindex.jsp?main=list/searchresult.jsp';">
+            	<input type="text" name="search" style="position: relative; outline:none; border: 5px solid #fff; border-radius: 50px; width: 950px; height: 80px; font-size: 20pt; padding-left: 30px;" placeholder="검색어를 입력해주세요">
+				<button type="submit" style="outline: none; float: right; position: absolute; margin-left: 10px; background-color: rgb(254,225,14); width: 80px; height: 80px; border: none; border-radius: 80px; color: rgb(108,117,126);">
 					<i class="fa fa-search" style="display: inline; font-size: 25pt;"></i>
 				</button>
             </div>
+            </form>
         </section>
         </header>
        

@@ -201,7 +201,7 @@ public class ShopDao {
 				PreparedStatement pstmt=null;
 				ResultSet rs=null;
 				
-				String sql="select * from shop where name like ?";
+				String sql="select * from shop where name like ? or tag like ? or addr like ?";
 				
 				Vector<ShopDto> list=new Vector<ShopDto>();
 				
@@ -209,8 +209,8 @@ public class ShopDao {
 					pstmt=conn.prepareStatement(sql);
 					
 					pstmt.setString(1, "%"+search+"%");
-					//pstmt.setString(2, "%"+search+"%");
-					//pstmt.setString(3, "%"+search+"%");
+					pstmt.setString(2, "%"+search+"%");
+					pstmt.setString(3, "%"+search+"%");
 					
 					rs=pstmt.executeQuery();
 					
