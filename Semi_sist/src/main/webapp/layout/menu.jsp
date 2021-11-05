@@ -55,9 +55,9 @@ String loginok=(String)session.getAttribute("loginok");
 			<a id="menu-toggle" class="button dark" href="#"><i class="icon-reorder"></i></a>
 			<nav id="navigation">
 			   <div class="container">
-				<input type="text" placeholder="검색어를 입력해주세요" style="position: absolute; outline:none; width: 950px; height: 45px; border: 2px solid #fff; border-radius: 45px; font-size: 15pt; padding-left: 30px; margin-top: -100px; margin-left:1200px;"/>
-				<button type="submit" style="margin-top: -100px; margin-left:2160px; position: absolute; outline: none; border: none; background-color: rgb(254,225,14); width: 45px; height: 45px; border-radius: 45px;" onclick="location.href='realindex.jsp?main=list/searchresult.jsp';">
-					<i class="fa fa-search" style="display: inline; font-size: 16pt; color: rgb(108,117,126);"></i>
+				<input type="text" placeholder="검색어를 입력해주세요" id="gum"/>
+				<button type="submit" id="searchbtn" onclick="location.href='realindex.jsp?main=list/searchresult.jsp';">
+					<i class="fa fa-search" id="searchicon"></i>
 				</button>
 				<ul id="main-menu">
 					<li><a href="index.jsp">홈</a></li>
