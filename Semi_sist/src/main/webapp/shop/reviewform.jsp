@@ -22,9 +22,10 @@
 	
 	LoginDao ldao = new LoginDao();
 	
+	
 	/* String shop_num = request.getParameter("shop_num");
-	String id = (String) session.getAttribute("");
-	String login_num = ldao.getNumById(id);
+	String myid = (String) session.getAttribute("myid");
+	String login_num = ldao.getNumById(myid);
 	String writer = ldao.getOneData(login_num).getNick();
 	*/
 	String writer="jiwon";

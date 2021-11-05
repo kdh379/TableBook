@@ -151,6 +151,11 @@ LocalDate yesterday = LocalDate.now().minusDays(1);
 LocalDate fourdays = LocalDate.now().plusDays(4);
 System.out.println(yesterday.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))); 
 System.out.println(fourdays.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))); 
+
+
+//세션아이디 얻기
+String myid = (String) session.getAttribute("myid");
+String loginok = (String) session.getAttribute("loginok");
 %>
 
 <body>
@@ -237,7 +242,20 @@ System.out.println(fourdays.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
     </th>
     
     <td width="700px;" style="line-height: 25px;">
-      <font color="#a9a9a9 ">2021-10-14</font><br> <!-- sdf.format(rdto.getWriteday()) -->
+      <font color="#a9a9a9 ">2021-10-14</font>  <!-- sdf.format(rdto.getWriteday()) -->
+       <%
+          String id="apeach";
+	      //String id = ldao.getOneData(rdto.getLogin_num());
+	      //로그인한 아이디와 글쓴 아이디가 같을경우에만 삭제/수정 가능
+	      if(loginok!=null && id.equals(myid)){%>
+	    	 
+	    	 |<a href="#" style="color: black;">수정</a>   <!-- currentpage넘겨주면서 review수정폼으로 가기 -->
+	    	 |<a href="#" style="color: black;">삭제</a>   <!-- currentpage넘겨주면서 review삭제액션으로 가기 -->
+	    	  
+	      <%}
+	      
+	      %>
+      <br> 
       <%-- rdto.getContent() --%>
       비빔냉면까지 주는 맛집이라 해서 방문했는데 생각보다 족발에서 생강맛이 너무 많이 나서 기대만큼은 아니었던것 같아요. 
       향이나 맛에 민감해서 잘 캐치해내는데 과했던것같아요. 그래도 비빔냉면과의 조화가 좋았고, 고기는 야들야들 냄새 안나고 맛있었네요.
