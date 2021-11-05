@@ -83,7 +83,9 @@ public class ScheduleDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, shop_num);
 			rs = pstmt.executeQuery();
+			
 			
 			while(rs.next()) {
 				ScheduleDto dto = new ScheduleDto();

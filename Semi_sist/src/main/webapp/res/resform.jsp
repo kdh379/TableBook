@@ -29,7 +29,7 @@ String root = request.getContextPath();
 
 int price = 50000; //menu 테이블에서 값 가져올 것
 String shop_num = request.getParameter("shop_num");
-
+System.out.println(shop_num);
 ShopDao dao = new ShopDao();
 ShopDto dto = dao.getOneShop(shop_num);
 
@@ -42,9 +42,7 @@ ScheduleDao sdao = new ScheduleDao();
 List<ScheduleDto> slist = new Vector<ScheduleDto>();
 slist = sdao.getSchedulData(shop_num);
  
-for(ScheduleDto sdto : slist){
-	int stime = sdto.getStime();
-}
+
 %>
 
 <link href='<%=root %>/fullcalendar/main.css' rel='stylesheet' />
@@ -170,15 +168,31 @@ body {
 		<!-- 시간선택 -->
 		
 		<div id="time" align="left">
-			<input type="button" name="time" class="btn-t btn-normal" value="오후 12:00"
-			style="width:120px; height: 60px; font-size: 15pt;">
-			<input type="button" name="time" class="btn-t btn-normal" value="오후 1:00"
-			style="width:120px; height: 60px; font-size: 15pt;">
-			<input type="button" name="time" class="btn-t btn-normal" value="오후 5:00"
-			style="width:120px; height: 60px; font-size: 15pt;">
-			<input type="button" name="time" class="btn-t btn-normal" value="오후 6:00"
-			style="width:120px; height: 60px; font-size: 15pt;">
+		
+		<script type="text/javascript">
 			
+		</script>
+			<%
+			for(ScheduleDto sdto : slist){
+				int stime = sdto.getStime();
+				int cnt = 0;
+				String strdate = "";
+				String strtime = "";
+				if(sdto.getSdate().equals("2021-11-03")) {
+					cnt++;
+					if(stime > 12) {
+						strtime = "오후 " + String.valueOf((stime-12)) + "시";
+					}
+					%>
+					<input type="button" name="time" class="btn-t btn-normal" value="<%=strtime %>"
+					style="width:100px; height: 40px; font-size: 15pt;">
+					<%
+					if(cnt == 4) { 
+					%> <br> <%
+					}					
+				}
+			}
+			%>
 			<input type="hidden" name="seltime">
 		</div>
 		<br>
