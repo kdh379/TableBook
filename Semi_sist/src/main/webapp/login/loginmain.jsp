@@ -14,11 +14,13 @@
 <body>
 <%
 String loginok = (String) session.getAttribute("loginok");
+String prePage = request.getParameter("prePage");
 
 if(loginok == null){%>
 	
-	<jsp:include page="loginform.jsp"/>
-	
+	<jsp:include page="loginform.jsp">
+		<jsp:param value="<%=prePage %>" name="prePage"/>
+	</jsp:include>
 <%}else{%>
 
 	<jsp:include page="logoutform.jsp"/>

@@ -37,7 +37,9 @@ if(request.getParameter("main")!=null){
 </div> --%>
 
 <div class="layout menu">
-	<jsp:include page="layout/menu.jsp"></jsp:include>
+	<jsp:include page="layout/menu.jsp">
+		<jsp:param value="<%=mainPage %>" name="prePage"/>
+	</jsp:include>
 </div>
 <div class="layout main">
 	<jsp:include page="<%=mainPage %>"></jsp:include>

@@ -19,6 +19,7 @@ request.setCharacterEncoding("utf-8");
 String id = request.getParameter("id");
 String pass = request.getParameter("pass");
 String cbsave = request.getParameter("cbsave");  //체크안하면 null 체크하면 on
+String prePage = request.getParameter("prePage");
 
 LoginDao dao = new LoginDao();
 boolean b = dao.isIdPass(id, pass);
@@ -33,7 +34,7 @@ if(b){
 	session.setAttribute("saveok", cbsave==null?null:"yes");  //아이디 저장 체크시
 	
 	//로그인 메인으로 이동
-	response.sendRedirect("../index.jsp?main=login/loginmain.jsp");
+	response.sendRedirect("../realindex.jsp?main="+prePage);
 	
 }else{%>
 	

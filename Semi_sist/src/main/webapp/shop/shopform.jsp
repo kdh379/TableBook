@@ -41,7 +41,7 @@ hr{
 table#info{
 	
 	
-	margin-bottom: 70px;
+	margin-bottom: 10px;
 }
 
 table#info tr{
@@ -103,7 +103,8 @@ int currentPage;  //현재페이지
 int no;
 
 //총개수
-totalCount=rdao.getTotalCount(num);
+/* totalCount=rdao.getTotalCount(num); */
+totalCount=3;
 
 //현재페이지번호 읽기(단 null일경우 1페이지 설정)
 if(request.getParameter("currentPage")==null){
@@ -162,8 +163,12 @@ String loginok = (String) session.getAttribute("loginok");
 
 <body>
 <!-- 음식점정보 + 리뷰게시판 -->
-<div class="main" style="width: 800px; float: left; padding: 10px">
-<h3><b><%=shdto.getName() %></b><font color="orange" style="margin-left: 20px;">4.6</font></h3>
+<div class="main" style="width: 800px; float: left; padding: 10px" >
+<b style="font-size: 20pt;"><%=shdto.getName() %></b><font color="orange" style="margin-left: 20px; clear: both;">4.6</font>
+
+<button type="button" class="btn btn-info" style="margin-left: 600px; margin-top: -60px;"
+ onclick="location.href='realindex.jsp?main=res/resform.jsp?shop_num=<%=num%>'">예약하기</button>
+   
 <hr>
 
 <div style="clear: both;"></div>
@@ -173,6 +178,11 @@ String loginok = (String) session.getAttribute("loginok");
   <tr>
     <th width="100px">주소</th>
     <td><%=shdto.getAddr() %></td>
+    <td rowspan="5+<%=mlist.size()%>" align="right">
+      
+  <div id="map" style="width:300px;height:200px;"></div>
+
+    </td>
   </tr>
   
   <tr>
@@ -210,6 +220,8 @@ String loginok = (String) session.getAttribute("loginok");
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=mdto.getPrice() %>원</td>
     
   </tr>
+  
+
 	  
   <%}
   
@@ -325,10 +337,10 @@ String loginok = (String) session.getAttribute("loginok");
 
 </div>
 <!-- 카카오맵 -->
-<div class="kakao" style=" float: left; margin-top: 60px; margin-left: 50px;;
+<!-- <div class="kakao" style=" float: left; margin-top: 60px; margin-left: 50px;;
 background-color: #ccc;">
   <div id="map" style="width:400px;height:300px;"></div>
-</div>
+</div> -->
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ce57a245894a14227a15fecd0184864b&libraries=services"></script>
 	<script>
 	

@@ -16,6 +16,7 @@
 <%
 String saveok = (String) session.getAttribute("saveok");
 String myid = "";
+String prePage = request.getParameter("prePage");
 
 if(saveok != null){
 	myid = (String) session.getAttribute("myid");
@@ -27,6 +28,7 @@ if(saveok != null){
   <form action="login/loginaction.jsp" method="post" class="form-inline">
     <table class="table table-bordered" style="width: 300px;">
       <caption><b>세션 로그인</b></caption>
+      
         <tr>
           <td colspan="2" align="center">
           
@@ -71,7 +73,7 @@ if(saveok != null){
 		
     	</tr>
     </table>
-  
+  <input type="hidden" name="prePage" value="<%=prePage%>">
   </form>
   
 </div>
