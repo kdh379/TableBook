@@ -23,7 +23,7 @@ String nick = dao.getNick(myid);
 <b style="color: tomato; text-align: center;"><%= nick%></b>님 환영합니다!&nbsp;&nbsp;&nbsp;
 <button type="button" onclick="location.href='login/logoutaction.jsp'" 
 class="btn btn-danger">로그아웃</button>
-<button type="button" onclick="location.href='index.jsp?main=myboard/myboardlist.jsp'" 
+<button type="button" onclick="location.href='realindex.jsp?main=gaip/mypageform.jsp'" 
 class="btn btn-info">내 정보</button>
 
 
