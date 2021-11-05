@@ -247,10 +247,11 @@ String loginok = (String) session.getAttribute("loginok");
           String id="apeach";
 	      //String id = ldao.getOneData(rdto.getLogin_num());
 	      //로그인한 아이디와 글쓴 아이디가 같을경우에만 삭제/수정 가능
+	      
 	      if(loginok!=null && id.equals(myid)){%>
 	    	 
-	    	 |<a href="#" style="color: black;">수정</a>   <!-- currentpage넘겨주면서 review수정폼으로 가기 -->
-	    	 |<a href="#" style="color: black;">삭제</a>   <!-- currentpage넘겨주면서 review삭제액션으로 가기 -->
+	    	 |<a href="#" style="color: blue;">수정</a>   <!-- shop_num과 currentpage와 num(rdto.getNum())넘겨주면서 review수정폼으로 가기 -->
+	    	 |<a href="#" style="color: red;">삭제</a>   <!-- shop_num과 currentpage와 num넘겨주면서 review삭제액션으로 가기 -->
 	    	  
 	      <%}
 	      
