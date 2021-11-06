@@ -69,7 +69,13 @@
             </form>
         </section>
         </header>
+       <!-- 평점순 구현 -->
+       <%
        
+       
+       
+       
+       %>
         <!-- 평점순-->
         <div id="score">
         <section class="page-section bg-light" id="portfolio">

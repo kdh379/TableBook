@@ -200,5 +200,39 @@ public class ReviewDao {
 			return dto;
 			
 		}
+		
+		//shop_num받아서 리뷰 score의 합얻기
+		public int getSumScore(String shop_num) {
+			
+			int sum=0;
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			
+			String sql = "select score from review where shop_num=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, shop_num);
+				rs=pstmt.executeQuery();
+				
+				while(rs.next()) {
+					sum+= rs.getInt("score");
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				db.dbClose(rs, pstmt, conn);
+			}
+			
+			
+			
+			return sum;
+			
+		}
+		
+		
+		
 	
 }
