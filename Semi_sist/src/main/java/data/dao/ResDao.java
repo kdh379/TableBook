@@ -78,4 +78,46 @@ public class ResDao {
 		}
 		return dto;
 	}
+	
+	// 전체출력..부모 원글에대한 댓글이기 때문에 파라미터 login_num
+	public List<ResDto> getAllRes(String login_num) {
+
+		List<ResDto> list = new Vector<ResDto>();
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "select * from reservation where login_num=? order by num";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, login_num);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				ResDto dto = new ResDto();
+
+				dto.setNum(rs.getString("num"));
+				dto.setLogin_num(rs.getString("login_num"));
+				dto.setShop_num(rs.getString("shop_num"));
+				dto.setShop_name(rs.getString("shop_name"));
+				dto.setRes_date(rs.getString("res_date"));
+				dto.setPersons(rs.getString("persons"));
+				dto.setPrice(rs.getString("price"));
+				dto.setSeat(rs.getString("seat"));
+				dto.setPaymentdate(rs.getTimestamp("paymentdate"));
+
+				list.add(dto);
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+
+		return list;
+
+	}
 }
