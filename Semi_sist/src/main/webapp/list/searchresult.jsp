@@ -75,7 +75,7 @@ if(endPage>totalPage)
 start=(currentPage-1)*perPage;
 
 //각 페이지에서 필요한 게시글 가져오기...dao에서 만들었음
-List<ShopDto>list=db.getList(start, perPage);
+List<ShopDto>list=db.getSearchList(start, perPage, search);
 
 //각 글앞에 붙일 시작번호 구하기
 //총 글이 20개일 경우 1페이지 20, 2페이지 15부터
@@ -91,9 +91,9 @@ no=totalCount-(currentPage-1)*perPage;
     <div class="col-md-12">
         <p class="search-results-count"><b style="font-size: 20pt; font-weight: bold;">총 <%=totalCount %>개의 결과가 있습니다</b></p>
         
-        <% for(int i=0;i<slist.size();i++){
+        <% for(int i=0;i<list.size();i++){
         	
-        	ShopDto dto = slist.get(i);
+        	ShopDto dto = list.get(i);
         	%>
         	
         	<section class="search-result-item">
@@ -122,7 +122,7 @@ no=totalCount-(currentPage-1)*perPage;
 	//이전
 	if(startPage>1){%>
 		<li>
-			<a href="realindex.jsp?main=list/searchresult.jsp?currentPage=<%=startPage-1%>">이전</a>
+			<a href="realindex.jsp?main=list/searchresult.jsp?currentPage=<%=startPage-1%>&search=<%=search%>">이전</a>
 		</li>
 	<%}
 	
@@ -131,12 +131,12 @@ no=totalCount-(currentPage-1)*perPage;
 		if(p==currentPage){
 			%>
 			<li class="active">
-				<a href="realindex.jsp?main=list/searchresult.jsp?currentPage=<%=p%>"><%=p %></a>
+				<a href="realindex.jsp?main=list/searchresult.jsp?currentPage=<%=p%>&search=<%=search%>"><%=p %></a>
 			</li>
 		<%} else{
 			%>
 			<li>
-				<a href="realindex.jsp?main=list/searchresult.jsp?currentPage=<%=p%>"><%=p %></a>
+				<a href="realindex.jsp?main=list/searchresult.jsp?currentPage=<%=p%>&search=<%=search%>"><%=p %></a>
 			</li>
 		<%}
 	}
@@ -145,7 +145,7 @@ no=totalCount-(currentPage-1)*perPage;
 	if(endPage<totalPage){%>
 		
 		<li>
-			<a href="realindex.jsp?main=list/searchresult.jsp?currentPage=<%=endPage+1%>">다음</a>
+			<a href="realindex.jsp?main=list/searchresult.jsp?currentPage=<%=endPage+1%>&search=<%=search%>">다음</a>
 		</li>
 		
 	<%}
