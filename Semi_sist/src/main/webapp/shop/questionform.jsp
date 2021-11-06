@@ -52,7 +52,7 @@ background-color: #F5F5F8;
             </div>
             <div class="col-sm-6 col-md-offset-3">
             <!-- action으로 보낼 폼 -->
-                <form action="questionaction.jsp?" method="post" enctype="multipart/form-data" >
+                <form action="shop/questionaction.jsp" method="post" enctype="multipart/form-data" >
                 <!-- 매장명 -->
                     <div class="form-group">
                         <label for="inputName">매장명&nbsp;&nbsp;<font color="red">*</font></label>

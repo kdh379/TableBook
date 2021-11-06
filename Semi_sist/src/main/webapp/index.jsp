@@ -90,11 +90,11 @@
        Vector<ShopDto> list = shdao.getAllShopOrderByAvg();
        
        ShopDto shdto1 = list.get(0);
-       /* ShopDto shdto2 = list.get(1);
+       ShopDto shdto2 = list.get(1);
        ShopDto shdto3 = list.get(2);
        ShopDto shdto4 = list.get(3);
        ShopDto shdto5 = list.get(4);
-       ShopDto shdto6 = list.get(5); */
+       ShopDto shdto6 = list.get(5);
        %>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
@@ -114,75 +114,75 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 2-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                            <a class="portfolio-link" href="realindex.jsp?main=shop/shopform.jsp?num=<%=shdto2.getNum()%>">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto2.getPhoto() %>" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Explore</div>
-                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                                <div class="portfolio-caption-heading"><%=shdto2.getName() %></div>
+                                <div class="portfolio-caption-subheading text-muted"><%=shdto2.getAddr() %></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 3-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                            <a class="portfolio-link" href="realindex.jsp?main=shop/shopform.jsp?num=<%=shdto3.getNum()%>">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/3.jpg" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto3.getPhoto() %>" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Finish</div>
-                                <div class="portfolio-caption-subheading text-muted">Identity</div>
+                                <div class="portfolio-caption-heading"><%=shdto3.getName() %></div>
+                                <div class="portfolio-caption-subheading text-muted"><%=shdto3.getAddr() %></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
                         <!-- Portfolio item 4-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                            <a class="portfolio-link" href="realindex.jsp?main=shop/shopform.jsp?num=<%=shdto4.getNum()%>">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/4.jpg" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto4.getPhoto() %>" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Lines</div>
-                                <div class="portfolio-caption-subheading text-muted">Branding</div>
+                                <div class="portfolio-caption-heading"><%=shdto4.getName() %></div>
+                                <div class="portfolio-caption-subheading text-muted"><%=shdto4.getAddr() %></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
                         <!-- Portfolio item 5-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                            <a class="portfolio-link"  href="realindex.jsp?main=shop/shopform.jsp?num=<%=shdto5.getNum()%>">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/5.jpg" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto5.getPhoto() %>" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Southwest</div>
-                                <div class="portfolio-caption-subheading text-muted">Website Design</div>
+                                <div class="portfolio-caption-heading"><%=shdto5.getName() %></div>
+                                <div class="portfolio-caption-subheading text-muted"><%=shdto5.getAddr() %></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <!-- Portfolio item 6-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                            <a class="portfolio-link" href="realindex.jsp?main=shop/shopform.jsp?num=<%=shdto6.getNum()%>">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/6.jpg" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto6.getPhoto() %>" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Window</div>
-                                <div class="portfolio-caption-subheading text-muted">Photography</div>
+                                <div class="portfolio-caption-heading"><%=shdto6.getName() %></div>
+                                <div class="portfolio-caption-subheading text-muted"><%=shdto6.getAddr() %></div>
                             </div>
                         </div>
                     </div>
