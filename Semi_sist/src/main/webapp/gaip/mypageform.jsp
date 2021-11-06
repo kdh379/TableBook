@@ -51,7 +51,7 @@ top.document.title = 'TasteBook | 마이페이지';
 <hr>
 
 &nbsp;&nbsp;&nbsp;
-<button type="button" style="margin-left: 700px;" onclick="location.href=#" 
+<button type="button" style="margin-left: 700px;" onclick="location.href='realindex.jsp?main=res/yeyaklist.jsp'" 
 class="btn btn-info">예약관리</button>
 &nbsp;&nbsp;&nbsp;
 <button type="button" style="margin-left: 100px;" onclick="location.href='realindex.jsp?main=review/reviewform.jsp'" 

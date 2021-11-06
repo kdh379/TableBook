@@ -41,7 +41,7 @@ if(loginok!=null) { //로그인 중일때만 폼 보이게 하기
 LoginDao ldao = new LoginDao();
 
 /* for(ResDto dto:list) {
-	String nick = ldao.get
+		
 } */
 %>
 </div>
