@@ -152,8 +152,8 @@ ScheduleDao scdao = new ScheduleDao();
 scdao.updateSdate();
 LocalDate yesterday = LocalDate.now().minusDays(1);
 LocalDate fourdays = LocalDate.now().plusDays(4);
-System.out.println(yesterday.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))); 
-System.out.println(fourdays.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))); 
+//System.out.println(yesterday.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))); 
+//System.out.println(fourdays.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))); 
 
 
 //세션아이디 얻기
