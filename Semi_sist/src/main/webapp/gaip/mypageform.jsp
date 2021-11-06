@@ -52,7 +52,7 @@ String nick = dao.getNick(myid);
 <button type="button" style="margin-left: 700px;" onclick="location.href=#" 
 class="btn btn-info">예약관리</button>
 &nbsp;&nbsp;&nbsp;
-<button type="button" style="margin-left: 100px;" onclick="location.href='../index.jsp?main=review/reviewform.jsp'" 
+<button type="button" style="margin-left: 100px;" onclick="location.href='realindex.jsp?main=review/reviewform.jsp'" 
 class="btn btn-info">리뷰관리</button>
 <br>
 <hr>
