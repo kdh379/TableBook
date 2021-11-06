@@ -61,7 +61,7 @@ String loginok=(String)session.getAttribute("loginok");
 					<i class="fa fa-search" id="searchicon"></i>
 				</button>
 				</form>
-				<ul id="main-menu">
+				<ul id="main-menu" style="margin-left: 420px;">
 					<li><a href="index.jsp">홈</a></li>
 					<%
                     if(loginok==null){%>

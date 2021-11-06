@@ -28,28 +28,34 @@
 %> 
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="#page-top"><img src="assets/img/logo2.png" alt="..." style="height: 120px; margin-left: 100px;" /></a>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="margin-left: -1200px;">
+            <div class="container" style="display: flex;">
+                <a class="navbar-brand" href="#page-top"><img src="assets/img/logo2.png" alt="..." style="height: 120px; margin-left: 500px;" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <div class="collapse navbar-collapse" id="navbarResponsive" style="margin-left: 140px;">
+                       <%
+                        if(loginok==null){%>
+                        <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#services">검색</a></li>
                         <li class="nav-item"><a class="nav-link" href="#score">평점순</a></li>
                         <li class="nav-item"><a class="nav-link" href="#review">리뷰순</a></li>
-                       <%
-                        if(loginok==null){%>
                         <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=login/loginmain.jsp">로그인</a></li>
+                        <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=shop/questionform.jsp">입점문의</a></li>
+                      	</ul>
                        <%} else{%>
+                       <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0" style="margin-left: 440px;">
+                        <li class="nav-item"><a class="nav-link" href="#services">검색</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#score">평점순</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#review">리뷰순</a></li>
                        <li class="nav-item"><a class="nav-link" href="login/logoutaction.jsp">로그아웃</a></li>
                        <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=gaip/mypageform.jsp">마이페이지</a></li>
+                       <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=shop/questionform.jsp">입점문의</a></li>
+                       </ul>
                        <% }
                         %> 
-                        <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=shop/questionform.jsp">입점문의</a></li>
-                    </ul>
                 </div>
             </div>
         </nav>
@@ -103,7 +109,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="save/<%=shdto1.getPhoto() %>" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto1.getPhoto() %>" alt="..." style="width: 420px; height: 420px; object-fit: cover;" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading"><%=shdto1.getName() %></div>
@@ -118,7 +124,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="save/<%=shdto2.getPhoto() %>" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto2.getPhoto() %>" alt="..." style="width: 420px; height: 420px; object-fit: cover;" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading"><%=shdto2.getName() %></div>
@@ -133,7 +139,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="save/<%=shdto3.getPhoto() %>" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto3.getPhoto() %>" alt="..." style="width: 420px; height: 420px; object-fit: cover;" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading"><%=shdto3.getName() %></div>
@@ -148,7 +154,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="save/<%=shdto4.getPhoto() %>" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto4.getPhoto() %>" alt="..." style="width: 420px; height: 420px; object-fit: cover;" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading"><%=shdto4.getName() %></div>
@@ -163,7 +169,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="save/<%=shdto5.getPhoto() %>" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto5.getPhoto() %>" alt="..." style="width: 420px; height: 420px; object-fit: cover;"/>
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading"><%=shdto5.getName() %></div>
@@ -178,7 +184,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="save/<%=shdto6.getPhoto() %>" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto6.getPhoto() %>" alt="..." style="width: 420px; height: 420px; object-fit: cover;" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading"><%=shdto6.getName() %></div>
@@ -219,7 +225,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="save/<%=shdto11.getPhoto() %>" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto11.getPhoto() %>" alt="..." style="width: 420px; height: 420px; object-fit: cover;" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading"><%=shdto11.getName() %></div>
@@ -234,7 +240,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="save/<%=shdto22.getPhoto() %>" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto22.getPhoto() %>" alt="..." style="width: 420px; height: 420px; object-fit: cover;" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading"><%=shdto22.getName() %></div>
@@ -249,7 +255,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="save/<%=shdto33.getPhoto() %>" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto33.getPhoto() %>" alt="..." style="width: 420px; height: 420px; object-fit: cover;" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading"><%=shdto33.getName() %></div>
@@ -264,7 +270,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="save/<%=shdto44.getPhoto() %>" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto44.getPhoto() %>" alt="..." style="width: 420px; height: 420px; object-fit: cover;" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading"><%=shdto44.getName() %></div>
@@ -279,7 +285,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="save/<%=shdto55.getPhoto() %>" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto55.getPhoto() %>" alt="..." style="width: 420px; height: 420px; object-fit: cover;" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading"><%=shdto55.getName() %></div>
@@ -294,7 +300,7 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="save/<%=shdto66.getPhoto() %>" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto66.getPhoto() %>" alt="..." style="width: 420px; height: 420px; object-fit: cover;" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading"><%=shdto66.getName() %></div>

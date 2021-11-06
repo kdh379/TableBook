@@ -600,8 +600,9 @@ progress {
 }
 
 .img-fluid {
-  max-width: 100%;
-  height: auto;
+  width: 420px !important;
+  height: 420px !important;
+  object-fit: cover !important; 
 }
 
 .img-thumbnail {
@@ -4246,8 +4247,8 @@ textarea.form-control-lg {
     overflow: visible;
   }
   .navbar-expand-lg .navbar-collapse {
-    display: block !important;
-    margin-left: 500px;
+    display: flex;
+    justify-content: center;
     white-space: nowrap;
   }
   .navbar-expand-lg .navbar-toggler {
@@ -9794,6 +9795,7 @@ textarea.form-control-lg {
   .py-lg-0 {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+    padding-left: 200px;
   }
 
   .py-lg-1 {
