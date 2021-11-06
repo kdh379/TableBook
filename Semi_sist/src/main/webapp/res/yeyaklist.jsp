@@ -24,6 +24,9 @@ ResDao dao = new ResDao();
 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 %>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 예약정보';
+</script>
 <%
 if(loginok!=null) { //로그인 중일때만 폼 보이게 하기
 	%>

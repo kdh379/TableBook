@@ -118,7 +118,7 @@ top.document.title = 'TasteBook | 검색결과';
         <%}%>
         
     <!-- 페이징처리 -->
-	<div style="width: 600px; text-align: center;" class="container">
+	<div class="container">
 	<ul class="pagination" style="margin-top: 20px;">
 	<%
 	//이전

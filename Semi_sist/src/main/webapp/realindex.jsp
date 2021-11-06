@@ -47,12 +47,12 @@ if(request.getParameter("main")!=null){
 
 
 	<!-- Footer-->
-	<footer class="footer py-4" style="background-color: #fff; margin-top: 20px; padding-top: 20px;">
+	<footer class="footer py-4" style="background-color: #212529; color: #fff; margin-top: 20px; padding-top: 20px;">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-4 text-lg-start">
 					<dl>
-						<dt style="font-size: 12pt; margin-bottom: 10pt;">쌍용교육센터 5조 세미프로젝트</dt>
+						<dt style="font-size: 12pt; margin-bottom: 10pt; color: #ffc800">쌍용교육센터 5조 세미프로젝트</dt>
 						<dd style="margin-left: 10px;">김도현</dd>
 						<dd style="margin-left: 10px;">김보라</dd>
 						<dd style="margin-left: 10px;">박여은</dd>

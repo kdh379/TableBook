@@ -39,8 +39,6 @@ hr{
 }
 
 table#info{
-	
-	
 	margin-bottom: 10px;
 }
 
@@ -299,7 +297,7 @@ top.document.title = 'TasteBook | 상세페이지';
 
 <!-- 페이징처리 -->
 <div class="container">
-  <ul class="pagination">
+  <ul class="pagination" style="margin-top: -5px;">
   <%
   //이전
   if(startPage>1){
