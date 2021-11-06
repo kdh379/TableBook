@@ -13,6 +13,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 회원가입';
+</script>
 <%
 request.setCharacterEncoding("utf-8");
 

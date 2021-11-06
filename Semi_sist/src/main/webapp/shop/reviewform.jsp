@@ -46,7 +46,9 @@
 	
 </head>
 <body>
-
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 리뷰작성';
+</script>
 <form action="reviewaction.jsp" method="post" id="frm">
 
 	<table class="table table-bordered" style="width: 800px;margin-left: 100px;">

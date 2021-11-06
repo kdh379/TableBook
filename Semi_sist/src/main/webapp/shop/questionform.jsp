@@ -36,11 +36,13 @@ background-color: #F5F5F8;
 
 
 </script>
-<title>TasteBook</title>
 <!-- Favicon 즐겨찾기 아이콘(favorites icon)-->
 <link rel="icon" type="image/x-icon" href="../assets/logo1.ico" />
 </head>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 입점문의';
+</script>
 
         <article class="container" style="background-color: #f5f5f5; font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';">
             <div class="page-header" >

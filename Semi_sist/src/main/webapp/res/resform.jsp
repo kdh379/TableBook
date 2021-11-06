@@ -132,6 +132,9 @@ body {
 <link rel="icon" type="image/x-icon" href="../assets/logo1.ico" />
 </head>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 예약하기';
+</script>
 	<form name="pay" action="paymentform.jsp" method="post" style="width: 1200px; margin-left: 200px;">
 		<input type="hidden" name="shop_num" value="<%=shop_num %>"> <!-- 가게번호 -->
 		<span class="glyphicon glyphicon-chevron-left" onclick="history.back()"

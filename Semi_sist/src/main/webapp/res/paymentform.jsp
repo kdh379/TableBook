@@ -22,11 +22,13 @@
 <link href="https://fonts.googleapis.com/css2?
 family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 
-<title>TasteBook</title>
 <!-- Favicon 즐겨찾기 아이콘(favorites icon)-->
 <link rel="icon" type="image/x-icon" href="../assets/logo1.ico" />
 </head>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 예약하기';
+</script>
 <%
 request.setCharacterEncoding("utf-8");
 

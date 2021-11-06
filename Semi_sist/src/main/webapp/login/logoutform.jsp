@@ -13,6 +13,9 @@
 <title>로그아웃 폼</title>
 </head>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook';
+</script>
 <%
 String myid = (String) session.getAttribute("myid");
 LoginDao dao = new LoginDao();

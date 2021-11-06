@@ -24,6 +24,9 @@ if(saveok != null){
 
 %>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 로그인';
+</script>
 <div style="margin-left: 130px;">
   <form action="login/loginaction.jsp" method="post" class="form-inline">
     <table class="table table-bordered" style="width: 300px;">

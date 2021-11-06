@@ -10,9 +10,11 @@
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<title>회원정보수정 시 비번입력창</title>
 </head>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 회원정보수정';
+</script>
 <%
 String num = request.getParameter("num");
 String key = request.getParameter("key");

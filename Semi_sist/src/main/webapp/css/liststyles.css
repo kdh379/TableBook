@@ -124,6 +124,7 @@ ul.pagination {
     display: inline-block;
     padding: 0;
     margin: 0;
+    
 }
 
 ul.pagination li {display: inline;}
@@ -136,8 +137,11 @@ ul.pagination li a {
 }
 
 ul.pagination li a.active {
-    background-color: rgb(254,225,14);
-    color: rgb(108,117,126);
+    background-color: rgb(254,225,14) !important;
+    color: rgb(108,117,126) !important;
 }
 
-ul.pagination li a:hover:not(.active) {background-color: #ddd;}
+ul.pagination li a:hover:not(.active) {
+	background-color: rgb(108,117,126) important; 
+	color: #fff !important;
+}

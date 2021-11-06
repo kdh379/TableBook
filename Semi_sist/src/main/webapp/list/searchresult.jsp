@@ -15,7 +15,6 @@
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<title>TasteBook</title>
 <!-- Favicon 즐겨찾기 아이콘(favorites icon)-->
 <link rel="icon" type="image/x-icon" href="../assets/logo1.ico" />
 <!--검색결과 CSS-->
@@ -85,6 +84,9 @@ no=totalCount-(currentPage-1)*perPage;
 
 %>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 검색결과';
+</script>
 <div class="wrapper">
 <div class="container">
 <div class="row ng-scope">
@@ -117,7 +119,7 @@ no=totalCount-(currentPage-1)*perPage;
         
     <!-- 페이징처리 -->
 	<div style="width: 600px; text-align: center;" class="container">
-	<ul class="pagination">
+	<ul class="pagination" style="margin-top: 20px;">
 	<%
 	//이전
 	if(startPage>1){%>

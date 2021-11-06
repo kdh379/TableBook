@@ -9,13 +9,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&display=swap"
 rel="stylesheet">
-<title>Insert title here</title>
 </head>
 <%
 String root = request.getContextPath();
 
 %>
 <body>
+
 <h4><b>리뷰</b>&nbsp;(159)</h4>
 
 <table>

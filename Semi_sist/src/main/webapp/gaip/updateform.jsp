@@ -54,7 +54,6 @@
 
 	}
 </script>
-<title>회원정보수정폼</title>
 </head>
 <%
 request.setCharacterEncoding("utf-8");
@@ -74,6 +73,9 @@ String email1 = email.substring(0, idx); //0번부터 idx-1까지
 String email2 = email.substring(idx + 1);
 %>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 회원정보수정';
+</script>
 <form action="gaip/gaipupdate.jsp" method="post" class="form-inline" name="gaipfrm"
 onsubmit="return check(this)" enctype="multipart/form-data">
 <!-- hidden -->

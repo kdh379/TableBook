@@ -13,9 +13,11 @@
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<title>회원가입</title>
 </head>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook';
+</script>
 	<%
 	//한글엔코딩
 	request.setCharacterEncoding("utf-8");

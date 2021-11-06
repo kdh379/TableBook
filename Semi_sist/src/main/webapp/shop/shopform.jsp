@@ -72,7 +72,7 @@ div.main{
 
 
 </style>
-<title>TasteBook</title>
+
 <!-- Favicon 즐겨찾기 아이콘(favorites icon)-->
 <link rel="icon" type="image/x-icon" href="../assets/logo1.ico" />
 </head>
@@ -162,6 +162,9 @@ String loginok = (String) session.getAttribute("loginok");
 %>
 
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 상세페이지';
+</script>
 <!-- 음식점정보 + 리뷰게시판 -->
 <div class="main" style="width: 800px; float: left; padding: 10px" >
 <b style="font-size: 20pt;"><%=shdto.getName() %></b><font color="orange" style="margin-left: 20px; clear: both;">4.6</font>

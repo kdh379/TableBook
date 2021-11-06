@@ -50,9 +50,11 @@
 
 	}
 </script>
-<title>회원가입폼</title>
 </head>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 회원가입';
+</script>
 <form action="gaip/gaipadd.jsp" method="post" class="form-inline" name="gaipfrm"
 onsubmit="return check(this)" enctype="multipart/form-data">
   <table class="table table-bordered" style="width: 500px;">

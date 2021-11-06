@@ -38,7 +38,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive" style="margin-left: 140px;">
                        <%
                         if(loginok==null){%>
-                        <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0" style="margin-left: 410px;">
                         <li class="nav-item"><a class="nav-link" href="#services">검색</a></li>
                         <li class="nav-item"><a class="nav-link" href="#score">평점순</a></li>
                         <li class="nav-item"><a class="nav-link" href="#review">리뷰순</a></li>
@@ -46,7 +46,7 @@
                         <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=shop/questionform.jsp">입점문의</a></li>
                       	</ul>
                        <%} else{%>
-                       <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0" style="margin-left: 440px;">
+                       <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0" style="margin-left: 240px;">
                         <li class="nav-item"><a class="nav-link" href="#services">검색</a></li>
                         <li class="nav-item"><a class="nav-link" href="#score">평점순</a></li>
                         <li class="nav-item"><a class="nav-link" href="#review">리뷰순</a></li>

@@ -15,7 +15,6 @@
 <link href="https://fonts.googleapis.com/css2?
 family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 
-<title>Insert title here</title>
 <style type="text/css">
 .line {
 	border-bottom: 1px solid lightgray;
@@ -34,7 +33,9 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
 %>
 <body>
-
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 예약완료';
+</script>
 <div style="margin-left: 300px; width: 500px;">
 <img alt="" src="<%=root %>/assets/logo1.ico"><br>
 <hr style="border: 0; width: 500px; height: 2px; background-color: orange; position: absolute;"><br><br><br>

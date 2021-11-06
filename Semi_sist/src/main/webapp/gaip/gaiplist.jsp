@@ -21,6 +21,9 @@ tr {
 
 </head>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 회원명단';
+</script>
 <%
 LoginDao dao = new LoginDao();
 Vector<LoginDto> list = dao.getAllDatas();

@@ -12,6 +12,9 @@
 <title>로그인 메인</title>
 </head>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 로그인';
+</script>
 <%
 String loginok = (String) session.getAttribute("loginok");
 String prePage = "";

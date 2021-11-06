@@ -11,9 +11,11 @@
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<title>회원삭제</title>
 </head>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook';
+</script>
 <!-- dao에서 만든 비번체크, 삭제 메서드를 가져와서 처리 -->
 <%
 String num = request.getParameter("num");

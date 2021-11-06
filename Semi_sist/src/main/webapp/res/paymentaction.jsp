@@ -13,9 +13,11 @@
 <link href="https://fonts.googleapis.com/css2?
 family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 
-<title>Insert title here</title>
 </head>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook';
+</script>
 <%
 String login_num = request.getParameter("login_num"); //로그인 번호
 String shop_num = request.getParameter("shop_num"); //가게 번호

@@ -16,7 +16,6 @@ img {
 	margin-left: 700px;
 }
 </style>
-<title>마이페이지</title>
 </head>
 <%
 /* //id읽기
@@ -35,6 +34,9 @@ String nick = dao.getNick(myid);
 
 %>
 <body>
+<script language="JavaScript1.2">
+top.document.title = 'TasteBook | 마이페이지';
+</script>
 <br>
 <br>
 <b style="text-align: center;"><h2>프로필</h2></b>
