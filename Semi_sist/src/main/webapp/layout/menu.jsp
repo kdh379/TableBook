@@ -54,11 +54,13 @@ String loginok=(String)session.getAttribute("loginok");
 			<img class="logo" src="assets/img/logo2.png" style="height: 120px;" onclick="location.href='index.jsp'">
 			<a id="menu-toggle" class="button dark" href="#"><i class="icon-reorder"></i></a>
 			<nav id="navigation">
+			<form action="realindex.jsp?main=list/searchresult.jsp" method="post">
 			   <div class="container">
-				<input type="text" placeholder="검색어를 입력해주세요" id="gum"/>
-				<button type="submit" id="searchbtn" onclick="location.href='realindex.jsp?main=list/searchresult.jsp';">
+				<input type="text" name="search" placeholder="검색어를 입력해주세요" id="gum"/>
+				<button type="submit" id="searchbtn">
 					<i class="fa fa-search" id="searchicon"></i>
 				</button>
+				</form>
 				<ul id="main-menu">
 					<li><a href="index.jsp">홈</a></li>
 					<%
