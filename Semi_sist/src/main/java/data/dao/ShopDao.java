@@ -103,7 +103,7 @@ public class ShopDao {
 				dto.setIntroduce(rs.getString("introduce"));
 				dto.setOpening(rs.getInt("opening"));
 				dto.setClosing(rs.getInt("closing"));
-
+				dto.setAvg(rs.getDouble("avg"));
 				
 			}
 			
@@ -179,6 +179,7 @@ public class ShopDao {
 						dto.setIntroduce(rs.getString("introduce"));
 						dto.setOpening(rs.getInt("opening"));
 						dto.setClosing(rs.getInt("closing"));
+						dto.setAvg(rs.getDouble("avg"));
 						
 						list.add(dto);
 					}
@@ -228,6 +229,7 @@ public class ShopDao {
 						dto.setIntroduce(rs.getString("introduce"));
 						dto.setOpening(rs.getInt("opening"));
 						dto.setClosing(rs.getInt("closing"));
+						dto.setAvg(rs.getDouble("avg"));
 						
 						list.add(dto);
 						
@@ -264,6 +266,49 @@ public class ShopDao {
 				} finally {
 					db.dbClose(pstmt, conn);
 				}
+				
+			}
+			
+			//평점 순서로 데이터 가져오기
+			public Vector<ShopDto> getAllShopOrderByAvg(){
+				
+				Vector<ShopDto> list = new Vector<ShopDto>();
+				Connection conn=db.getConnection();
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				
+				String sql="select * from shop order by avg desc";
+				
+				try {
+					pstmt=conn.prepareStatement(sql);
+					rs=pstmt.executeQuery();
+					
+					while(rs.next()) {
+						
+						ShopDto dto = new ShopDto();
+						
+						dto.setNum(rs.getString("num"));
+						dto.setName(rs.getString("name"));
+						dto.setTelephone(rs.getString("telephone"));
+						dto.setTag(rs.getString("tag"));
+						dto.setAddr(rs.getString("addr"));
+						dto.setPhoto(rs.getString("photo"));
+						dto.setParking(rs.getString("parking"));
+						dto.setIntroduce(rs.getString("introduce"));
+						dto.setOpening(rs.getInt("opening"));
+						dto.setClosing(rs.getInt("closing"));
+						
+						list.add(dto);
+						
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} finally {
+					db.dbClose(rs, pstmt, conn);
+				}
+				
+				return list;
 				
 			}
 

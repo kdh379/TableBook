@@ -1,3 +1,4 @@
+<%@page import="data.dao.ShopDao"%>
 <%@page import="data.dao.ReviewDao"%>
 <%@page import="data.dto.ReviewDto"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -40,6 +41,9 @@ ReviewDao rdao = new ReviewDao();
 rdao.insertReview(rdto);
 
 double avg = rdao.getSumScore(shop_num)/rdao.getTotalCount(shop_num);
+
+ShopDao shdao = new ShopDao();
+shdao.updateAvg(shop_num, avg);
 
 
 response.sendRedirect("../index.jsp");

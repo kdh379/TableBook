@@ -32,6 +32,7 @@
 	ReviewDao rdao = new ReviewDao();
 	ReviewDto rdto = rdao.getOneReview(num);
 	
+	String shop_num = rdto.getShop_num();
 	ShopDao sdao = new ShopDao();
 	String shopName = sdao.getOneShop(rdto.getShop_num()).getName();
 	
@@ -108,6 +109,7 @@
 	</table>   
 	<input type="hidden" name="num" value="<%= num%>">
 	<input type="hidden" name="currentPage" value="<%= currentPage%>">
+	<input type="hidden" name="shop_num" value="<%=shop_num%>">
 	
 </form>
 

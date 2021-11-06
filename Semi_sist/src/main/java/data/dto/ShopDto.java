@@ -12,6 +12,7 @@ public class ShopDto {
 	private String introduce;
 	private int opening;
 	private int closing;
+	private double avg;
 	
 	
 	public String getNum() {
@@ -75,6 +76,13 @@ public class ShopDto {
 	public void setClosing(int closing) {
 		this.closing = closing;
 	}
+	public double getAvg() {
+		return avg;
+	}
+	public void setAvg(double avg) {
+		this.avg = avg;
+	}
+	
 	
 	
 
