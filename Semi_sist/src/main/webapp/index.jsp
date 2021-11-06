@@ -1,3 +1,6 @@
+<%@page import="java.util.Vector"%>
+<%@page import="data.dao.ShopDao"%>
+<%@page import="data.dto.ShopDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -69,13 +72,8 @@
             </form>
         </section>
         </header>
-       <!-- 평점순 구현 -->
-       <%
        
        
-       
-       
-       %>
         <!-- 평점순-->
         <div id="score">
         <section class="page-section bg-light" id="portfolio">
@@ -85,18 +83,31 @@
                     <h3 class="section-subheading text-muted">실제 방문손님들이 매긴 평점 높은 가게들이에요</h3>
                 </div>
                 <div class="row">
+       <!-- 평점순 구현 -->
+       <%
+       
+       ShopDao shdao = new ShopDao();
+       Vector<ShopDto> list = shdao.getAllShopOrderByAvg();
+       
+       ShopDto shdto1 = list.get(0);
+       /* ShopDto shdto2 = list.get(1);
+       ShopDto shdto3 = list.get(2);
+       ShopDto shdto4 = list.get(3);
+       ShopDto shdto5 = list.get(4);
+       ShopDto shdto6 = list.get(5); */
+       %>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link"  href="realindex.jsp?main=shop/shopform.jsp?num=13">
+                            <a class="portfolio-link"  href="realindex.jsp?main=shop/shopform.jsp?num=<%=shdto1.getNum()%>">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
+                                <img class="img-fluid" src="save/<%=shdto1.getPhoto() %>" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                                <div class="portfolio-caption-heading"><%=shdto1.getName() %></div>
+                                <div class="portfolio-caption-subheading text-muted"><%=shdto1.getAddr() %></div>
                             </div>
                         </div>
                     </div>
