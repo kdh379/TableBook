@@ -51,10 +51,10 @@ top.document.title = 'TasteBook | 마이페이지';
 <hr>
 
 &nbsp;&nbsp;&nbsp;
-<button type="button" style="margin-left: 700px;" onclick="location.href='realindex.jsp?main=res/yeyaklist.jsp'" 
+<button type="button" style="margin-left: 700px;" onclick="location.href='realindex.jsp?main=yeyak/yeyaklist.jsp'" 
 class="btn btn-info">예약관리</button>
 &nbsp;&nbsp;&nbsp;
-<button type="button" style="margin-left: 100px;" onclick="location.href='realindex.jsp?main=review/reviewform.jsp'" 
+<button type="button" style="margin-left: 100px;" onclick="location.href=#" 
 class="btn btn-info">리뷰관리</button>
 <br>
 <hr>
