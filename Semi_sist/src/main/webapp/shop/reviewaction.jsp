@@ -39,6 +39,9 @@ System.out.println(score);
 ReviewDao rdao = new ReviewDao();
 rdao.insertReview(rdto);
 
+double avg = rdao.getSumScore(shop_num)/rdao.getTotalCount(shop_num);
+
+
 response.sendRedirect("../index.jsp");
 %>
 

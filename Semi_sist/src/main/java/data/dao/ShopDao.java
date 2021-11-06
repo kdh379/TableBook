@@ -243,5 +243,28 @@ public class ShopDao {
 				return list;
 				
 			}
+			
+			//avg업데이트
+			public void updateAvg(String num, double avg) {
+				
+				Connection conn=db.getConnection();
+				PreparedStatement pstmt=null;
+				
+				String sql = "update shop set avg=? where num=?";
+				
+				try {
+					pstmt=conn.prepareStatement(sql);
+					pstmt.setDouble(1, avg);
+					pstmt.setString(2, num);
+					
+					pstmt.execute();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} finally {
+					db.dbClose(pstmt, conn);
+				}
+				
+			}
 
 }
