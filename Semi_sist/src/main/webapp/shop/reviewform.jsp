@@ -1,3 +1,4 @@
+<%@page import="data.dao.ShopDao"%>
 <%@page import="data.dao.LoginDao"%>
 <%@page import="data.dto.LoginDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -21,7 +22,7 @@
 	String root=request.getContextPath();
 	
 	LoginDao ldao = new LoginDao();
-	
+	ShopDao shdao = new ShopDao();
 	
 	/* String shop_num = request.getParameter("shop_num");
 	
@@ -30,10 +31,11 @@
 	String writer = ldao.getOneData(login_num).getNick();
 	
 	*/
-	String writer="jiwon";
-	String score = "0";
-	String login_num = "1";
-	String shop_num = "13";
+	
+	
+	String login_num = "4";
+	String writer = ldao.getOneData(login_num).getNick();
+	String shop_num = "15";
 %>
 <!-- se2 폴더에서 js 파일 가져오기 -->
 <script type="text/javascript" src="<%=root%>/se2/js/HuskyEZCreator.js"
@@ -45,10 +47,10 @@
 </head>
 <body>
 
-<form action="reviewaction.jsp" method="post">
+<form action="reviewaction.jsp" method="post" id="frm">
 
 	<table class="table table-bordered" style="width: 800px;margin-left: 100px;">
-		<caption style="margin-bottom: 30px;"><b style="color: orange; font-size: 16pt;">허브족발</b>  
+		<caption style="margin-bottom: 30px;"><b style="color: orange; font-size: 16pt;"><%=shdao.getOneShop(shop_num).getName() %></b>  
 		에 대한   <b style="font-size: 12pt;"><%=writer %></b>님의 솔직한 리뷰를 써주세요.</caption>
 		
 		<tr>
@@ -106,7 +108,7 @@
 		
 	</table>   
 	<!-- writer와 score값 넘기기위한 hidden -->
-	<input type="hidden" name="score" value="<%= score%>">
+	<input type="hidden" name="score">
 	<input type="hidden" name="writer" value="<%=writer %>">
 	<input type="hidden" name="shop_num" value="<%=shop_num %>">
 	<input type="hidden" name="login_num" value="<%=login_num %>">
@@ -171,8 +173,8 @@ function pasteHTML(filepath){
 }); */
 $(document).on("click", ".score", function () {
 	$(this).children().css({"opacity":"1.0"});
-	score = $(this).val();
 	
+	$("input[name=score]").attr("value",$(this).attr("value"));
 	
 	$(this).siblings().prop("disabled", true);
   });

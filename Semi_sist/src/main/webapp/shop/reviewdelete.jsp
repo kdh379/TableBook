@@ -25,7 +25,12 @@ rdao.deleteReview(num);
 
 String shop_num = rdao.getOneReview(num).getShop_num();
 
-double avg = rdao.getSumScore(shop_num)/rdao.getTotalCount(shop_num);
+double avg = 0;
+if(rdao.getTotalCount(shop_num)==0){
+	avg=0;
+}else{
+	avg = rdao.getSumScore(shop_num)/rdao.getTotalCount(shop_num);
+}
 
 ShopDao shdao = new ShopDao();
 shdao.updateAvg(shop_num, avg);

@@ -111,6 +111,7 @@
 	<input type="hidden" name="currentPage" value="<%= currentPage%>">
 	<input type="hidden" name="shop_num" value="<%=shop_num%>">
 	
+	
 </form>
 
 <!-- 스마트게시판에 대한 스크립트 코드 넣기 -->

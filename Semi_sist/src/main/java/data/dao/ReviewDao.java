@@ -22,15 +22,16 @@ public class ReviewDao {
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 			
-		String sql="select count(*) from review where shop_num=?";
+		String sql="select * from review where shop_num=?";
 		int n=0;
 			
 		try {
 			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, shop_num);
 			rs = pstmt.executeQuery();
 				
-			if(rs.next()) {
-				n=rs.getInt(1);
+			while(rs.next()) {
+				n++;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
