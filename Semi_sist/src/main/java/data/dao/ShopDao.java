@@ -104,6 +104,7 @@ public class ShopDao {
 				dto.setOpening(rs.getInt("opening"));
 				dto.setClosing(rs.getInt("closing"));
 				dto.setAvg(rs.getDouble("avg"));
+				dto.setRe_cnt(rs.getInt("re_cnt"));;
 				
 			}
 			
@@ -180,6 +181,7 @@ public class ShopDao {
 						dto.setOpening(rs.getInt("opening"));
 						dto.setClosing(rs.getInt("closing"));
 						dto.setAvg(rs.getDouble("avg"));
+						dto.setRe_cnt(rs.getInt("re_cnt"));
 						
 						list.add(dto);
 					}
@@ -230,6 +232,7 @@ public class ShopDao {
 						dto.setOpening(rs.getInt("opening"));
 						dto.setClosing(rs.getInt("closing"));
 						dto.setAvg(rs.getDouble("avg"));
+						dto.setRe_cnt(rs.getInt("re_cnt"));
 						
 						list.add(dto);
 						
@@ -297,6 +300,8 @@ public class ShopDao {
 						dto.setIntroduce(rs.getString("introduce"));
 						dto.setOpening(rs.getInt("opening"));
 						dto.setClosing(rs.getInt("closing"));
+						dto.setAvg(rs.getDouble("avg"));
+						dto.setRe_cnt(rs.getInt("re_cnt"));
 						
 						list.add(dto);
 						
@@ -311,5 +316,74 @@ public class ShopDao {
 				return list;
 				
 			}
+			
+			//Re_cnt update
+			public void updateRe_cnt(int re_cnt, String num) {
+				
+				Connection conn=db.getConnection();
+				PreparedStatement pstmt=null;
+				
+				String sql = "update shop set re_cnt=? where num=?";
+				
+				try {
+					pstmt=conn.prepareStatement(sql);
+					pstmt.setInt(1, re_cnt);
+					pstmt.setString(2, num);
+					
+					pstmt.execute();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} finally {
+					db.dbClose(pstmt, conn);
+				}
+				
+			}
+			
+			//re_cnt순서로 data가져오기
+			public Vector<ShopDto> getAllShopOrderByRe_cnt(){
+				
+				Vector<ShopDto> list = new Vector<ShopDto>();
+				Connection conn=db.getConnection();
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				
+				String sql="select * from shop order by re_cnt desc";
+				
+				try {
+					pstmt=conn.prepareStatement(sql);
+					rs=pstmt.executeQuery();
+					
+					while(rs.next()) {
+						
+						ShopDto dto = new ShopDto();
+						
+						dto.setNum(rs.getString("num"));
+						dto.setName(rs.getString("name"));
+						dto.setTelephone(rs.getString("telephone"));
+						dto.setTag(rs.getString("tag"));
+						dto.setAddr(rs.getString("addr"));
+						dto.setPhoto(rs.getString("photo"));
+						dto.setParking(rs.getString("parking"));
+						dto.setIntroduce(rs.getString("introduce"));
+						dto.setOpening(rs.getInt("opening"));
+						dto.setClosing(rs.getInt("closing"));
+						dto.setAvg(rs.getDouble("avg"));
+						dto.setRe_cnt(rs.getInt("re_cnt"));
+						
+						list.add(dto);
+						
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} finally {
+					db.dbClose(rs, pstmt, conn);
+				}
+				
+				return list;
+				
+			}
+			
 
 }

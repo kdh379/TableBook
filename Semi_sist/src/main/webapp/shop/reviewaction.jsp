@@ -45,6 +45,9 @@ double avg = rdao.getSumScore(shop_num)/rdao.getTotalCount(shop_num);
 ShopDao shdao = new ShopDao();
 shdao.updateAvg(shop_num, avg);
 
+int re_cnt = rdao.getTotalCount(shop_num);
+shdao.updateRe_cnt(re_cnt, shop_num);
+
 
 response.sendRedirect("../index.jsp");
 %>

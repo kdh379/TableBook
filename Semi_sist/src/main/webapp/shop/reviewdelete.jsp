@@ -1,3 +1,4 @@
+<%@page import="data.dao.ShopDao"%>
 <%@page import="data.dao.ReviewDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
@@ -21,6 +22,17 @@ String num = request.getParameter("num");
 
 ReviewDao rdao = new ReviewDao();
 rdao.deleteReview(num);
+
+String shop_num = rdao.getOneReview(num).getShop_num();
+
+double avg = rdao.getSumScore(shop_num)/rdao.getTotalCount(shop_num);
+
+ShopDao shdao = new ShopDao();
+shdao.updateAvg(shop_num, avg);
+
+int re_cnt = rdao.getTotalCount(shop_num);
+shdao.updateRe_cnt(re_cnt, shop_num);
+
 
 response.sendRedirect("../realindex.jsp?main=shop/shopform.jsp?currentPage="+currentPage);
 

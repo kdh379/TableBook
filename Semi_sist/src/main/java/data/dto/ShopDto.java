@@ -13,6 +13,7 @@ public class ShopDto {
 	private int opening;
 	private int closing;
 	private double avg;
+	private int re_cnt;
 	
 	
 	public String getNum() {
@@ -81,6 +82,12 @@ public class ShopDto {
 	}
 	public void setAvg(double avg) {
 		this.avg = avg;
+	}
+	public int getRe_cnt() {
+		return re_cnt;
+	}
+	public void setRe_cnt(int re_cnt) {
+		this.re_cnt = re_cnt;
 	}
 	
 	
