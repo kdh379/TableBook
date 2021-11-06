@@ -71,10 +71,9 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			locale : "ko",
 			dateClick : function(info) {
 				//alert("Clicked on: " + info.dateStr); //클릭한 날짜
-				document.getElementById("info_date").innerHTML = info.dateStr;
+				//document.getElementById("info_date").innerHTML = info.dateStr;
 				$("input[name=seldate]").attr("value",info.dateStr);
 			}
-
 		});
 		calendar.render();
 	});
@@ -134,6 +133,7 @@ body {
 </head>
 <body>
 	<form name="pay" action="paymentform.jsp" method="post" style="width: 1200px; margin-left: 200px;">
+		<input type="hidden" name="shop_num" value="<%=shop_num %>"> <!-- 가게번호 -->
 		<span class="glyphicon glyphicon-chevron-left" onclick="history.back()"
 		style="font-size: 2em; cursor: pointer;"></span>
 		<b style="font-size: 2.5em;"><%=dto.getName() %></b>
@@ -141,10 +141,35 @@ body {
 		<div id='calendar' style="width: 600px; position: absolute; margin-left: 20px; margin-top: 50px;" align="left"></div>
 		<div style="margin-left: 700px;">
 		<br><br>
+		
+		
+		<!-- 날짜 선택 -->
 		<div id="seldate" align="left">
-			<b style="font-size: 15pt;">예약날짜: </b>
-			<span id="info_date" style="font-size: 15pt;"></span>
+			<b style="font-size: 15pt; display: inline;">예약날짜: </b>
+			<!-- <span id="info_date" style="font-size: 15pt;"></span> -->
+			<input type="text" name="seldate" style="font-size: 15pt; width: 150px; display: inline;" class="form-control"
+			required="required" readonly="readonly">
+			<div align="right" style="display: inline; float: right;">
+				<input type="button" value="시간 선택" style="display: inline;" class="btn btn-warning btn-lg" onclick = "timecheck()">
+			</div>
 			<input type="hidden" name="seldate" required="required">
+		</div>
+		<br>
+		
+		
+		<!-- 시간 확인 -->
+		
+		<div id="time" align="left">
+			<input type="hidden" name="seltime">
+		</div>
+		<br>
+		
+		<!-- 룸/홀 선택 -->
+		<div id="seatsel">
+			<span style="font-size: 13pt; display: inline; font-weight: bold;">좌석 및 시간</span>
+			<input type="text" name="selseat" maxlength="8" class="form-control"
+				required="required" style="width: 120px; font-size: 13pt; font-weight: bold; margin-left: 10px; display: inline;" readonly="readonly">
+			<span id="seltime" style="font-size: 15pt; font-weight: bold;"></span>
 		</div>
 		<br>
 		
@@ -162,51 +187,6 @@ body {
 			<%
 		}%>
 			<input type="hidden" name="selper">
-		</div>
-		<br>
-		
-		<!-- 시간선택 -->
-		
-		<div id="time" align="left">
-		
-		<script type="text/javascript">
-			
-		</script>
-			<%
-			for(ScheduleDto sdto : slist){
-				int stime = sdto.getStime();
-				int cnt = 0;
-				String strdate = "";
-				String strtime = "";
-				if(sdto.getSdate().equals("2021-11-03")) {
-					cnt++;
-					if(stime > 12) {
-						strtime = "오후 " + String.valueOf((stime-12)) + "시";
-					}
-					%>
-					<input type="button" name="time" class="btn-t btn-normal" value="<%=strtime %>"
-					style="width:100px; height: 40px; font-size: 15pt;">
-					<%
-					if(cnt == 4) { 
-					%> <br> <%
-					}					
-				}
-			}
-			%>
-			<input type="hidden" name="seltime">
-		</div>
-		<br>
-		<!-- 룸/홀 선택 -->
-		<div id="seatsel">
-			<b style="font-size: 13pt;">좌석선택</b>
-			<button type="button" name="seat" class="btn-s btn-normal" value="룸" style="margin-left: 20px;">
-				<img src="<%=root %>/res/room.jpg"> <span>ROOM</span>
-			</button>
-			
-			<button type="button" name="seat" class="btn-s btn-normal" value="홀" style="margin-left: 20px;">
-				<img src="<%=root %>/res/hall.jpg"> <span>HALL</span>
-			</button>
-			<input type="hidden" name="selseat">
 		</div>
 		<br>
 		
@@ -335,7 +315,17 @@ body {
 		frm.submit();
 	}
 	
-	
+	function timecheck() {
+		
+		var pop_title = "TimeCheck";
+		
+		var chkWin = window.open("", pop_title, "width=1000, height=500, toolbar=no");
+		var frm = document.pay;
+		frm.target = pop_title;
+		frm.action = "<%=root%>/res/timecheck.jsp";
+		frm.submit();
+		
+	}
 	
 	</script>
 	

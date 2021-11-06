@@ -20,19 +20,19 @@ public class ResDao {
 		PreparedStatement pstmt = null;
 		
 		String sql = "insert into reservation(login_num, shop_num,shop_name, res_date, persons, price, paymentdate, seat)"
-				+ " values(null, null, ?, ?, ?, ?, now(), ?)"; //login, shop num 추가 필요
+				+ " values(?, ?, ?, ?, ?, ?, now(), ?)"; //login, shop num 異붽� �븘�슂
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			//바인딩
-			//pstmt.setString(1, dto.getLogin_num()); //login num 수정 필요
-			//pstmt.setString(2, dto.getShop_num()); //shop num 추가 필요
-			pstmt.setString(1, dto.getShop_name());
-			pstmt.setString(2, dto.getRes_date());
-			pstmt.setString(3, dto.getPersons());
-			pstmt.setString(4, dto.getPrice());
-			pstmt.setString(5, dto.getSeat());
+			//諛붿씤�뵫
+			pstmt.setString(1, dto.getLogin_num()); //login num �닔�젙 �븘�슂
+			pstmt.setString(2, dto.getShop_num()); //shop num 異붽� �븘�슂
+			pstmt.setString(3, dto.getShop_name());
+			pstmt.setString(4, dto.getRes_date());
+			pstmt.setString(5, dto.getPersons());
+			pstmt.setString(6, dto.getPrice());
+			pstmt.setString(7, dto.getSeat());
 		
 			pstmt.execute();
 			
@@ -45,7 +45,7 @@ public class ResDao {
 	}
 	
 	
-	//최근 데이터 하나 (예약완료 폼)
+	//理쒓렐 �뜲�씠�꽣 �븯�굹 (�삁�빟�셿猷� �뤌)
 	public ResDto getLatestData() {
 		ResDto dto = new ResDto();
 		

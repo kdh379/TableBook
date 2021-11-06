@@ -1,3 +1,7 @@
+<%@page import="data.dto.LoginDto"%>
+<%@page import="data.dao.LoginDao"%>
+<%@page import="data.dto.ShopDto"%>
+<%@page import="data.dao.ShopDao"%>
 <%@page import="java.text.NumberFormat"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.Locale"%>
@@ -26,23 +30,36 @@ family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel=
 <%
 request.setCharacterEncoding("utf-8");
 
+String myid = (String) session.getAttribute("myid");
+LoginDao ldao = new LoginDao();
+LoginDto ldto = ldao.getById(myid);
+String nick = ldao.getNick(myid);
+
 //데이터 받아오기
+String shop_num = request.getParameter("shop_num"); //가게테이블 num
 String seldate = request.getParameter("seldate"); //예약날짜
 String seltime = request.getParameter("seltime"); //예약시간
 String selper = request.getParameter("selper"); //인원수
-String selseat = request.getParameter("selseat"); //좌석
-String username = "닉네임"; //login테이블 nick 만들어야 함
-String userhp = "010-1111-2222"; //login테이블 hp 만들어야 함
+String selseat = request.getParameter("selseat"); //좌석 및 시간
+String username = nick; //login테이블 세션
+String userhp = ldto.getHp();
+String login_num = ldto.getNum();
 String totalPrice = request.getParameter("totalPrice"); //총 가격
-String Shopname = "가게명"; //shop 테이블 name
 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+String seat = selseat.substring(0, 1); //좌석
+String time = selseat.substring(2); //시간
+
+//가게 dto dao
+ShopDao dao = new ShopDao();
+ShopDto dto = dao.getOneShop(shop_num);
 
 //날짜
 Date date = new Date(sdf.parse(seldate).getTime());
 Calendar calendar = Calendar.getInstance();
 calendar.setTime(date);	
 String dayofweek = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.KOREAN);
-String totalDate = seldate + "(" + dayofweek + ") " + seltime;
+String totalDate = seldate + "(" + dayofweek + ") " + time;
 
 //가격 ###,###
 NumberFormat nf = NumberFormat.getInstance();
@@ -54,9 +71,11 @@ totalPrice = nf.format(Integer.parseInt(totalPrice));
 
 <span class="glyphicon glyphicon-chevron-left" onclick="history.back()"
 style="font-size: 2em; cursor: pointer;"></span>
-<b style="font-size: 3em;"><%=Shopname %></b>
-<input type="hidden" name="shop_name" value="<%=Shopname %>"> <!-- Shop테이블 name 필요 -->
+<b style="font-size: 3em;"><%=dto.getName() %></b>
+<input type="hidden" name="shop_name" value="<%=dto.getName() %>"> <!-- Shop테이블 name -->
 <input type="hidden" name="seat" value="<%=selseat %>">
+
+<input type="hidden" name="shop_num" value="<%=dto.getNum() %>"> <!-- Shop테이블 num -->
 
 <br><br>
 
@@ -69,9 +88,15 @@ style="font-size: 2em; cursor: pointer;"></span>
 <span style="font-size: 15pt; margin-left: 50px;"><%=selper %></span><br><br>
 <input type="hidden" name="persons" value="<%=selper %>"> <!-- 선택한 인원수 -->
 
+<b style="font-size: 15pt;">좌석</b>
+<span style="font-size: 15pt; margin-left: 50px;"><%=seat %></span><br><br>
+<input type="hidden" name="seat" value="<%=seat %>"> <!-- 선택한 좌석 -->
+
+
+
 <b style="font-size: 15pt;">예약자</b>
 <span style="font-size: 15pt; margin-left: 30px;"><%=username %>&nbsp;<%=userhp %></span><br>
-<input type="hidden" name="login_num" value=""> <!-- login테이블 num 필요 -->
+<input type="hidden" name="login_num" value="<%=login_num %>"> <!-- login테이블 num 필요 -->
 
 <hr style="border: 0; width: 500px; background: gray; height: 3px;
 position: absolute;"><br><br><br>

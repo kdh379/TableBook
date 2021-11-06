@@ -111,5 +111,50 @@ public class ScheduleDao {
 		
 		return list;
 	}
+	
+	//room_cnt 증가
+	public void updateRoom(String sdate, String shop_num, String stime) {
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		
+		String sql = "update schedule set room_cnt = room_cnt+1 where sdate=? and shop_num=? and stime=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, sdate);
+			pstmt.setString(2, shop_num);
+			pstmt.setString(3, stime);
+			
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
+	
+	// room_cnt 증가
+	public void updateHall(String sdate, String shop_num, String stime) {
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
 
+		String sql = "update schedule set hall_cnt = hall_cnt+1 where sdate=? and shop_num=? and stime=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, sdate);
+			pstmt.setString(2, shop_num);
+			pstmt.setString(3, stime);
+
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
 }
