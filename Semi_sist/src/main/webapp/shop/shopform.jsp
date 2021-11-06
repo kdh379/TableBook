@@ -103,8 +103,8 @@ int currentPage;  //현재페이지
 int no;
 
 //총개수
-/* totalCount=rdao.getTotalCount(num); */
-totalCount=3;
+totalCount=rdao.getTotalCount(num);
+
 
 //현재페이지번호 읽기(단 null일경우 1페이지 설정)
 if(request.getParameter("currentPage")==null){
@@ -302,7 +302,7 @@ String loginok = (String) session.getAttribute("loginok");
   if(startPage>1){
 	  %>
 	  <li>
-	    <a href="shop/shopform.jsp?currentPage=<%=startPage-1%>">이전</a>
+	    <a href="realindex.jsp?main=shop/shopform.jsp?currentPage=<%=startPage-1%>&num=<%=num%>">이전</a>
 	  </li>
   <%}
   %>
@@ -310,11 +310,11 @@ String loginok = (String) session.getAttribute("loginok");
     for(int p=startPage; p<=endPage; p++){
     	if(p==currentPage){%>
     		<li class="active">
-    		  <a href="shop/shopform.jsp?currentPage=<%=p%>"><%=p %></a>
+    		  <a href="realindex.jsp?main=shop/shopform.jsp?currentPage=<%=p%>&num=<%=num%>"><%=p %></a>
     		</li>
     	<%}else{%>
     		<li>
-    		  <a href="shop/shopform.jsp?currentPage=<%=p%>"><%=p %></a>
+    		  <a href="realindex.jsp?main=shop/shopform.jsp?currentPage=<%=p%>&num=<%=num%>"><%=p %></a>
     		</li>
     	<%}
     }
@@ -323,7 +323,7 @@ String loginok = (String) session.getAttribute("loginok");
     if(endPage<totalPage){%>
     	
     	<li>
-    	  <a href="shop/shopform.jsp?currentPage=<%=endPage+1%>">다음</a>
+    	  <a href="realindex.jsp?main=shop/shopform.jsp?currentPage=<%=endPage+1%>&num=<%=num%>">다음</a>
     	</li>
     <%}
     

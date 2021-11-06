@@ -33,9 +33,9 @@
 	*/
 	
 	
-	String login_num = "4";
+	String login_num = "5";
 	String writer = ldao.getOneData(login_num).getNick();
-	String shop_num = "15";
+	String shop_num = "14";
 %>
 <!-- se2 폴더에서 js 파일 가져오기 -->
 <script type="text/javascript" src="<%=root%>/se2/js/HuskyEZCreator.js"
