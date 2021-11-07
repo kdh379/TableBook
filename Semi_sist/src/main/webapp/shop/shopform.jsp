@@ -165,7 +165,8 @@ top.document.title = 'TasteBook | 상세페이지';
 </script>
 <!-- 음식점정보 + 리뷰게시판 -->
 <div class="main" style="width: 800px; padding: 10px;" >
-<b style="font-size: 20pt;"><%=shdto.getName() %></b><font color="orange" style="margin-left: 20px; clear: both;">4.6</font>
+<b style="font-size: 20pt;"><%=shdto.getName() %></b><font color="#ff4500 " style="margin-left: 20px; clear: both; font-size: 22pt;">
+<%=shdto.getAvg() %></font>
 
 <button type="button" class="btn btn-info" style="margin-left: 600px; margin-top: -60px;"
  onclick="location.href='realindex.jsp?main=res/resform.jsp?shop_num=<%=num%>'">예약하기</button>
@@ -178,7 +179,7 @@ top.document.title = 'TasteBook | 상세페이지';
 <table id="info" style="width: 700px; float: left;">
   <tr>
     <th width="100px">주소</th>
-    <td><%=shdto.getAddr() %></td>
+    <td colspan="2"><%=shdto.getAddr() %></td>
     <td rowspan="5+<%=mlist.size()%>" align="right">
       
   <div id="map" style="width:300px;height:200px;"></div>
@@ -188,22 +189,22 @@ top.document.title = 'TasteBook | 상세페이지';
   
   <tr>
     <th width="100px">전화번호</th>
-    <td><%=shdto.getTelephone() %></td>
+    <td colspan="2"><%=shdto.getTelephone() %></td>
   </tr>
   
   <tr>
     <th width="100px">음식 종류</th>
-    <td><%=shdto.getTag() %></td>
+    <td colspan="2"><%=shdto.getTag() %></td>
   </tr>
   
   <tr>
     <th width="100px">주차</th>
-    <td>주차 공간 <%=shdto.getParking() %></td>
+    <td colspan="2">주차 공간 <%=shdto.getParking() %></td>
   </tr>
   
   <tr>
     <th width="100px">영업 시간</th>
-    <td><%=Integer.toString(shdto.getOpening())  %>:00 - <%=Integer.toString(shdto.getClosing())  %>:00</td>
+    <td colspan="2"><%=Integer.toString(shdto.getOpening())  %>:00 - <%=Integer.toString(shdto.getClosing())  %>:00</td>
   </tr>
   
   <tr>
@@ -215,10 +216,11 @@ top.document.title = 'TasteBook | 상세페이지';
   
   %>
 	  
-  
+  <td><%=mdto.getMenu() %></td>
+  <td align="right"><%=mdto.getPrice() %>원</td>
     
-    <td><%=mdto.getMenu() %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=mdto.getPrice() %>원</td>
+    <%-- <td><%=mdto.getMenu() %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=mdto.getPrice() %>원</td> --%>
     
   </tr>
   
@@ -233,7 +235,9 @@ top.document.title = 'TasteBook | 상세페이지';
 
 
 </table>
-
+<%
+String []star = {"☆☆☆☆☆","★☆☆☆☆","★★☆☆☆","★★★☆☆","★★★★☆","★★★★★"};
+%>
 <hr>
 
 <div style="clear: both;" class="review">
@@ -257,6 +261,8 @@ top.document.title = 'TasteBook | 상세페이지';
     </th>
     
     <td width="700px;" style="line-height: 25px;">
+      <font color="#ffd700" ><%=star[score] %></font>
+      <br>
       <font color="#a9a9a9 "><%=sdf.format(rdto.getWriteday()) %></font>  <!-- sdf.format(rdto.getWriteday()) -->
        <%
           
