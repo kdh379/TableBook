@@ -86,7 +86,7 @@ public class ResDao {
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 
-		String sql = "delete from guest where num=?";
+		String sql = "delete from reservation where num=?";
 
 		try {
 			pstmt = conn.prepareStatement(sql);

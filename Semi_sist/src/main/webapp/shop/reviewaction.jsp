@@ -55,7 +55,7 @@ int re_cnt = rdao.getTotalCount(shop_num);
 shdao.updateRe_cnt(re_cnt, shop_num);
 
 
-response.sendRedirect("../index.jsp");
+response.sendRedirect("../realindex.jsp?main=shop/shopform.jsp?num="+shop_num);
 %>
 
 

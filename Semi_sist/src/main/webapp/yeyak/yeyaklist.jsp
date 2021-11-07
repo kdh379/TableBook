@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.Format"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
 <%@page import="data.dto.ResDto"%>
@@ -16,8 +18,30 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <title>예약관리 버튼 눌렀을 때 나오는 화면</title>
+<style type="text/css">
+
+.line {
+	border-bottom: 1px solid lightgray;
+}
+
+.topline {
+	border-top: 2px solid black;
+}
+
+th, td {
+	height: 30px;
+}
+
+th {
+	background-color: #FDE8C8;
+}
+
+
+</style>
 </head>
 <%
+String root = request.getContextPath();
+
 //로그인 상태 확인 후 입력폼 나타내기
 String loginok = (String) session.getAttribute("loginok");
 
@@ -72,6 +96,9 @@ List<ResDto> list = dao.getList(start, perPage);
 no = totalCount-(currentPage-1)*perPage;
 
 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+
+
 %>
 <body>
 <script language="JavaScript1.2">
@@ -87,8 +114,9 @@ if(loginok!=null){ //로그인 중일때만 입력폼 보이게 한다
 %>
 
 <!-- 예약정보 전체출력 -->
-<div>
- <b>총 <%=totalCount %>개의 글이 있습니다.</b>
+<div style="margin-left: 100px;">
+ <b style="font-size: 15pt;">총 <%=totalCount %>개의 예약이 있습니다.</b><br>
+ 
 <%
 LoginDao ldao = new LoginDao();
 
@@ -97,42 +125,66 @@ for(ResDto dto:list){
 	String num = dto.getLogin_num();
 	
 %>
-	
-	<table class="table" style="width: 600px;">
-	  <tr>
-	    <td>
-	      <b><span class="bangmun"></span>방문예정/방문완료/예약취소 넣을부분</b>
-	      <%
-	      String login_num = (String) session.getAttribute("login_num");
-	      if(loginok!=null && login_num.equals(num)){%>
-	    	 
-	    	 |<a href="realindex.jsp?main=yeyak/updateform.jsp?num=<%=dto.getNum() %>
-	    	 &currentPage=<%=currentPage %>" style="color: black;">수정</a>
-	    	 |<a href="yeyak/delete.jsp?num=<%=dto.getNum() %>
-	    	 &currentPage=<%=currentPage %>" style="color: black;">삭제</a>
-	    	  
-	      <%}
-	      
-	      %>
-	      <span class="payday"><%=sdf.format(dto.getPaymentdate()) %></span>
-	    </td>
-	  </tr>
-	  
-	  <tr height="120">
-	    <td>   
-	      일정 : <%=dto.getRes_date().replace("\n", "<br>") %>
-	      인원 : <%=dto.getPersons().replace("\n", "<br>") %>
-	      상호명 : <%=dto.getShop_name().replace("\n", "<br>") %>
-	      테이블 : <%=dto.getSeat().replace("\n", "<br>") %>
-	  	</td>
-	  </tr>
-	
-	</table>
-	
-	
-<%}
 
-%>
+<table style="width: 400px;">
+	<tr>
+		<th width="100" colspan="2" class="topline line">
+			<!-- <b><span class="bangmun"></span>방문예정/방문완료/예약취소 넣을부분</b> -->
+			<%
+			String date2 = dto.getRes_date().substring(0, 10);
+			Date date = sdf2.parse(date2);
+			Date now = new Date();
+			if(loginok != null) {
+			if (date.before(now)) {
+				%> 
+				<span class="bangmun"><b>방문예정</b></span>
+				
+				|<a href="yeyak/delete.jsp?num=<%=dto.getNum() %> &currentPage=<%=currentPage %>"
+				style="color: red;">예약취소</a> 
+				<%
+			 } else {
+				  %> 
+				 <span class="bangmun"><b>방문완료</b></span>
+				 <button type="button" style="float: right;"
+				 onclick="location.href='<%=root %>/realindex.jsp?main=shop/reviewform.jsp?shop_num=<%=dto.getShop_num() %>'">리뷰작성</button>
+				<%
+	    	  }
+			}
+			%>
+	      	<span class="payday"><%=sdf.format(dto.getPaymentdate()) %></span>
+			</th>
+		</tr>
+
+		<tr>
+			<th width="100" class="line">가게명</th>
+			<td class="line"><%=dto.getShop_name()%></td>
+		</tr>
+
+
+		<tr>
+			<th width="100">인원</th>
+			<td><%=dto.getPersons()%></td>
+		</tr>
+		
+		<tr>
+			<th width="100">날짜</th>
+			<td><%=dto.getRes_date()%></td>
+		</tr>
+		
+		<tr>
+			<th width="100">좌석</th>
+			<td><%=dto.getSeat()%></td>
+		</tr>
+		
+		<tr>
+			<th width="100">가격</th>
+			<td><%=dto.getPrice()%></td>
+		</tr>
+		</table>
+		<br><br>
+		<%
+		}
+		%>
 </div>
 
 <!-- 페이징 처리 -->
@@ -140,8 +192,8 @@ for(ResDto dto:list){
   <ul class="pagination">
   <%
   //이전
-  if(startPage>1){
-	  %>
+  if (startPage > 1) {
+  %>
 	  <li>
 	    <a href="realindex.jsp?main=yeyak/yeyaklist.jsp?currentPage=<%=startPage-1%>">이전</a>
 	  </li>

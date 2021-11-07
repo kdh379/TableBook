@@ -164,7 +164,7 @@ String loginok = (String) session.getAttribute("loginok");
 top.document.title = 'TasteBook | 상세페이지';
 </script>
 <!-- 음식점정보 + 리뷰게시판 -->
-<div class="main" style="width: 800px; float: left; padding: 10px" >
+<div class="main" style="width: 800px; padding: 10px;" >
 <b style="font-size: 20pt;"><%=shdto.getName() %></b><font color="orange" style="margin-left: 20px; clear: both;">4.6</font>
 
 <button type="button" class="btn btn-info" style="margin-left: 600px; margin-top: -60px;"

@@ -52,7 +52,7 @@ public class ScheduleDao {
 		
 		LocalDate yesterday = LocalDate.now().minusDays(1);
 		LocalDate fourdays = LocalDate.now().plusDays(4);
-		String sql="update schedule set sdate=?,hall_cnt=0,roon_cnt=0 where sdate=?";
+		String sql="update schedule set sdate=?,hall_cnt=0, room_cnt=0 where sdate=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);

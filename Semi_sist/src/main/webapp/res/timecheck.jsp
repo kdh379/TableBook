@@ -107,7 +107,7 @@ for(ScheduleDto sdto : slist){
 <br>
 <div align="right">
 <input type="hidden" name="seltime">
-<button type="button" class="btn btn-warning btn-sm" id="btnuse">확인</button>
+<button type="button" class="btn btn-warning btn-lg" id="btnuse">확인</button>
 </div>
 </form>
 <script type="text/javascript">

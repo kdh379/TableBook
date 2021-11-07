@@ -90,11 +90,13 @@ top.document.title = 'TasteBook | 예약완료';
 
 <br>
 
-<button type="button" class="btn btn-warning btn-lg" onclick="location.href='../realindex.jsp'"
+<button type="button" class="btn btn-warning btn-lg" onclick="location.href='<%=root %>/index.jsp'"
 style="float: right;">홈</button> <!-- 메인폼으로 -->
-<button type="button" class="btn btn-warning btn-lg" onclick="location.href='#"
+<button type="button" class="btn btn-warning btn-lg" 
+onclick="location.href='<%=root %>/realindex.jsp?main=shop/shopform.jsp?num=<%=dto.getShop_num() %>'" 
 style="float: right; margin-right: 15px;">식당 정보</button> <!-- 음식점폼으로 -->
 
+<br><br><br>
 
 
 </div>

@@ -22,7 +22,9 @@
 	String root=request.getContextPath();
 	
 	LoginDao ldao = new LoginDao();
+	
 	ShopDao shdao = new ShopDao();
+	
 	
 	/* String shop_num = request.getParameter("shop_num");
 	
@@ -33,9 +35,13 @@
 	*/
 	
 	
-	String login_num = "6";
+	
+	String myid = (String)session.getAttribute("myid");
+	LoginDto ldto = ldao.getById(myid);
+	String login_num = ldto.getNum();
+	System.out.println("로그인번호: " + login_num);
 	String writer = ldao.getOneData(login_num).getNick();
-	String shop_num = "14";
+	String shop_num = request.getParameter("shop_num");
 %>
 <!-- se2 폴더에서 js 파일 가져오기 -->
 <script type="text/javascript" src="<%=root%>/se2/js/HuskyEZCreator.js"
@@ -49,7 +55,7 @@
 <script language="JavaScript1.2">
 top.document.title = 'TasteBook | 리뷰작성';
 </script>
-<form action="reviewaction.jsp" method="post" id="frm">
+<form action="<%=root %>/shop/reviewaction.jsp" method="post" id="frm">
 
 	<table class="table table-bordered" style="width: 800px;margin-left: 100px;">
 		<caption style="margin-bottom: 30px;"><b style="color: orange; font-size: 16pt;"><%=shdao.getOneShop(shop_num).getName() %></b>  
