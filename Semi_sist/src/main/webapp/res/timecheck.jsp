@@ -63,16 +63,18 @@ for(ScheduleDto sdto : slist){
 	if(sdto.getSdate().equals(seldate)) {
 		if(stime > 12) {
 			strtime = "오후 " + String.valueOf((stime-12)) + "시";
+		} else {
+			strtime = "오전 " + String.valueOf(stime) + "시";
 		}
 		if(sdto.getRoom() == sdto.getRoom_cnt()) {
 			%>
-			<input type="button" name="time" class="btn-t btn-normal" value="룸 <%=strtime %>"
-			style="width:100px; height: 40px; font-size: 13pt;" disabled="disabled">
+			<input type="button" name="time" class="btn-t btn-normal" value="예약 불가"
+			style="width:110px; height: 40px; font-size: 13pt; color: red;" disabled="disabled">
 			<%
 		} else {
 		%>
 		<input type="button" name="time" class="btn-t btn-normal" value="룸 <%=strtime %>"
-		style="width:100px; height: 40px; font-size: 13pt;">
+		style="width:110px; height: 40px; font-size: 13pt;">
 		<%
 		}
 	}
@@ -89,23 +91,25 @@ for(ScheduleDto sdto : slist){
 	if(sdto.getSdate().equals(seldate)) {
 		if(stime > 12) {
 			strtime = "오후 " + String.valueOf((stime-12)) + "시";
+		} else {
+			strtime = "오전 " + String.valueOf(stime) + "시";
 		}
 		if(sdto.getHall() == sdto.getHall_cnt()) {
 			%>
-			<input type="button" name="time" class="btn-t btn-normal" value="홀 <%=strtime %>"
-			style="width:100px; height: 40px; font-size: 13pt;" disabled="disabled">
+			<input type="button" name="time" class="btn-t btn-normal" value="예약 불가"
+			style="width:110px; height: 40px; font-size: 13pt; color: red;" disabled="disabled">
 			<%
 		} else {
 		%>
 		<input type="button" name="time" class="btn-t btn-normal" value="홀 <%=strtime %>"
-		style="width:100px; height: 40px; font-size: 13pt;">
+		style="width:110px; height: 40px; font-size: 13pt;">
 		<%
 		}
 	}
 }
 %>
-<br>
-<div align="right">
+<br><br>
+<div align="right" style="margin-right: 70px;">
 <input type="hidden" name="seltime">
 <button type="button" class="btn btn-warning btn-lg" id="btnuse">확인</button>
 </div>
@@ -125,7 +129,7 @@ function clickTimeHandler() {
 for (var i=0; i<timeLinks.length; i++) {
 	timeLinks[i].addEventListener("click", clickTimeHandler);
 	timeLinks[i].addEventListener("click", function () {
-		alert($(this).attr("value"));
+		//alert($(this).attr("value"));
 		$("input[name=seltime]").attr("value",$(this).attr("value"));
 	});
 }

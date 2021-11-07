@@ -1,3 +1,4 @@
+<%@page import="data.dao.ResDao"%>
 <%@page import="data.dao.ShopDao"%>
 <%@page import="data.dao.ReviewDao"%>
 <%@page import="data.dto.ReviewDto"%>
@@ -23,6 +24,7 @@ String shop_num = request.getParameter("shop_num");
 String content = request.getParameter("content");
 String writer = request.getParameter("writer");
 String score = request.getParameter("score");
+String res_num = request.getParameter("res_num");
 
 ReviewDto rdto = new ReviewDto();
 rdto.setLogin_num(login_num);
@@ -30,6 +32,10 @@ rdto.setShop_num(shop_num);
 rdto.setContent(content);
 rdto.setWriter(writer);
 rdto.setScore(score);
+
+ResDao resdao = new ResDao();
+
+resdao.updateReview(res_num);
 
 System.out.println(login_num);
 System.out.println(shop_num);

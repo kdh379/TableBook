@@ -15,6 +15,14 @@ img {
 	align-content: center;
 	margin-left: 700px;
 }
+
+.line {
+	border-bottom: 1px solid lightgray;
+}
+
+th {
+	height: 50px;
+}
 </style>
 </head>
 <%
@@ -41,22 +49,92 @@ top.document.title = 'TasteBook | 마이페이지';
 <br>
 <b style="text-align: center;"><h2>프로필</h2></b>
 <hr><br>
-<% if(dto.getPhoto()!=null){%> 
-<form action="realindex.jsp?main=gaip/updateform.jsp" method="post">
-<input type="hidden" name="num" value="<%= dto.getNum()%>">
-<img alt="" src="save/<%=dto.getPhoto()%>" class="photo" align="center">&nbsp;<%}%><%= nick%><b>(</b><%= myid%><b>)</b>&nbsp;
-<button type="submit" class="btn btn-info">내 정보 수정</button>
+<% 
+if(dto.getPhoto()!=null) {
+	%> 
+	<form action="realindex.jsp?main=gaip/updateform.jsp" method="post" name = "frm"">
+	
+	<input type="hidden" name="num" value="<%= dto.getNum()%>">
+	<div align="center">
+	<img alt="" src="save/<%=dto.getPhoto()%>" class="photo" align="center"
+	style="width: 100px; height: 100px; border-radius: 70%; margin: 0 auto;">
+	
+	<%
+}
+%>
+<span style="font-size: 15pt; font-weight: bold; margin: 0 auto;"><%=nick %> (<%=myid %>)</span><br>
+</div>
+<table style="width: 400px; margin: auto;">
+
+	<tr>
+		<th style="font-size: 13pt; font-weight: bold; cursor: pointer;" onclick="#">
+			<span style="font-size: 10pt; font-weight: normal;">설정</span>
+		</th>
+	</tr>
+
+	<tr>
+		<th style="font-size: 13pt; font-weight: bold; cursor: pointer; width: 50px;" onclick="updateMyid()">
+			내 정보 수정 <span style="float: right;" class="glyphicon glyphicon-chevron-right"></span>
+		</th>
+	</tr>
+	
+	<tr>
+		<th style="font-size: 13pt; font-weight: bold; cursor: pointer; width: 50px;" onclick="location.href='realindex.jsp?main=yeyak/yeyaklist.jsp'">
+			예약 내역 <span style="float: right;" class="glyphicon glyphicon-chevron-right"></span>
+		</th>
+	</tr>
+	
+	<tr>
+		<th style="font-size: 13pt; font-weight: bold; cursor: pointer; width: 50px;" onclick="#" class="line">
+			결제 카드 정보 관리 <span style="float: right;" class="glyphicon glyphicon-chevron-right"></span>
+		</th>
+	</tr>
+	
+	<tr>
+		<th style="font-size: 13pt; font-weight: bold; cursor: pointer;" onclick="#">
+			<span style="font-size: 10pt; font-weight: normal;">고객센터</span>
+		</th>
+	</tr>
+	
+	<tr>
+		<th style="font-size: 13pt; font-weight: bold; cursor: pointer; width: 50px;" onclick="#">
+			1:1문의 <span style="float: right;" class="glyphicon glyphicon-chevron-right"></span>
+		</th>
+	</tr>
+	
+	
+	<tr>
+		<th style="font-size: 13pt; font-weight: bold; cursor: pointer; width: 50px;" onclick="#">
+			개선 제안하기 <span style="float: right;" class="glyphicon glyphicon-chevron-right"></span>
+		</th>
+	</tr>
+	
+	<tr>
+		<th style="font-size: 13pt; font-weight: bold; cursor: pointer; width: 50px;" onclick="#" class="line">
+			공지사항 및 이용약관 <span style="float: right;" class="glyphicon glyphicon-chevron-right"></span>
+		</th>
+	</tr>
+	
+	
+</table>
+
 </form>
 <br>
 <hr>
 
-&nbsp;&nbsp;&nbsp;
-<button type="button" style="margin-left: 700px;" onclick="location.href='realindex.jsp?main=yeyak/yeyaklist.jsp'" 
-class="btn btn-info">예약관리</button>
-&nbsp;&nbsp;&nbsp;
-<button type="button" style="margin-left: 100px;" onclick="location.href=#" 
-class="btn btn-info">리뷰관리</button>
 <br>
 <hr>
+
+<script type="text/javascript">
+
+function updateMyid() {
+	
+	var f = document.forms.frm;
+	 
+	f.submit();
+}
+
+</script>
+
 </body>
 </html>

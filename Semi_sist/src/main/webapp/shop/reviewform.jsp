@@ -42,6 +42,7 @@
 	System.out.println("로그인번호: " + login_num);
 	String writer = ldao.getOneData(login_num).getNick();
 	String shop_num = request.getParameter("shop_num");
+	String res_num = request.getParameter("res_num");
 %>
 <!-- se2 폴더에서 js 파일 가져오기 -->
 <script type="text/javascript" src="<%=root%>/se2/js/HuskyEZCreator.js"
@@ -66,22 +67,22 @@ top.document.title = 'TasteBook | 리뷰작성';
 		  
 		  <!-- 평점주는버튼들 -->
 		  <button type="button" class="score" value="5" style="border: none; background-color: white;">
-		  <img alt="" src="../imgs/5점.PNG" 
+		  <img alt="" src="<%=root %>/imgs/5점.PNG" 
 		  style="width: 50px; height: 50px; opacity: 0.3"></button>
 		  <button type="button" class="score" value="4" style="border: none; background-color: white;">
-		  <img alt="" src="../imgs/4점.PNG" 
+		  <img alt="" src="<%=root %>/imgs/4점.PNG" 
 		  style="width: 50px; height: 50px; opacity: 0.3"></button>
 		  <button type="button" class="score" value="3" style="border: none; background-color: white;">
-		  <img alt="" src="../imgs/3점.PNG" 
+		  <img alt="" src="<%=root %>/imgs/3점.PNG" 
 		  style="width: 50px; height: 50px; opacity: 0.3"></button>
 		  <button type="button" class="score" value="2" style="border: none; background-color: white;">
-		  <img alt="" src="../imgs/2점.PNG" 
+		  <img alt="" src="<%=root %>/imgs/2점.PNG" 
 		  style="width: 50px; height: 50px; opacity: 0.3"></button>
 		  <button type="button" class="score" value="1" style="border: none; background-color: white;">
-		  <img alt="" src="../imgs/1점.PNG" 
+		  <img alt="" src="<%=root %>/imgs/1점.PNG" 
 		  style="width: 50px; height: 50px; opacity: 0.3"></button>
 		  <button type="button" class="score" value="0" style="border: none; background-color: white;">
-		  <img alt="" src="../imgs/0점.PNG" 
+		  <img alt="" src="<%=root %>/imgs/0점.PNG" 
 		  style="width: 50px; height: 50px; opacity: 0.3"></button>
 		    <br>
 		     <font style="margin-left: 7px; ">Good(5)</font>
@@ -120,7 +121,7 @@ top.document.title = 'TasteBook | 리뷰작성';
 	<input type="hidden" name="writer" value="<%=writer %>">
 	<input type="hidden" name="shop_num" value="<%=shop_num %>">
 	<input type="hidden" name="login_num" value="<%=login_num %>">
-	
+	<input type="hidden" name="res_num" value="<%=res_num %>">
 </form>
 
 <!-- 스마트게시판에 대한 스크립트 코드 넣기 -->

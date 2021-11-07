@@ -12,6 +12,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-뭘까이건..
+
 </body>
 </html>

@@ -13,8 +13,15 @@ public class ResDto {
 	private String persons;
 	private String price;
 	private Timestamp paymentdate;
+	private boolean review;
 	
 	
+	public boolean isReview() {
+		return review;
+	}
+	public void setReview(boolean review) {
+		this.review = review;
+	}
 	public String getSeat() {
 		return seat;
 	}

@@ -1,3 +1,4 @@
+<%@page import="java.util.Calendar"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.Format"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -45,7 +46,13 @@ String root = request.getContextPath();
 //로그인 상태 확인 후 입력폼 나타내기
 String loginok = (String) session.getAttribute("loginok");
 
+String myid = (String)session.getAttribute("myid");
+
 ResDao dao = new ResDao();
+
+LoginDao ldao = new LoginDao();
+
+String nowLoginNum = ldao.getById(myid).getNum();
 
 int totalCount;  //총 글수
 int totalPage;   //총 페이지수
@@ -88,7 +95,7 @@ if(endPage>totalPage){
 start=(currentPage-1)*perPage;
 
 //각페이지에서 필요한 게시글 가져오기...dao에서 만든거
-List<ResDto> list = dao.getList(start, perPage);
+List<ResDto> list = dao.getList(nowLoginNum,start, perPage);
 
 //각 글앞에 붙힐 시작번호 구하기
 //총글이 20개일경우 1페이지는 20, 2페이지는 15부터
@@ -115,10 +122,11 @@ if(loginok!=null){ //로그인 중일때만 입력폼 보이게 한다
 
 <!-- 예약정보 전체출력 -->
 <div style="margin-left: 100px;">
- <b style="font-size: 15pt;">총 <%=totalCount %>개의 예약이 있습니다.</b><br>
  
 <%
-LoginDao ldao = new LoginDao();
+/* LoginDao ldao = new LoginDao();
+
+String nowLoginNum = ldao.getById(myid).getNum(); */
 
 for(ResDto dto:list){
 	
@@ -134,20 +142,34 @@ for(ResDto dto:list){
 			String date2 = dto.getRes_date().substring(0, 10);
 			Date date = sdf2.parse(date2);
 			Date now = new Date();
+			
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(now);
+			cal.add(Calendar.DATE, 1);
+			Date realnow = cal.getTime();
 			if(loginok != null) {
-			if (date.before(now)) {
+			if (date.before(realnow)) {
 				%> 
 				<span class="bangmun"><b>방문예정</b></span>
 				
 				|<a href="yeyak/delete.jsp?num=<%=dto.getNum() %> &currentPage=<%=currentPage %>"
 				style="color: red;">예약취소</a> 
 				<%
-			 } else {
+			 } else if(date.after(realnow)) {
 				  %> 
 				 <span class="bangmun"><b>방문완료</b></span>
-				 <button type="button" style="float: right;"
-				 onclick="location.href='<%=root %>/realindex.jsp?main=shop/reviewform.jsp?shop_num=<%=dto.getShop_num() %>'">리뷰작성</button>
+				 <%
+				 if(dto.isReview()) {
+					 %>
+					 <span style="float: right; margin-right: 10px;  color: blue; font-weight: bold;">작성완료</span>
+					 <%
+				 } else {
+				 %>
+				 <button type="button" style="float: right; margin-right: 5px;"
+				 onclick="location.href='<%=root %>/realindex.jsp?main=shop/reviewform.jsp?shop_num=<%=dto.getShop_num() %>&res_num=<%=dto.getNum() %>'">
+				 리뷰작성</button>
 				<%
+				 }
 	    	  }
 			}
 			%>

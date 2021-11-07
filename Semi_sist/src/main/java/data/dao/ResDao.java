@@ -11,31 +11,31 @@ import data.dto.ResDto;
 import mysql.DbConnect;
 
 public class ResDao {
-	
+
 	DbConnect db = new DbConnect();
-	
-	//insert
+
+	// insert
 	public void insertRes(ResDto dto) {
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
-		
+
 		String sql = "insert into reservation(login_num, shop_num,shop_name, res_date, persons, price, paymentdate, seat)"
-				+ " values(?, ?, ?, ?, ?, ?, now(), ?)"; //login, shop num 異붽� �븘�슂
-		
+				+ " values(?, ?, ?, ?, ?, ?, now(), ?)"; // login, shop num 異붽� �븘�슂
+
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
-			//諛붿씤�뵫
-			pstmt.setString(1, dto.getLogin_num()); //login num �닔�젙 �븘�슂
-			pstmt.setString(2, dto.getShop_num()); //shop num 異붽� �븘�슂
+
+			// 諛붿씤�뵫
+			pstmt.setString(1, dto.getLogin_num()); // login num �닔�젙 �븘�슂
+			pstmt.setString(2, dto.getShop_num()); // shop num 異붽� �븘�슂
 			pstmt.setString(3, dto.getShop_name());
 			pstmt.setString(4, dto.getRes_date());
 			pstmt.setString(5, dto.getPersons());
 			pstmt.setString(6, dto.getPrice());
 			pstmt.setString(7, dto.getSeat());
-		
+
 			pstmt.execute();
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,23 +43,22 @@ public class ResDao {
 			db.dbClose(pstmt, conn);
 		}
 	}
-	
-	
-	//理쒓렐 �뜲�씠�꽣 �븯�굹 (�삁�빟�셿猷� �뤌)
+
+	// 理쒓렐 �뜲�씠�꽣 �븯�굹 (�삁�빟�셿猷� �뤌)
 	public ResDto getLatestData() {
 		ResDto dto = new ResDto();
-		
+
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
+
 		String sql = "select * from reservation order by num desc limit 1";
-		
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
+
+			if (rs.next()) {
 				dto.setNum(rs.getString("num"));
 				dto.setLogin_num(rs.getString("login_num"));
 				dto.setShop_num(rs.getString("shop_num"));
@@ -68,7 +67,7 @@ public class ResDao {
 				dto.setPersons(rs.getString("persons"));
 				dto.setPrice(rs.getString("price"));
 				dto.setSeat(rs.getString("seat"));
-				dto.setPaymentdate(rs.getTimestamp("paymentdate"));	
+				dto.setPaymentdate(rs.getTimestamp("paymentdate"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -78,8 +77,8 @@ public class ResDao {
 		}
 		return dto;
 	}
-	
-	//yeoeun update 1107 02:31
+
+	// yeoeun update 1107 02:31
 	// 삭제
 	public void deleteYeyak(String num) {
 
@@ -101,7 +100,7 @@ public class ResDao {
 		}
 
 	}
-	
+
 	// 수정에 필요한 num에 해당
 	public ResDto getData(String num) {
 
@@ -140,7 +139,7 @@ public class ResDao {
 		return dto;
 
 	}
-	
+
 	// total count
 	public int getTotalCount() {
 
@@ -168,9 +167,9 @@ public class ResDao {
 		return n;
 
 	}
-	
+
 	// 페이지에서 필요한 만큼만 리턴하기(전체출력)
-	public List<ResDto> getList(int start, int perpage) {
+	public List<ResDto> getList(String num, int start, int perpage) {
 
 		List<ResDto> list = new Vector<ResDto>();
 
@@ -178,13 +177,14 @@ public class ResDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "select * from reservation order by num desc limit ?,?";
+		String sql = "select * from reservation where login_num = ? order by num asc limit ?,?";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
 			// 바인딩
-			pstmt.setInt(1, start);
-			pstmt.setInt(2, perpage);
+			pstmt.setString(1, num);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, perpage);
 			// 실행
 			rs = pstmt.executeQuery();
 
@@ -201,6 +201,7 @@ public class ResDao {
 				dto.setPrice(rs.getString("price"));
 				dto.setSeat(rs.getString("seat"));
 				dto.setPaymentdate(rs.getTimestamp("paymentdate"));
+				dto.setReview(rs.getBoolean("review"));
 
 				list.add(dto);
 			}
@@ -215,7 +216,7 @@ public class ResDao {
 		return list;
 
 	}
-	
+
 	// 수정
 	public void updateYeyak(ResDto dto) {
 
@@ -228,8 +229,8 @@ public class ResDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			// 바인딩
-			pstmt.setString(1, dto.getLogin_num()); //login num �닔�젙 �븘�슂
-			pstmt.setString(2, dto.getShop_num()); //shop num 異붽� �븘�슂
+			pstmt.setString(1, dto.getLogin_num()); // login num �닔�젙 �븘�슂
+			pstmt.setString(2, dto.getShop_num()); // shop num 異붽� �븘�슂
 			pstmt.setString(3, dto.getShop_name());
 			pstmt.setString(4, dto.getRes_date());
 			pstmt.setString(5, dto.getPersons());
@@ -246,46 +247,25 @@ public class ResDao {
 		}
 
 	}
-	
-	// 살려주세요 이게 맞나요./?
-/*	public List<ResDto> getAllRes(String login_num) {
 
-		List<ResDto> list = new Vector<ResDto>();
+	// 리뷰작성시 review 칼럼 true
+	public void updateReview(String num) {
+
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
 
-		String sql = "select * from reservation where login_num=? order by num";
+		String sql = "update reservation set review=true where num=?";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, login_num);
-			rs = pstmt.executeQuery();
+			pstmt.setString(1, num);
 
-			while (rs.next()) {
-				ResDto dto = new ResDto();
-
-				dto.setNum(rs.getString("num"));
-				dto.setLogin_num(rs.getString("login_num"));
-				dto.setShop_num(rs.getString("shop_num"));
-				dto.setShop_name(rs.getString("shop_name"));
-				dto.setRes_date(rs.getString("res_date"));
-				dto.setPersons(rs.getString("persons"));
-				dto.setPrice(rs.getString("price"));
-				dto.setSeat(rs.getString("seat"));
-				dto.setPaymentdate(rs.getTimestamp("paymentdate"));
-
-				list.add(dto);
-
-			}
+			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			db.dbClose(rs, pstmt, conn);
+			db.dbClose(pstmt, conn);
 		}
-
-		return list;
-
-	} */
+	}
 }
