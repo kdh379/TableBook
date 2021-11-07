@@ -140,13 +140,25 @@ for(ResDto dto:list){
 			<!-- <b><span class="bangmun"></span>방문예정/방문완료/예약취소 넣을부분</b> -->
 			<%
 			String date2 = dto.getRes_date().substring(0, 10);
+			String date3 = dto.getRes_date().substring(14, 18);
+			int date4 = 0;
+			if(date3.substring(0,2).equals("오후")){
+				date4 = 12+Integer.parseInt(date3.substring(3, 4));
+			} else {
+				date4 = Integer.parseInt(date3.substring(3, 4));
+			}
+			System.out.println(date4);
 			Date date = sdf2.parse(date2);
 			Date now = new Date();
 			
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(now);
-			cal.add(Calendar.DATE, 1);
+			cal.add(Calendar.DATE, 0);
 			Date realnow = cal.getTime();
+			
+			cal.setTime(date);
+			cal.add(Calendar.HOUR_OF_DAY, date4);
+			Date realdate = cal.getTime();
 			
 			if(loginok != null) {
 			if (realnow.before(date)) {
