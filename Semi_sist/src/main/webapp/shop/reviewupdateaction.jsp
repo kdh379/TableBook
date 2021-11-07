@@ -36,7 +36,7 @@ double avg = 0;
 if(rdao.getTotalCount(shop_num)==0){
 	avg=0;
 }else{
-	avg = rdao.getSumScore(shop_num)/rdao.getTotalCount(shop_num);
+	avg = (double) (rdao.getSumScore(shop_num)/rdao.getTotalCount(shop_num));
 }
 
 ShopDao shdao = new ShopDao();
@@ -46,7 +46,7 @@ int re_cnt = rdao.getTotalCount(shop_num);
 shdao.updateRe_cnt(re_cnt, shop_num);
 
 
-response.sendRedirect("../realindex.jsp?main=shop/shopform.jsp?currentPage="+currentPage);
+response.sendRedirect("../realindex.jsp?main=shop/shopform.jsp?currentPage="+currentPage+"&num="+shop_num);
 
 
 %>

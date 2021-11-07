@@ -47,7 +47,7 @@
 </head>
 <body>
 
-<form action="reviewupdateaction.jsp" method="post">
+<form action="shop/reviewupdateaction.jsp" method="post">
 
 	<table class="table table-bordered" style="width: 800px;margin-left: 100px;">
 		<caption style="margin-bottom: 30px;"><b style="color: orange; font-size: 16pt;"><%=shopName %></b>  
@@ -58,22 +58,22 @@
 		  
 		  <!-- 평점주는버튼들 -->
 		  <button type="button" class="score" value="5" style="border: none; background-color: white;">
-		  <img alt="" src="../imgs/5점.PNG" 
+		  <img alt="" src="imgs/5점.PNG" 
 		  style="width: 50px; height: 50px; opacity: 0.3"></button>
 		  <button type="button" class="score" value="4" style="border: none; background-color: white;">
-		  <img alt="" src="../imgs/4점.PNG" 
+		  <img alt="" src="imgs/4점.PNG" 
 		  style="width: 50px; height: 50px; opacity: 0.3"></button>
 		  <button type="button" class="score" value="3" style="border: none; background-color: white;">
-		  <img alt="" src="../imgs/3점.PNG" 
+		  <img alt="" src="imgs/3점.PNG" 
 		  style="width: 50px; height: 50px; opacity: 0.3"></button>
 		  <button type="button" class="score" value="2" style="border: none; background-color: white;">
-		  <img alt="" src="../imgs/2점.PNG" 
+		  <img alt="" src="imgs/2점.PNG" 
 		  style="width: 50px; height: 50px; opacity: 0.3"></button>
 		  <button type="button" class="score" value="1" style="border: none; background-color: white;">
-		  <img alt="" src="../imgs/1점.PNG" 
+		  <img alt="" src="imgs/1점.PNG" 
 		  style="width: 50px; height: 50px; opacity: 0.3"></button>
 		  <button type="button" class="score" value="0" style="border: none; background-color: white;">
-		  <img alt="" src="../imgs/0점.PNG" 
+		  <img alt="" src="imgs/0점.PNG" 
 		  style="width: 50px; height: 50px; opacity: 0.3"></button>
 		    <br>
 		     <font style="margin-left: 7px; ">Good(5)</font>
@@ -92,7 +92,7 @@
 			<td colspan="2">
 				<textarea name="content" id="content"		
 					required="required"			
-					style="width: 100%;height: 300px;display: none;"></textarea>		
+					style="width: 100%;height: 300px;display: none;"><%=rdto.getContent() %></textarea>		
 			
 			</td>
 		</tr>
@@ -107,6 +107,7 @@
 		</tr>
 		
 	</table>   
+	<input type="hidden" name="score">
 	<input type="hidden" name="num" value="<%= num%>">
 	<input type="hidden" name="currentPage" value="<%= currentPage%>">
 	<input type="hidden" name="shop_num" value="<%=shop_num%>">
@@ -172,8 +173,8 @@ function pasteHTML(filepath){
 }); */
 $(document).on("click", ".score", function () {
 	$(this).children().css({"opacity":"1.0"});
-	score = $(this).val();
 	
+	$("input[name=score]").attr("value",$(this).attr("value"));
 	
 	$(this).siblings().prop("disabled", true);
   });

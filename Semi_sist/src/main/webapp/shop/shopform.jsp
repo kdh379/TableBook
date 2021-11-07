@@ -252,7 +252,7 @@ top.document.title = 'TasteBook | 상세페이지';
   <tr>
     <th width="120px;" style="vertical-align: top; text-align: center">
     <!-- save/ logPhoto  -->
-      <img alt="" src="../save/<%=logPhoto %>" style="border-radius: 100px; width: 60px; height: 60px; border: 1px solid black"><br>
+      <img alt="" src="save/<%=logPhoto %>" style="border-radius: 100px; width: 60px; height: 60px; border: 1px solid black"><br>
       <font style="font-size: 8px;" ><%=ldao.getOneData(rdto.getLogin_num()).getNick() %></font>  <!-- ldao.getOneData(rdto.getLogin_num()).getNick() -->
     </th>
     
@@ -265,8 +265,10 @@ top.document.title = 'TasteBook | 상세페이지';
 	      
 	      if(loginok!=null && id.equals(myid)){%>
 	    	 
-	    	 |<a href="#" style="color: blue;">수정</a>   <!-- currentpage와 num(rdto.getNum())넘겨주면서 review수정폼으로 가기 -->
-	    	 |<a href="#" style="color: red;">삭제</a>   <!-- currentpage와 num넘겨주면서 review삭제액션으로 가기 -->
+	    	 |<a href="realindex.jsp?main=shop/reviewupdateform.jsp?currentPage=<%=currentPage %>&num=<%=rdto.getNum() %>" 
+	    	 style="color: blue;">수정</a>   <!-- currentpage와 num(rdto.getNum())넘겨주면서 review수정폼으로 가기 -->
+	    	 |<a href="shop/reviewdelete.jsp?currentPage=<%=currentPage %>&num=<%=rdto.getNum() %>" 
+	    	 style="color: red;">삭제</a>   <!-- currentpage와 num넘겨주면서 review삭제액션으로 가기 -->
 	    	  
 	      <%}
 	      

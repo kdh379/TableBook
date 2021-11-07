@@ -33,7 +33,7 @@
 	*/
 	
 	
-	String login_num = "5";
+	String login_num = "6";
 	String writer = ldao.getOneData(login_num).getNick();
 	String shop_num = "14";
 %>

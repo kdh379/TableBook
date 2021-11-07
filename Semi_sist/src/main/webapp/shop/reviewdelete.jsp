@@ -16,20 +16,20 @@ rel="stylesheet">
 <body>
 <%
 String currentPage = request.getParameter("currentPage");
+//review의num
 String num = request.getParameter("num");
 
 //주의: db삭제 뿐만아니라 업로드된 파일도 삭제!!!!!!!!!!!!!?? 스마특트게시판은 photo경로를 어케 얻어야할지 모르겟음
 
 ReviewDao rdao = new ReviewDao();
-rdao.deleteReview(num);
-
 String shop_num = rdao.getOneReview(num).getShop_num();
+rdao.deleteReview(num);
 
 double avg = 0;
 if(rdao.getTotalCount(shop_num)==0){
 	avg=0;
 }else{
-	avg = rdao.getSumScore(shop_num)/rdao.getTotalCount(shop_num);
+	avg = (double) (rdao.getSumScore(shop_num)/rdao.getTotalCount(shop_num));
 }
 
 ShopDao shdao = new ShopDao();
@@ -39,7 +39,7 @@ int re_cnt = rdao.getTotalCount(shop_num);
 shdao.updateRe_cnt(re_cnt, shop_num);
 
 
-response.sendRedirect("../realindex.jsp?main=shop/shopform.jsp?currentPage="+currentPage);
+response.sendRedirect("../realindex.jsp?main=shop/shopform.jsp?currentPage="+currentPage+"&num="+shop_num);
 
 %>
 </body>
