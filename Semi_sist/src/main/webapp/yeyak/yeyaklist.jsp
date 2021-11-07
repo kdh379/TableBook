@@ -65,7 +65,7 @@ int currentPage;  //현재페이지
 int no;
 
 //총개수
-totalCount=dao.getTotalCount();
+totalCount=dao.getTotalCount(nowLoginNum);
 
 //현재페이지번호 읽기(단 null일경우 1페이지 설정)
 if(request.getParameter("currentPage")==null){
@@ -147,15 +147,16 @@ for(ResDto dto:list){
 			cal.setTime(now);
 			cal.add(Calendar.DATE, 1);
 			Date realnow = cal.getTime();
+			
 			if(loginok != null) {
-			if (date.before(realnow)) {
+			if (realnow.before(date)) {
 				%> 
 				<span class="bangmun"><b>방문예정</b></span>
 				
 				|<a href="yeyak/delete.jsp?num=<%=dto.getNum() %> &currentPage=<%=currentPage %>"
 				style="color: red;">예약취소</a> 
 				<%
-			 } else if(date.after(realnow)) {
+			 } else if(realnow.after(date)) {
 				  %> 
 				 <span class="bangmun"><b>방문완료</b></span>
 				 <%

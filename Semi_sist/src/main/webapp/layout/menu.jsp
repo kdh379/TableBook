@@ -38,6 +38,8 @@ String root=request.getContextPath();
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/function.js"></script>
 </head>
+
+
 <%
 //프로젝트 경로 구하기
 String root=request.getContextPath();
@@ -47,6 +49,17 @@ String prePage = request.getParameter("prePage");
 String loginok=(String)session.getAttribute("loginok");
 
 %>
+
+<style>
+
+html, body {
+
+	width: 100%;
+	
+
+}
+
+</style>
 <body>
 <div id="wrap">
 	<header>
@@ -62,16 +75,15 @@ String loginok=(String)session.getAttribute("loginok");
 					</button>
 				</div>
 			</form>
-				<div align="right" style="width: 100%;">
 					<%
                     if(loginok==null){%>
-                    <ul id="main-menu" style="margin-left: 420px;">
+                    <ul id="main-menu" style="position: absolute;">
 					<li><a href="index.jsp">홈</a></li>
                     <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=login/loginmain.jsp?prePage=<%= prePage%>">로그인</a></li>
                     <li><a href="realindex.jsp?main=shop/questionform.jsp">입점문의</a></li>
 					</ul>
                     <%} else{%>
-                    <ul id="main-menu" style="margin-left: 440px;">
+                    <ul id="main-menu" style="position: absolute;">
 					<li><a href="index.jsp">홈</a></li>
                     <li class="nav-item"><a class="nav-link" href="login/logoutaction.jsp?prePage=<%= prePage%>">로그아웃</a></li>
                     <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=gaip/mypageform.jsp">마이페이지</a></li>
@@ -79,7 +91,6 @@ String loginok=(String)session.getAttribute("loginok");
 					</ul>
                     <% }
                     %> 
-				</div>
 			</nav>
 			</div>
 			<div class="clear"></div>

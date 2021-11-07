@@ -141,17 +141,18 @@ public class ResDao {
 	}
 
 	// total count
-	public int getTotalCount() {
+	public int getTotalCount(String num) {
 
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "select count(*) from reservation";
+		String sql = "select count(*) from reservation where login_num = ?";
 		int n = 0;
 
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
