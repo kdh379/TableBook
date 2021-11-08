@@ -19,20 +19,25 @@ session.removeAttribute("loginok");
 
 /* var referrer=document.referrer;*/
 String prePage=request.getParameter("prePage");
-String search = request.getParameter("search");
+String search = "";
+if(request.getParameter("search")==null){
+	search=" ";
+}else{
+	search = request.getParameter("search");
+}
 System.out.println(search);
-String str1 = prePage.substring(0, prePage.length()-search.length());
-String str2 = prePage.substring(prePage.length()-search.length());
+/* String str1 = prePage.substring(0, prePage.length()-search.length());
+String str2 = prePage.substring(prePage.length()-search.length()); */
 
-System.out.println(str1);
-System.out.println(str2);
+/* System.out.println(str1);
+System.out.println(str2); */
 
 
 if(request.getParameter("prePage")==null||prePage.equals("index.jsp")){
 	response.sendRedirect("../index.jsp");
 }else{
-	String encoding = URLEncoder.encode(str2);
-	response.sendRedirect("../realindex.jsp?main="+str1+str2);
+	String encoding = URLEncoder.encode(search);
+	response.sendRedirect("../realindex.jsp?main="+prePage+"&search="+encoding);
 }
 
 
