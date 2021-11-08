@@ -258,7 +258,7 @@ if(saveok != null){
 				<!-- <li><a href=""></a></li> -->
 <!-- 				<button type="button" class="btn btn-warning" style="width: 100px;" onclick="location.href='realindex.jsp?main=sns/kakaologinFormTest.jsp'">카카오</button>
  -->				
-				<li><a href="realindex.jsp?main=sns/kakaologinFormTest.jsp" style=" margin-left: 15px;">
+				<li><a href="https://kauth.kakao.com/oauth/authorize?client_id=e81d7291b30b702409a60afcc2d361ff&redirect_uri=http://localhost:8080/Semi_sist/sns/kakaoRedirectForm.jsp&response_type=code">
 				<img src="imgs/kakaoicon.jpg" style="border: solid 1px white; 
 				border-radius: 100%; max-width: 60px;"></a></li>
 				<li><a href="realindex.jsp?main=sns/naver_callback.html">
