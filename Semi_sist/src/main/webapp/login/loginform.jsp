@@ -121,7 +121,7 @@ li {
 
 .wrap {
 	width: 100%;
-	height: 100vh;
+	height: 645px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -129,7 +129,7 @@ li {
 }
 
 .login {
-	width: 30%;
+	width: 12%;
 	height: 600px;
 	background: white;
 	border-radius: 20px;
