@@ -24,7 +24,9 @@ String pass = request.getParameter("pass");
 String cbsave = request.getParameter("cbsave");  //체크안하면 null 체크하면 on
 String prePage = request.getParameter("prePage");
 
-System.out.println("로그인액션: " + prePage);
+String str1 = prePage.substring(0, prePage.length()-2);
+String str2 = prePage.substring(prePage.length()-2);
+
 
 LoginDao dao = new LoginDao();
 boolean b = dao.isIdPass(id, pass);
@@ -43,8 +45,8 @@ if(b){
 		response.sendRedirect("../index.jsp");
 	}else{
 		/* response.setContentType("text/html;charset=utf-8"); */
-		System.out.println(prePage);
-		response.sendRedirect("../realindex.jsp?main="+prePage);
+		str2 = URLEncoder.encode(str2);
+		response.sendRedirect("../realindex.jsp?main="+str1+str2);
 	}
 	
 	

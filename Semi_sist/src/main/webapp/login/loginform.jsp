@@ -1,5 +1,6 @@
-<%-- <%@ page language="java" contentType="text/html; charset=utf-8"
+ <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%--
 <!DOCTYPE html>
 <html>
 <head>
@@ -224,9 +225,15 @@ h2 {
 </head>
 <body>
 <%
+request.setCharacterEncoding("utf-8");
+
  String saveok = (String) session.getAttribute("saveok");
 String myid = "";
 String prePage = request.getParameter("prePage");
+String search = request.getParameter("search");
+if(search!=null) {
+	prePage += "&search=" + search;
+}
 
 if(saveok != null){
 	myid = (String) session.getAttribute("myid");

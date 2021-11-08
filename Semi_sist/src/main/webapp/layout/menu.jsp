@@ -47,8 +47,7 @@ request.setCharacterEncoding("utf-8");
 String root=request.getContextPath();
 String prePage = request.getParameter("prePage");
 String search = request.getParameter("search");
-System.out.println("메뉴: "+prePage);
-System.out.println("검색: "+search);
+
 if(search!=null) {
 	prePage += "&search=" + search;
 }

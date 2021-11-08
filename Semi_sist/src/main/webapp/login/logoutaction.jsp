@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <%@page import="javax.swing.text.Document"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
@@ -18,10 +19,19 @@ session.removeAttribute("loginok");
 
 /* var referrer=document.referrer;*/
 String prePage=request.getParameter("prePage");
+
+String str1 = prePage.substring(0, prePage.length()-2);
+String str2 = prePage.substring(prePage.length()-2);
+
+System.out.println(str1);
+System.out.println(str2);
+
+
 if(request.getParameter("prePage")==null||prePage.equals("index.jsp")){
 	response.sendRedirect("../index.jsp");
 }else{
-	response.sendRedirect("../realindex.jsp?main="+prePage);
+	String encoding = URLEncoder.encode(str2);
+	response.sendRedirect("../realindex.jsp?main="+str1+str2);
 }
 
 

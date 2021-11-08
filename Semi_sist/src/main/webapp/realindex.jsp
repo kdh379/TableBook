@@ -29,7 +29,6 @@ String mainPage="layout/main.jsp"; //기본페이지
 //url을 통해서 main값을 읽어서 출력
 if(request.getParameter("main")!=null){
 	mainPage=request.getParameter("main");
-	System.out.println(mainPage);
 }
 %>
 
