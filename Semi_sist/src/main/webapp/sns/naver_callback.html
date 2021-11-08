@@ -4,42 +4,42 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-<!-- 네이버 로그인 버튼 노출 영역 -->
+<!-- �꽕�씠踰� 濡쒓렇�씤 踰꾪듉 �끂異� �쁺�뿭 -->
 <div id="naver_id_login"></div>
-<!-- //네이버 로그인 버튼 노출 영역 -->
+<!-- //�꽕�씠踰� 濡쒓렇�씤 踰꾪듉 �끂異� �쁺�뿭 -->
 
 
-<!-- 네이버아디디로로그인 초기화 Script -->
+<!-- �꽕�씠踰꾩븘�뵒�뵒濡쒕줈洹몄씤 珥덇린�솕 Script -->
 <script type="text/javascript">
 	var naver_id_login = new naver_id_login("gmeR75V0A8r7JpS270pi", "http://localhost:8080/Semi_sist/realindex.jsp?main=sns/naver_callback.html");
 	var state = naver_id_login.getUniqState();
-	naver_id_login.setButton("white", 2,40);
+	naver_id_login.setButton("white", 1,40);
 	naver_id_login.setDomain(".service.com");
 	naver_id_login.setState(state);
 	naver_id_login.setPopup(false);
 	naver_id_login.init_naver_id_login();
 </script>
-<!-- //네이버아디디로로그인 초기화 Script -->
+<!-- //�꽕�씠踰꾩븘�뵒�뵒濡쒕줈洹몄씤 珥덇린�솕 Script -->
 
 
-<!-- 네이버아디디로로그인 Callback페이지 처리 Script -->
+<!-- �꽕�씠踰꾩븘�뵒�뵒濡쒕줈洹몄씤 Callback�럹�씠吏� 泥섎━ Script -->
 <script type="text/javascript">
-	// 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
+	// �꽕�씠踰� �궗�슜�옄 �봽濡쒗븘 議고쉶 �씠�썑 �봽濡쒗븘 �젙蹂대�� 泥섎━�븷 callback function
 	function naverSignInCallback() {
-		// naver_id_login.getProfileData('프로필항목명');
-		// 프로필 항목은 개발가이드를 참고하시기 바랍니다.
+		// naver_id_login.getProfileData('�봽濡쒗븘�빆紐⑸챸');
+		// �봽濡쒗븘 �빆紐⑹� 媛쒕컻媛��씠�뱶瑜� 李멸퀬�븯�떆湲� 諛붾엻�땲�떎.
 		alert(naver_id_login.getProfileData('email'));
 		alert(naver_id_login.getProfileData('nickname'));
 		alert(naver_id_login.getProfileData('age'));
 	}
 
 
-	// 네이버 사용자 프로필 조회
+	// �꽕�씠踰� �궗�슜�옄 �봽濡쒗븘 議고쉶
 	naver_id_login.get_naver_userprofile("naverSignInCallback()");
 	
-	//로그아웃 창 열기 (주소복사)
+	//濡쒓렇�븘�썐 李� �뿴湲� (二쇱냼蹂듭궗)
 	/* https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=gmeR75V0A8r7JpS270pi&client_secret=lT5EyddEbA&access_token=AAAAOCj0coUcriQIiRH9gdUMCGaU2oLPB4L93GgSyORnX_y5brM_2a_A-DJR244UavKbOqBMN7V6bnJKH7eGI9rndu8&service_provider=NAVER */
 </script>
-<!-- //네이버아디디로로그인 Callback페이지 처리 Script -->
+<!-- //�꽕�씠踰꾩븘�뵒�뵒濡쒕줈洹몄씤 Callback�럹�씠吏� 泥섎━ Script -->
 </body>
 </html>
