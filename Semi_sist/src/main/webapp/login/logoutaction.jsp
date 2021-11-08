@@ -25,26 +25,27 @@ if(request.getParameter("search")==null){
 }else{
 	search = request.getParameter("search");
 }
-
-System.out.print(prePage);
-
-if(prePage.equals("gaip/mypageform.jsp")) {
+if(request.getParameter("prePage")==null||prePage.equals("index.jsp")){
+	response.sendRedirect("../index.jsp");
+}else if(prePage.equals("gaip/mypageform.jsp")) {
 	response.sendRedirect("../index.jsp");
 	return;
 }
+else{
+	String encoding = URLEncoder.encode(search);
+	response.sendRedirect("../realindex.jsp?main="+prePage+"&search="+encoding);
+}
+
+
+
+
 /* String str1 = prePage.substring(0, prePage.length()-search.length());
 String str2 = prePage.substring(prePage.length()-search.length()); */
-
+//System.out.print(prePage);
 /* System.out.println(str1);
 System.out.println(str2); */
 
 
-if(request.getParameter("prePage")==null||prePage.equals("index.jsp")){
-	response.sendRedirect("../index.jsp");
-}else{
-	String encoding = URLEncoder.encode(search);
-	response.sendRedirect("../realindex.jsp?main="+prePage+"&search="+encoding);
-}
 
 
 

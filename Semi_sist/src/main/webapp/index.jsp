@@ -770,6 +770,8 @@
 		alert(naver_id_login.getProfileData('nickname'));
 		alert(naver_id_login.getProfileData('age'));
 	}
+	
+	
 	// �꽕�씠踰� �궗�슜�옄 �봽濡쒗븘 議고쉶
 	naver_id_login.get_naver_userprofile("naverSignInCallback()");
 	

@@ -11,13 +11,15 @@
 
 <!-- �꽕�씠踰꾩븘�뵒�뵒濡쒕줈洹몄씤 珥덇린�솕 Script -->
 <!-- <script type="text/javascript">
-	var naver_id_login = new naver_id_login("gmeR75V0A8r7JpS270pi", "http://localhost:8080/Semi_sist/realindex.jsp?main=sns/naver_callback.html");
-	var state = naver_id_login.getUniqState();
-	naver_id_login.setButton("white", 1,40);
-	naver_id_login.setDomain(".service.com");
-	naver_id_login.setState(state);
-	naver_id_login.setPopup(false);
-	naver_id_login.init_naver_id_login();
+
+/* var naver_id_login = new naver_id_login("gmeR75V0A8r7JpS270pi", "http://localhost:8080/Semi_sist/realindex.jsp?main=sns/naver_callback.html"); */
+var naver_id_login = new naver_id_login("nxtYWqsr4vw2nACnPJZp", "http://localhost:8080/Semi_sist/sns/naver_callback.html");
+var state = naver_id_login.getUniqState();
+naver_id_login.setButton("white", 3,40);
+naver_id_login.setDomain(".service.com");
+naver_id_login.setState(state);
+naver_id_login.setPopup(false);
+naver_id_login.init_naver_id_login();
 </script> -->
 <!-- //�꽕�씠踰꾩븘�뵒�뵒濡쒕줈洹몄씤 珥덇린�솕 Script -->
 
@@ -36,6 +38,7 @@
 
 	// �꽕�씠踰� �궗�슜�옄 �봽濡쒗븘 議고쉶
 	naver_id_login.get_naver_userprofile("naverSignInCallback()");
+	
 	
 	//濡쒓렇�븘�썐 李� �뿴湲� (二쇱냼蹂듭궗)
 	/* https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=gmeR75V0A8r7JpS270pi&client_secret=lT5EyddEbA&access_token=AAAAOCj0coUcriQIiRH9gdUMCGaU2oLPB4L93GgSyORnX_y5brM_2a_A-DJR244UavKbOqBMN7V6bnJKH7eGI9rndu8&service_provider=NAVER */
