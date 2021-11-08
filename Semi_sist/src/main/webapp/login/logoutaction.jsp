@@ -19,9 +19,10 @@ session.removeAttribute("loginok");
 
 /* var referrer=document.referrer;*/
 String prePage=request.getParameter("prePage");
-
-String str1 = prePage.substring(0, prePage.length()-2);
-String str2 = prePage.substring(prePage.length()-2);
+String search = request.getParameter("search");
+System.out.println(search);
+String str1 = prePage.substring(0, prePage.length()-search.length());
+String str2 = prePage.substring(prePage.length()-search.length());
 
 System.out.println(str1);
 System.out.println(str2);

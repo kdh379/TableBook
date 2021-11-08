@@ -97,7 +97,7 @@ html, body {
                     <%} else{%>
                     <ul id="main-menu" style="position: absolute;">
 					<li><a href="index.jsp">홈</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login/logoutaction.jsp?prePage=<%= prePage%>">로그아웃</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login/logoutaction.jsp?prePage=<%= prePage%>&search=<%=search%>">로그아웃</a></li>
                     <li class="nav-item"><a class="nav-link" href="realindex.jsp?main=gaip/mypageform.jsp">마이페이지</a></li>
                     <li><a href="realindex.jsp?main=shop/questionform.jsp">입점문의</a></li>
 					</ul>
