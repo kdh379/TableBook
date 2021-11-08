@@ -55,11 +55,11 @@ if(key==null){
 		
 		</script>
 	<%}else{%>
-	<h3 class="alert alert-success"><%=id %>는 사용가능한 아이디 입니다
+	<h3 class="alert alert-warning"><%=id %>는 사용가능한 아이디 입니다
 	</h3>
-	<button type="button" class="btn btn-warning btn-sm" id="btnuse"
-		style="margin-left: 200px;" myid="<%=id%>">사용하기</button>
-	<button type="button" class="btn btn-danger btn-sm"
+	<button type="button" class="btn btn-warning" id="btnuse"
+		style="margin-left: 100px; width: 90px; margin-right: 10px;" myid="<%=id%>">사용하기</button>
+	<button type="button" class="btn btn-danger" style="width: 90px;"
 		onclick="location.href='idsearch.jsp'">다시입력</button>
 	<%}
 	
