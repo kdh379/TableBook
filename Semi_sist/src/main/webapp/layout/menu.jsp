@@ -41,9 +41,17 @@ String root=request.getContextPath();
 
 
 <%
+request.setCharacterEncoding("utf-8");
+
 //프로젝트 경로 구하기
 String root=request.getContextPath();
 String prePage = request.getParameter("prePage");
+String search = request.getParameter("search");
+System.out.println("메뉴: "+prePage);
+System.out.println("검색: "+search);
+if(search!=null) {
+	prePage += "&search=" + search;
+}
 
 //세션으로부터 id를 얻는다
 String loginok=(String)session.getAttribute("loginok");
@@ -67,12 +75,17 @@ html, body {
 			<img class="logo" src="assets/img/logo2.png" style="height: 120px;" onclick="location.href='index.jsp'">
 			<a id="menu-toggle" class="button dark" href="#"><i class="icon-reorder"></i></a>
 			<nav id="navigation">
-			<form action="realindex.jsp?main=list/searchresult.jsp" method="post">
+			<%String getMain = "escape(encodeURIComponent('list/searchresult.jsp'))"; %>
+			<form action="<%=root %>/realindex.jsp" method="post">
+			<!-- encodeURIComponent('list/searchresult.jsp') -->
+			
 			   <div class="container">
+			 	  	<input type="hidden" name="main">
 					<input type="text" name="search" placeholder="검색어를 입력해주세요" id="gum"/>
-					<button type="submit" id="searchbtn">
+					<button type="submit" id="searchbtn" onclick="inputData()">
 						<i class="fa fa-search" id="searchicon"></i>
 					</button>
+					
 				</div>
 			</form>
 					<%
@@ -98,5 +111,16 @@ html, body {
 </div>    
 
 </body>
+
+<script type="text/javascript">
+
+function inputData() {
+	
+	var searchurl = encodeURI('list/searchresult.jsp');
+	$("input[name=main]").attr("value", searchurl);
+
+}
+
+</script>
 
 </html>

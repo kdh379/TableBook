@@ -76,6 +76,8 @@ div.main{
 </head>
 <%
 
+request.setCharacterEncoding("utf-8");
+
 //shop의 num
 String num = request.getParameter("num");   //shop의num
 

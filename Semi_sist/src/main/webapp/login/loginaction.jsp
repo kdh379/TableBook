@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <%@page import="data.dao.LoginDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
@@ -11,15 +12,19 @@
  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Pen+Script&display=swap"
   rel="stylesheet">
 <title>로그인 액션</title>
+<% request.setCharacterEncoding("utf-8"); %>
 </head>
 <body>
 <%
+
 request.setCharacterEncoding("utf-8");
 
 String id = request.getParameter("id");
 String pass = request.getParameter("pass");
 String cbsave = request.getParameter("cbsave");  //체크안하면 null 체크하면 on
 String prePage = request.getParameter("prePage");
+
+System.out.println("로그인액션: " + prePage);
 
 LoginDao dao = new LoginDao();
 boolean b = dao.isIdPass(id, pass);
@@ -37,6 +42,8 @@ if(b){
 	if(prePage.equals("index.jsp")){
 		response.sendRedirect("../index.jsp");
 	}else{
+		/* response.setContentType("text/html;charset=utf-8"); */
+		System.out.println(prePage);
 		response.sendRedirect("../realindex.jsp?main="+prePage);
 	}
 	

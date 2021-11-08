@@ -27,7 +27,6 @@ request.setCharacterEncoding("utf-8");
 ShopDao db=new ShopDao();
 
 String search=request.getParameter("search");
-//System.out.println(search);
 
 Vector<ShopDto> slist=db.getSearchAllData(search);
 
