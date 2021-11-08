@@ -203,6 +203,8 @@ h2 {
 	justify-content: space-between;
 	align-items: center;
 	font-weight: bold;
+	margin-top: 10px;
+	margin-left: 10px;
 }
 
 .submit {
@@ -220,6 +222,12 @@ h2 {
 	color: white;
 	font-size: 1.2em;
 	letter-spacing: 2px;
+}
+
+.subwrap{
+	margin: 0 auto;
+	
+
 }
 </style>
 </head>
@@ -243,37 +251,42 @@ if(saveok != null){
 	<div class="wrap">
 		<div class="login">
 			<h2>Log-in</h2>
+			
 			 <form action="login/loginaction.jsp" method="post" class="form-inline">
+			 <div class="subwrap">
 			<div class="login_sns">
 				<!-- <li><a href=""></a></li> -->
 <!-- 				<button type="button" class="btn btn-warning" style="width: 100px;" onclick="location.href='realindex.jsp?main=sns/kakaologinFormTest.jsp'">카카오</button>
  -->				
-				<li><a href="realindex.jsp?main=sns/kakaologinFormTest.jsp">
-				<img src="imgs/kakaoicon.jpg" style="border: solid 1px white; border-radius: 100%; max-width: 60px;"></a></li>
+				<li><a href="realindex.jsp?main=sns/kakaologinFormTest.jsp" style=" margin-left: 15px;">
+				<img src="imgs/kakaoicon.jpg" style="border: solid 1px white; 
+				border-radius: 100%; max-width: 60px;"></a></li>
 				<li><a href="realindex.jsp?main=sns/naver_callback.html">
 				<img src="imgs/navericon.jpg" style="border: solid 1px white; border-radius: 100%; max-width: 60px;"></a></li>
 			</div>
 			<div class="login_id">
-				<h4>ID</h4>
-				<input type="text" name="id" id="" placeholder="Id">
+				<h4 style=" margin-left: 15px;">ID</h4>
+				<input type="text" name="id" id="" placeholder="Id" style=" margin-left: 15px;">
 			</div>
 			<div class="login_pw">
-				<h4>Password</h4>
-				<input type="password" name="pass" id="" placeholder="Password">
+				<h4 style=" margin-left: 15px;">Password</h4>
+				<input type="password" name="pass" id="" placeholder="Password" style=" margin-left: 15px;">
 			</div>
 			<div class="login_etc">
 				<div class="checkbox">
-					<input type="checkbox" name="cbsave" id=""> Remember Me?
+					<input type="checkbox" name="cbsave" id=""> Save ID
 				</div>
+				
 				<div class="forgot_pw">
 					<a href="realindex.jsp?main=gaip/gaipform.jsp">Join us</a>
 				</div>
 			</div>
-			<div class="submit">
-				<input type="submit" value="login">
+			<div class="submit" style="margin-left: 15px;">
+				<input type="submit" value="login" >
 			</div>
 			<!-- <div id="naver_id_login"></div> -->
 			<input type="hidden" name="prePage" value="<%=prePage%>">
+			</div>
 			</form>
 			
 		</div>
