@@ -135,13 +135,14 @@ body {
 <script language="JavaScript1.2">
 top.document.title = 'TasteBook | 예약하기';
 </script>
+<div align="center">
 	<form name="pay" action="paymentform.jsp" method="post" style="width: 1200px; margin-left: 200px;">
 		<input type="hidden" name="shop_num" value="<%=shop_num %>"> <!-- 가게번호 -->
 		<span class="glyphicon glyphicon-chevron-left" onclick="history.back()"
-		style="font-size: 2em; cursor: pointer;"></span>
-		<b style="font-size: 2.5em;"><%=dto.getName() %></b>
-		<div>
-		<div id='calendar' style="width: 600px; position: absolute; margin-left: 20px; margin-top: 50px;" align="left"></div>
+		style="font-size: 2em; cursor: pointer; float: left;"></span>
+		<b style="font-size: 2.5em; float: left; margin-bottom: 20px;"><%=dto.getName() %></b>
+		<div style="margin-top: 50px; margin-bottom: 50px;">
+		<div id='calendar' style="width: 600px; position: absolute; margin-left: 20px; margin-top: 60px;" align="left"></div>
 		<div style="margin-left: 700px;">
 		<br><br>
 		
@@ -242,7 +243,7 @@ top.document.title = 'TasteBook | 예약하기';
 	</div>
 	</div>
 	</form>
-	
+</div>	
 	<script type="text/javascript">
 	
 	var menuLinks = document.querySelectorAll(".btn-t");
