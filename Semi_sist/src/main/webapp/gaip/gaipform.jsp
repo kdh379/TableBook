@@ -89,9 +89,9 @@ onsubmit="return check(this)" enctype="multipart/form-data">
         <th width="200">아이디</th>
           <td>
             <input type="text" name="id" maxlength="8" class="form-control"
-            required="required" style="width: 500px; border: none; color: #fff" readonly="readonly">
+            required="required" style="width: 410px; border: none; color: #fff; margin-right: 3px;" readonly="readonly">
             
-            <button type="button" style="width: 80px; height: 30px; background-color: rgb(254,225,14); color: rgb(108,117,126);  border: none; border-radius: 10px; box-shadow: 1px 1px; font-size: 10pt; margin-top: 10px;"  id="btnidcheck">아이디입력</button>
+            <button type="button" style="width: 80px; height: 35px; background-color: rgb(254,225,14); color: rgb(108,117,126);  border: none; border-radius: 10px; box-shadow: 1px 1px; font-size: 10pt; margin-top: 10px;"  id="btnidcheck">아이디입력</button>
           </td>
       </tr>
       
