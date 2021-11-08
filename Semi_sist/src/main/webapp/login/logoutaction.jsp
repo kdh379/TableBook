@@ -18,8 +18,12 @@ session.removeAttribute("loginok");
 
 /* var referrer=document.referrer;*/
 String prePage=request.getParameter("prePage");
+if(request.getParameter("prePage")==null||prePage.equals("index.jsp")){
+	response.sendRedirect("../index.jsp");
+}else{
+	response.sendRedirect("../realindex.jsp?main="+prePage);
+}
 
-response.sendRedirect("../realindex.jsp?main="+prePage);
 
 
 %>
