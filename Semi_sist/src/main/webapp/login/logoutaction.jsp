@@ -25,7 +25,13 @@ if(request.getParameter("search")==null){
 }else{
 	search = request.getParameter("search");
 }
-System.out.println(search);
+
+System.out.print(prePage);
+
+if(prePage.equals("gaip/mypageform.jsp")) {
+	response.sendRedirect("../index.jsp");
+	return;
+}
 /* String str1 = prePage.substring(0, prePage.length()-search.length());
 String str2 = prePage.substring(prePage.length()-search.length()); */
 
