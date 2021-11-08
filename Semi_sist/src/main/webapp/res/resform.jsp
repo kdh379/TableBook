@@ -81,7 +81,7 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 <style>
 body {
-	margin: 40px 10px;
+	margin: 0px 0px;
 	padding: 0;
 	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
 	font-size: 14px;

@@ -600,9 +600,9 @@ progress {
 }
 
 .img-fluid {
-  width: 420px !important;
-  height: 420px !important;
-  object-fit: cover !important; 
+  width: 415px;
+  height: 415px;
+  object-fit: cover; 
 }
 
 .img-thumbnail {
