@@ -284,21 +284,21 @@ if(saveok != null){
 			<div class="submit" style="margin-left: 15px;">
 				<input type="submit" value="login" >
 			</div>
-			<!-- <div id="naver_id_login"></div> -->
+			<div id="naver_id_login"></div>
 			<input type="hidden" name="prePage" value="<%=prePage%>">
 			</div>
 			</form>
 			
 		</div>
 	</div>
-<!-- <script type="text/javascript">
-	var naver_id_login = new naver_id_login("gmeR75V0A8r7JpS270pi", "http://localhost:8080/Semi_sist/realindex.jsp?main=sns/naver_callback.html");
+<script type="text/javascript">
+	var naver_id_login = new naver_id_login("gmeR75V0A8r7JpS270pi", "http://localhost:8080/Semi_sist/sns/naver_callback.html");
 	var state = naver_id_login.getUniqState();
 	naver_id_login.setButton("white", 3,40);
 	naver_id_login.setDomain(".service.com");
 	naver_id_login.setState(state);
 	naver_id_login.setPopup(false);
 	naver_id_login.init_naver_id_login();
-</script> -->
+</script>
 </body>
 </html>
