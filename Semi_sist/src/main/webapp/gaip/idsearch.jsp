@@ -27,10 +27,10 @@ if(key==null){
 		<input type="hidden" name="key" value="result">
 		<table class="table table-bordered">
 			<tr height="100">
-				<td><b style="font-size: 15pt;">아이디를 입력해주세요</b> <input type="text"
+				<td><b style="font-size: 15pt;">아이디를 입력해주세요</b><br> <input type="text"
 					name="id" class="form-control" style="width: 200px; margin-top: 10px;"
 					autofocus="autofocus" required="required" maxlength="8"><br>
-					<button type="submit" style="width: 80px; height: 30px; background-color: rgb(254,225,14); color: rgb(108,117,126);  border: none; border-radius: 10px; box-shadow: 1px 1px; font-size: 10pt; margin-left: 120px;">중복체크</button></td>
+					<button type="submit" style="width: 80px; height: 30px; background-color: rgb(254,225,14); color: rgb(108,117,126);  border: none; border-radius: 10px; box-shadow: 1px 1px; font-size: 10pt; margin-left: 120px; margin-top: 15px;">중복체크</button></td>
 			</tr>
 
 		</table>
