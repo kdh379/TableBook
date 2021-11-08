@@ -3,21 +3,25 @@
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 </head>
 <body>
-<!-- ³×ÀÌ¹ö ·Î±×ÀÎ ¹öÆ° ³ëÃâ ¿µ¿ª -->
-<div id="naver_id_login"></div>
-<!-- //³×ÀÌ¹ö ·Î±×ÀÎ ¹öÆ° ³ëÃâ ¿µ¿ª -->
+<!-- ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -->
+<div style="margin: 0 auto;">
+<div id="naver_id_login" ></div>
+</div>
+<!-- //ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -->
 
 
-<!-- ³×ÀÌ¹ö¾Æµðµð·Î·Î±×ÀÎ ÃÊ±âÈ­ Script -->
+<!-- ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½Æµï¿½ï¿½Î·Î±ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ Script -->
 <script type="text/javascript">
-	var naver_id_login = new naver_id_login("gmeR75V0A8r7JpS270pi", "http://localhost:8080/Semi_sist/realindex.jsp?main=sns/naver_callback.html");
+ 
+	/* var naver_id_login = new naver_id_login("gmeR75V0A8r7JpS270pi", "http://localhost:8080/Semi_sist/realindex.jsp?main=sns/naver_callback.html"); */
+	var naver_id_login = new naver_id_login("nxtYWqsr4vw2nACnPJZp", "http://localhost:8080/Semi_sist/index.jsp");
 	var state = naver_id_login.getUniqState();
-	naver_id_login.setButton("white", 1,40);
+	naver_id_login.setButton("white", 3,40);
 	naver_id_login.setDomain(".service.com");
 	naver_id_login.setState(state);
-	naver_id_login.setPopup(false);
+	/* naver_id_login.setPopup(false); */
 	naver_id_login.init_naver_id_login();
-</script>
-<!-- // ³×ÀÌ¹ö ·Î±×ÀÎ ÃÊ±âÈ­ Script -->
+</script> 
+<!-- // ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ Script -->
 </body>
 </html>

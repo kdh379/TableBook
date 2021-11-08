@@ -1,5 +1,5 @@
  <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+    pageEncoding="utf-8"%> 
 <%--
 <!DOCTYPE html>
 <html>
@@ -85,11 +85,15 @@ top.document.title = 'TasteBook | 로그인';
   </form>
   
 </div> --%>
+
+
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Document</title>
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
@@ -258,21 +262,24 @@ if(saveok != null){
 				<!-- <li><a href=""></a></li> -->
 <!-- 				<button type="button" class="btn btn-warning" style="width: 100px;" onclick="location.href='realindex.jsp?main=sns/kakaologinFormTest.jsp'">카카오</button>
  -->				
-				<li><a href="https://kauth.kakao.com/oauth/authorize?client_id=e81d7291b30b702409a60afcc2d361ff&redirect_uri=http://localhost:8080/Semi_sist/sns/kakaoRedirectForm.jsp&response_type=code">
+				<li><a href="https://kauth.kakao.com/oauth/authorize?client_id=e81d7291b30b702409a60afcc2d361ff&redirect_uri=http://localhost:8080/Semi_sist/sns/kakaoRedirectForm.jsp&response_type=code"
+				style="margin-left: 30px;">
 				<img src="imgs/kakaoicon.jpg" style="border: solid 1px white; 
 				border-radius: 100%; max-width: 60px;"></a></li>
-				<li><a href="realindex.jsp?main=sns/naver_callback.html">
+				 <li><a href="sns/naver_login.html"> 
+				<!-- <li><a onclick="window.open('sns/naver_login.html', '_blank', 'width=200, height=50'); return false;" 
+				style="cursor: pointer;"> -->
 				<img src="imgs/navericon.jpg" style="border: solid 1px white; border-radius: 100%; max-width: 60px;"></a></li>
 			</div>
 			<div class="login_id">
-				<h4 style=" margin-left: 15px;">ID</h4>
-				<input type="text" name="id" id="" placeholder="Id" style=" margin-left: 15px;">
+				<h4 style=" margin-left: 30px;">ID</h4>
+				<input type="text" name="id" id="" placeholder="Id" style=" margin-left: 30px;">
 			</div>
 			<div class="login_pw">
-				<h4 style=" margin-left: 15px;">Password</h4>
-				<input type="password" name="pass" id="" placeholder="Password" style=" margin-left: 15px;">
+				<h4 style=" margin-left: 30px;">Password</h4>
+				<input type="password" name="pass" id="" placeholder="Password" style=" margin-left: 30px;">
 			</div>
-			<div class="login_etc">
+			<div class="login_etc" style="margin-left: 30px;">
 				<div class="checkbox">
 					<input type="checkbox" name="cbsave" id=""> Save ID
 				</div>
@@ -281,24 +288,47 @@ if(saveok != null){
 					<a href="realindex.jsp?main=gaip/gaipform.jsp">Join us</a>
 				</div>
 			</div>
-			<div class="submit" style="margin-left: 15px;">
+			<div class="submit" style="margin-left: 30px;">
 				<input type="submit" value="login" >
 			</div>
-			<div id="naver_id_login"></div>
+			
 			<input type="hidden" name="prePage" value="<%=prePage%>">
 			</div>
 			</form>
+			<!-- <div id="naver_id_login"></div>  -->
 			
 		</div>
 	</div>
-<script type="text/javascript">
-	var naver_id_login = new naver_id_login("gmeR75V0A8r7JpS270pi", "http://localhost:8080/Semi_sist/sns/naver_callback.html");
+<!-- <script type="text/javascript">
+ 
+	/* var naver_id_login = new naver_id_login("gmeR75V0A8r7JpS270pi", "http://localhost:8080/Semi_sist/realindex.jsp?main=sns/naver_callback.html"); */
+	var naver_id_login = new naver_id_login("nxtYWqsr4vw2nACnPJZp", "http://localhost:8080/Semi_sist/sns/naver_callback.html");
 	var state = naver_id_login.getUniqState();
 	naver_id_login.setButton("white", 3,40);
 	naver_id_login.setDomain(".service.com");
 	naver_id_login.setState(state);
 	naver_id_login.setPopup(false);
 	naver_id_login.init_naver_id_login();
-</script>
+</script> 
+ -->
+ <!-- <script type="text/javascript">
+	// �꽕�씠踰� �궗�슜�옄 �봽濡쒗븘 議고쉶 �씠�썑 �봽濡쒗븘 �젙蹂대�� 泥섎━�븷 callback function
+	function naverSignInCallback() {
+		// naver_id_login.getProfileData('�봽濡쒗븘�빆紐⑸챸');
+		// �봽濡쒗븘 �빆紐⑹� 媛쒕컻媛��씠�뱶瑜� 李멸퀬�븯�떆湲� 諛붾엻�땲�떎.
+		alert(naver_id_login.getProfileData('email'));
+		alert(naver_id_login.getProfileData('nickname'));
+		alert(naver_id_login.getProfileData('age'));
+	}
+
+
+	// �꽕�씠踰� �궗�슜�옄 �봽濡쒗븘 議고쉶
+	naver_id_login.get_naver_userprofile("naverSignInCallback()");
+	
+	
+	//濡쒓렇�븘�썐 李� �뿴湲� (二쇱냼蹂듭궗)
+	/* https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=gmeR75V0A8r7JpS270pi&client_secret=lT5EyddEbA&access_token=AAAAOCj0coUcriQIiRH9gdUMCGaU2oLPB4L93GgSyORnX_y5brM_2a_A-DJR244UavKbOqBMN7V6bnJKH7eGI9rndu8&service_provider=NAVER */
+</script> -->
+
 </body>
 </html>
