@@ -169,7 +169,7 @@ top.document.title = 'TasteBook | 상세페이지';
 <%=shdto.getAvg() %></font>
 
 <button type="button" class="btn btn-info" style="margin-left: 600px; margin-top: -60px;"
- onclick="location.href='realindex.jsp?main=res/resform.jsp?shop_num=<%=num%>'">예약하기</button>
+ onclick="location.href='shop/checklogin.jsp?shop_num=<%= num%>'">예약하기</button>
    
 <hr>
 
