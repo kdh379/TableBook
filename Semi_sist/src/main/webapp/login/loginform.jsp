@@ -162,6 +162,8 @@ h2 {
 		rgba(0, 0, 0, 0.1);
 }
 
+/* border: solid 1px white; border-radius: 100%; max-width: 60px; */
+
 .login_id {
 	margin-top: 20px;
 	width: 80%;
@@ -236,11 +238,13 @@ if(saveok != null){
 			<h2>Log-in</h2>
 			 <form action="login/loginaction.jsp" method="post" class="form-inline">
 			<div class="login_sns">
-				<li><a href=""></a></li>
+				<!-- <li><a href=""></a></li> -->
 <!-- 				<button type="button" class="btn btn-warning" style="width: 100px;" onclick="location.href='realindex.jsp?main=sns/kakaologinFormTest.jsp'">카카오</button>
  -->				
-				<li><a href="realindex.jsp?main=sns/kakaologinFormTest.jsp"><i class="fab fa-facebook-f"></i></a></li>
-				<li><a href="realindex.jsp?main=sns/naver_callback.html"><i class="fab fa-twitter"></i></a></li>
+				<li><a href="realindex.jsp?main=sns/kakaologinFormTest.jsp">
+				<img src="imgs/kakaoicon.jpg" style="border: solid 1px white; border-radius: 100%; max-width: 60px;"></a></li>
+				<li><a href="realindex.jsp?main=sns/naver_callback.html">
+				<img src="imgs/navericon.jpg" style="border: solid 1px white; border-radius: 100%; max-width: 60px;"></a></li>
 			</div>
 			<div class="login_id">
 				<h4>ID</h4>
