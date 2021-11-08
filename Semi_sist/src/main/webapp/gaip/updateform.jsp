@@ -10,6 +10,35 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        
+<style type="text/css">
+#updateform{
+ font-size: 14pt;
+ margin-top: 30px;
+ margin-bottom: 30px;
+
+}
+
+input{
+ border: none;
+}
+
+  table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  th, td {
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+    height: 80px;
+  }
+
+ 
+</style>
 
 <script type="text/javascript">
 	$(function() {
@@ -80,42 +109,43 @@ top.document.title = 'TasteBook | 회원정보수정';
 onsubmit="return check(this)" enctype="multipart/form-data">
 <!-- hidden -->
 <input type="hidden" name="num" value="<%=num%>">
-  <table class="table table-bordered" style="width: 500px;">
-    <caption><b>회원정보수정폼</b></caption>
+<div align="center" id="updateform">
+  <table style="width: 700px;">
+    <caption><b>회원 정보 수정</b></caption>
       
       <tr>
-        <th width="100" bgcolor="#aaa">닉네임</th>
+        <th width="200">닉네임</th>
           <td>
             <input type="text" name="nick" class="form-control"
-            required="required" style="width: 120px;"
+            required="required" style="width: 500px; border: none;"
             value="<%=dto.getNick()%>">
             
           </td>
       </tr>
       
       <tr>
-        <th width="100" bgcolor="#aaa">핸드폰</th>
+        <th width="200">핸드폰</th>
           <td>
             <input type="text" name="hp" class="form-control"
-            required="required" style="width: 200px;"
+            required="required" style="width: 500px; border: none;"
             value="<%=dto.getHp()%>">
             
           </td>
       </tr>
       
       <tr>
-        <th width="100" bgcolor="#aaa">이메일</th>
+        <th width="200">이메일</th>
           <td>
             <input type="text" name="email1" class="form-control"
-            required="required" style="width: 80px; "
+            required="required" style="width: 150px; border: none;"
             value="<%=email1%>">
             <b>@</b>
             <input type="text" name="email2" class="form-control"
             id="email2"
-            required="required" style="width: 120px; "
+            required="required" style="width: 200px; border: none;"
             value="<%=email2%>">
             
-            <select id="selemail" class="form-control" style="width: 100px">
+            <select id="selemail" class="form-control" style="width: 115px">
               <option value="-">직접입력</option>
               <option value="naver.com">네이버</option>
               <option value="gmail.com">구글</option>
@@ -125,22 +155,22 @@ onsubmit="return check(this)" enctype="multipart/form-data">
       </tr>
       
       <tr>
-        <th width="100" bgcolor="#aaa">사진</th>
-          <td>
+        <th width="200" style="border-bottom: 1px solid #444444;">사진</th>
+          <td style="border-bottom: 1px solid #444444;">
             <input type="file" name="photo" class="form-control"
-            required="required" style="width: 250px;">
+            required="required" style="width: 500px; border: none;">
             
           </td>
       </tr>
       
-      <tr>
-        <td colspan="2" align="center">
-          <button type="submit" class="btn btn-default" style="width: 100px;">수정하기</button>
-          <button type="reset" class="btn btn-default" style="width: 100px;">다시하기</button>
-        </td>
-      </tr>
-  </table>
-
+      </table>
+      
+      <div style="margin-top: 20px; margin-left: 500px;">
+        <button type="submit" class="btn btn-warning" style="width: 80px; margin-right: 10px;">수정하기</button>
+        <button type="reset" class="btn btn-danger" style="width: 80px;">다시하기</button>
+      </div>
+      
+</div>
 
 
 </form>
