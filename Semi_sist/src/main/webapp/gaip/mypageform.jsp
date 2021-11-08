@@ -52,7 +52,7 @@ top.document.title = 'TasteBook | 마이페이지';
 <% 
 if(dto.getPhoto()!=null) {
 	%> 
-	<form action="realindex.jsp?main=gaip/updateform.jsp" method="post" name = "frm"">
+	<form action="realindex.jsp?main=gaip/updateform.jsp" method="post" name = "frm">
 	
 	<input type="hidden" name="num" value="<%= dto.getNum()%>">
 	<div align="center">

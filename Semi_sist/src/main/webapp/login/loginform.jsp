@@ -27,10 +27,14 @@ if(saveok != null){
 <script language="JavaScript1.2">
 top.document.title = 'TasteBook | 로그인';
 </script>
-<div style="margin-left: 130px;">
+<br>
+<br>
+<b style="text-align: center;"><h2>로그인</h2></b>
+<hr>
+<div align="center">
   <form action="login/loginaction.jsp" method="post" class="form-inline">
-    <table class="table table-bordered" style="width: 300px;">
-      <caption><b>세션 로그인</b></caption>
+    <table class="table table-bordered" style="width: 400px; margin: auto;">
+      <caption><b style="font-size: 15pt; font-weight: bold; margin: auto;">세션 로그인</b></caption>
       
         <tr>
           <td colspan="2" align="center">
@@ -40,21 +44,21 @@ top.document.title = 'TasteBook | 로그인';
           </td>
         </tr>
         <tr>
-          <th width="100" bgcolor="lightyellow" style="text-align: center;">아이디</th>
+          <th width="120" bgcolor="lightyellow" style="text-align: center; font-size: 12pt;">아이디</th>
          
           <td>
             <input type="text" name="id" class="form-control" autofocus="autofocus"
-            required="required" style="width: 120px;" value="<%= myid%>">
+            required="required" style="width: 200px; margin-left: 10px;" value="<%= myid%>">
           </td>
          
           
         </tr>
         
         <tr>
-          <th width="100" bgcolor="lightyellow" align="center" style="text-align: center;">비밀번호</th>
+          <th width="120" bgcolor="lightyellow" align="center" style="text-align: center; font-size: 12pt;">비밀번호</th>
           <td>
             <input type="password" name="pass" class="form-control"
-            required="required" style="width: 120px;">
+            required="required" style="width: 200px; margin-left: 10px;">
           </td>
         </tr>
         
