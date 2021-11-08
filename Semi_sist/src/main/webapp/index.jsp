@@ -22,6 +22,8 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    
 <%
 //세션으로부터 id를 얻는다
   String loginok=(String)session.getAttribute("loginok");
@@ -758,5 +760,22 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        
+        <script type="text/javascript">
+	// �꽕�씠踰� �궗�슜�옄 �봽濡쒗븘 議고쉶 �씠�썑 �봽濡쒗븘 �젙蹂대�� 泥섎━�븷 callback function
+	function naverSignInCallback() {
+		// naver_id_login.getProfileData('�봽濡쒗븘�빆紐⑸챸');
+		// �봽濡쒗븘 �빆紐⑹� 媛쒕컻媛��씠�뱶瑜� 李멸퀬�븯�떆湲� 諛붾엻�땲�떎.
+		alert(naver_id_login.getProfileData('email'));
+		alert(naver_id_login.getProfileData('nickname'));
+		alert(naver_id_login.getProfileData('age'));
+	}
+	// �꽕�씠踰� �궗�슜�옄 �봽濡쒗븘 議고쉶
+	naver_id_login.get_naver_userprofile("naverSignInCallback()");
+	
+	
+	//濡쒓렇�븘�썐 李� �뿴湲� (二쇱냼蹂듭궗)
+	/* https://nid.naver.com/oauth2.0/token?grant_type=delete&client_id=gmeR75V0A8r7JpS270pi&client_secret=lT5EyddEbA&access_token=AAAAOCj0coUcriQIiRH9gdUMCGaU2oLPB4L93GgSyORnX_y5brM_2a_A-DJR244UavKbOqBMN7V6bnJKH7eGI9rndu8&service_provider=NAVER */
+</script>
     </body>
 </html>

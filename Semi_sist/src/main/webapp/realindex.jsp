@@ -48,7 +48,7 @@ if(request.getParameter("main")!=null){
 
 	<!-- Footer-->
 	<footer class="footer py-4" style="background-color: #212529; color: #fff; margin-top: 20px; padding-top: 20px;">
-		<div class="container">
+		<div class="container" style="margin-bottom: 0px;">
 			<div class="row align-items-center">
 				<div class="col-lg-4 text-lg-start">
 					<dl>

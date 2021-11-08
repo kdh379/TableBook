@@ -62,11 +62,6 @@ div#map{
 }
 
 
-div.main{
-	margin-left: 15%;
-	
-	/* overflow: hidden; */
-}
 
 
 </style>
@@ -166,7 +161,7 @@ String loginok = (String) session.getAttribute("loginok");
 top.document.title = 'TasteBook | 상세페이지';
 </script>
 <!-- 음식점정보 + 리뷰게시판 -->
-<div class="main" style="width: 800px; padding: 10px;" >
+<div class="main" style="width: 800px; padding: 10px; display: block; margin-right: auto; margin-left: auto;" >
 <b style="font-size: 20pt;"><%=shdto.getName() %></b><font color="#ff4500 " style="margin-left: 20px; clear: both; font-size: 22pt;">
 <%=shdto.getAvg() %></font>
 
