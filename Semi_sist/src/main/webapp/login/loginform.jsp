@@ -129,7 +129,7 @@ li {
 }
 
 .login {
-	width: 12%;
+	width: 400px;;
 	height: 600px;
 	background: white;
 	border-radius: 20px;
