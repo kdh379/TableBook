@@ -41,7 +41,7 @@ if(b){
 	session.setAttribute("saveok", cbsave==null?null:"yes");  //아이디 저장 체크시
 	
 	//로그인 메인으로 이동
-	if(prePage.equals("index.jsp")){
+	if(prePage.equals("index.jsp")||prePage.equals("gaip/gaipsuccess.jsp")){
 		response.sendRedirect("../index.jsp");
 	}else{
 		/* response.setContentType("text/html;charset=utf-8"); */
