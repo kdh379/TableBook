@@ -273,7 +273,7 @@ if(saveok != null){
 			</div>
 			<div class="login_id">
 				<h4 style=" margin-left: 30px;">ID</h4>
-				<input type="text" name="id" id="" placeholder="Id" style=" margin-left: 30px;">
+				<input type="text" name="id" id="" placeholder="Id" style=" margin-left: 30px;" value="<%= myid%>">
 			</div>
 			<div class="login_pw">
 				<h4 style=" margin-left: 30px;">Password</h4>
@@ -281,7 +281,7 @@ if(saveok != null){
 			</div>
 			<div class="login_etc" style="margin-left: 30px;">
 				<div class="checkbox">
-					<input type="checkbox" name="cbsave" id=""> Save ID
+					<input type="checkbox" name="cbsave" id="" <%=saveok==null?"":"checked"%>> Save ID
 				</div>
 				
 				<div class="forgot_pw">
