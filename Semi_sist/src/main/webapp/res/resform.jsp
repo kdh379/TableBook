@@ -59,12 +59,12 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 		var calendar = new FullCalendar.Calendar(calendarEl, {
 			headerToolbar : {
-				left : 'prev,next today',
-				center : 'title',
-				right : 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+				/* left : 'prev,next today', */
+				/* center : 'title', */
+				/* right : 'dayGridMonth,timeGridWeek,timeGridDay,listMonth' */
 			},
 			initialDate : '<%=sdf.format(now)%>',
-			navLinks : true, // can click day/week names to navigate views
+			navLinks : false, // can click day/week names to navigate views
 			businessHours : true, // display business hours
 			editable : true,
 			selectable : true,
