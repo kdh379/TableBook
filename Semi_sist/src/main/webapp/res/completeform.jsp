@@ -36,7 +36,7 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 <script language="JavaScript1.2">
 top.document.title = 'TasteBook | 예약완료';
 </script>
-<div style="margin-left: 300px; width: 500px;">
+<div style="display: block; margin-left: auto; margin-right: auto; width: 500px; margin-bottom: -35px;">
 <img alt="" src="<%=root %>/assets/logo1.ico"><br>
 <hr style="border: 0; width: 500px; height: 2px; background-color: orange; position: absolute;"><br><br><br>
 
@@ -90,9 +90,9 @@ top.document.title = 'TasteBook | 예약완료';
 
 <br>
 
-<button type="button" class="btn btn-warning btn-lg" onclick="location.href='<%=root %>/index.jsp'"
+<button type="button" class="btn btn-info" style="width: 50px; height: 40px; margin-left: 350px;" onclick="location.href='<%=root %>/index.jsp'"
 style="float: right;">홈</button> <!-- 메인폼으로 -->
-<button type="button" class="btn btn-warning btn-lg" 
+<button type="button" class="btn btn-warning" style="width: 80px; height: 40px; margin-left: 10px;"
 onclick="location.href='<%=root %>/realindex.jsp?main=shop/shopform.jsp?num=<%=dto.getShop_num() %>'" 
 style="float: right; margin-right: 15px;">식당 정보</button> <!-- 음식점폼으로 -->
 

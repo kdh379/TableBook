@@ -43,7 +43,7 @@ background-color: #F5F5F8;
 <script language="JavaScript1.2">
 top.document.title = 'TasteBook | 입점문의';
 </script>
-
+<div style="margin-top: -20px;">
         <article class="container" style="background-color: #f5f5f5; font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';">
             <div class="page-header" >
                 <div class="col-md-6 col-md-offset-3">
@@ -192,6 +192,7 @@ top.document.title = 'TasteBook | 입점문의';
             </div>
 
         </article>
+</div>
  					<script type="text/javascript">
                     
                     $("#btnAdd").click(function(){

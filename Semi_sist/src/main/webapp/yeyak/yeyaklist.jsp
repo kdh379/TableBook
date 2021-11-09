@@ -121,7 +121,7 @@ if(loginok!=null){ //로그인 중일때만 입력폼 보이게 한다
 %>
 
 <!-- 예약정보 전체출력 -->
-<div style="margin-left: 100px;">
+<div align="center" style="margin-left: 100px;">
  
 <%
 /* LoginDao ldao = new LoginDao();
@@ -223,7 +223,7 @@ for(ResDto dto:list){
 </div>
 
 <!-- 페이징 처리 -->
-<div class="container">
+<div align="center" class="container" style="margin-top: -20px; margin-left: 875px;">
   <ul class="pagination">
   <%
   //이전

@@ -48,12 +48,12 @@ List<ScheduleDto> slist = new Vector<ScheduleDto>();
 slist = sdao.getSchedulData(shop_num);
 
 %>
-<form action="" style="margin-left: 20px; width: 750px;" >
+<form action="" style="margin-left: 20px; width: 750px; margin-top:20px;" >
 <b style="font-size: 2em;">시간 선택</b> <br>
 <span style="font-size: 13pt;">가게명 : <b><%=dto.getName() %></b></span><br><br>
 
 
-<img alt="" src="<%=root %>/res/room.jpg"> 개별룸<br>
+<img alt="" src="<%=root %>/res/room.jpg" style="margin-bottom: 10px;"> 개별룸<br>
 <%
 //개별룸 좌석 시간
 for(ScheduleDto sdto : slist){
@@ -82,7 +82,7 @@ for(ScheduleDto sdto : slist){
 //홀 좌석 시간
 %>
 <br><br>
-<img alt="" src="<%=root %>/res/hall.jpg"> 홀<br>
+<img alt="" src="<%=root %>/res/hall.jpg" style="margin-bottom: 10px;"> 홀<br>
 <%
 for(ScheduleDto sdto : slist){
 	int stime = sdto.getStime();
