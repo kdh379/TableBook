@@ -223,7 +223,7 @@ for(ResDto dto:list){
 </div>
 
 <!-- 페이징 처리 -->
-<div align="center" class="container" style="margin-top: -20px; margin-left: 875px;">
+<div align="center" class="container" style="margin-top: -20px; display: block; margin-right: auto; margin-left: auto;">
   <ul class="pagination">
   <%
   //이전

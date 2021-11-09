@@ -58,7 +58,7 @@ top.document.title = 'TasteBook | 리뷰작성';
 </script>
 <form action="<%=root %>/shop/reviewaction.jsp" method="post" id="frm">
 
-	<table class="table table-bordered" style="width: 800px;margin-left: 100px;">
+	<table class="table table-bordered" style="width: 800px; margin-left: auto; margin-right: auto;">
 		<caption style="margin-bottom: 30px;"><b style="color: orange; font-size: 16pt;"><%=shdao.getOneShop(shop_num).getName() %></b>  
 		에 대한   <b style="font-size: 12pt;"><%=writer %></b>님의 솔직한 리뷰를 써주세요.</caption>
 		
